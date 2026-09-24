@@ -1,0 +1,321 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FAF9F6;
+  --foreground: #0F172A;
+  --koina-primary: #113C5E;
+  --koina-dark: #0B1D2D;
+  --koina-light: #184E77;
+  --koina-sky: #5591B7;
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* WCAG AAA High-Contrast Text Selection Rules */
+::selection {
+  background-color: #113C5E;
+  color: #FFFFFF;
+}
+::-moz-selection {
+  background-color: #113C5E;
+  color: #FFFFFF;
+}
+
+/* On dark navy surfaces (e.g., Closing CTA, Header, Footer), invert selection to crisp white with dark slate text */
+.bg-brand-navy ::selection,
+.bg-brand-navy *::selection,
+.bg-brand-navy::selection,
+footer ::selection,
+footer *::selection,
+footer::selection {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+}
+.bg-brand-navy ::-moz-selection,
+.bg-brand-navy *::-moz-selection,
+footer ::-moz-selection,
+footer *::-moz-selection {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+}
+
+/* 5-State Interactive Matrix from UX-SPEC-2026-V1 */
+.btn-interactive {
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-interactive:hover {
+  filter: brightness(1.05);
+}
+.btn-interactive:active {
+  transform: scale(0.98);
+}
+.btn-interactive:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Custom smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for WCAG AAA accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #113C5E;
+  outline-offset: 2px;
+}
+
+/* Friendly Handcrafted Doodle Animations */
+@keyframes doodle-wobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-1.5deg); }
+  75% { transform: rotate(1.5deg); }
+}
+
+.animate-doodle-wobble {
+  animation: doodle-wobble 4s ease-in-out infinite;
+}
+
+/* Open Doodles Self-Drawing & Continuous Looping Animation System */
+@keyframes drawIn {
+  from {
+    stroke-dashoffset: var(--path-length, 1000);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-draw-in {
+  animation: drawIn 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes continuousDoodleLoop {
+  0% {
+    stroke-dashoffset: var(--path-length, 1000);
+  }
+  38%, 68% {
+    stroke-dashoffset: 0;
+  }
+  94%, 100% {
+    stroke-dashoffset: calc(-1 * var(--path-length, 1000));
+  }
+}
+
+.animate-continuous-loop {
+  animation: continuousDoodleLoop 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes doodle-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(0.4deg);
+  }
+}
+
+.animate-doodle-float {
+  animation: doodle-float 5s ease-in-out infinite;
+}
+
+@keyframes doodle-ripple {
+  0%, 100% {
+    stroke-opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    stroke-opacity: 0.85;
+    transform: scale(1.015);
+  }
+}
+
+.doodle-interactive {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+}
+
+.doodle-interactive:hover {
+  transform: translateY(-4px) scale(1.018);
+  filter: drop-shadow(0 8px 16px rgba(17, 60, 94, 0.08));
+}
+
+.stroke-doodle {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Continuous Infinite Looping Stroke Trace */
+@keyframes infinite-path-trace {
+  0% {
+    stroke-dashoffset: 2400;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-infinite-trace {
+  stroke-dasharray: 600 600;
+  animation: infinite-path-trace 12s linear infinite;
+}
+
+.animate-infinite-trace-fast {
+  stroke-dasharray: 400 400;
+  animation: infinite-path-trace 8s linear infinite;
+}
+
+.animate-infinite-trace-slow {
+  stroke-dasharray: 800 800;
+  animation: infinite-path-trace 18s linear infinite;
+}
+
+/* Low-Gravity Anti-Gravity Drift Particles */
+@keyframes low-gravity-drift {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate3d(2px, -6px, 0) rotate(1.2deg);
+  }
+  66% {
+    transform: translate3d(-3px, -11px, 0) rotate(-1deg);
+  }
+}
+
+.animate-low-gravity {
+  animation: low-gravity-drift 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes low-gravity-drift-alt {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  40% {
+    transform: translate3d(-3px, -8px, 0) rotate(-1.5deg);
+  }
+  75% {
+    transform: translate3d(2px, -4px, 0) rotate(0.8deg);
+  }
+}
+
+.animate-low-gravity-alt {
+  animation: low-gravity-drift-alt 9s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes low-gravity-cane {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(1px, -7px, 0) rotate(2deg);
+  }
+}
+
+.animate-low-gravity-cane {
+  transform-origin: 30% 90%;
+  animation: low-gravity-cane 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes low-gravity-bun {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0px, -4px, 0) rotate(-2deg);
+  }
+}
+
+.animate-low-gravity-bun {
+  transform-origin: 62% 20%;
+  animation: low-gravity-bun 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes celestial-orbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-celestial-orbit {
+  transform-origin: center;
+  animation: celestial-orbit 40s linear infinite;
+  will-change: transform;
+}
+
+/* Logo Wave Tether Animated Flow */
+@keyframes wave-tether-flow {
+  0%, 100% {
+    d: path("M 0 0 C 12 -4, 24 6, 38 0 C 48 -4, 56 4, 66 1");
+  }
+  50% {
+    d: path("M 0 0 C 14 5, 26 -7, 40 2 C 50 7, 58 -2, 66 -1");
+  }
+}
+
+@keyframes logo-cluster-drift {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -2.5px, 0) rotate(0.4deg);
+  }
+}
+
+.animate-logo-drift {
+  animation: logo-cluster-drift 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Symbol Morph Sequence (Heart to Care Hands and Back) */
+@keyframes symbol-morph-fade {
+  0%, 45% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50%, 95% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes symbol-morph-fade-reverse {
+  0%, 45% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  50%, 95% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+}
+
+.animate-morph-a {
+  animation: symbol-morph-fade 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-morph-b {
+  animation: symbol-morph-fade-reverse 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+

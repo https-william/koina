@@ -1,0 +1,502 @@
+'use client';
+
+import React, { useState } from 'react';
+
+interface KoinaLogoProps {
+  variant?: 'light' | 'dark' | 'icon-only';
+  className?: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+/**
+ * KoinaLogo — Exact Vector Tracing from Developer Application Spec (Concept 1: Floating Brand Identity)
+ * Features:
+ * - Hand-drawn 'K' circle with soft graphite-pencil texture shader and cyan vertex pin
+ * - Fineliner typography for 'Koina' with cyan junction dot on K and cyan tittle on i
+ * - Animated wave path tether emerging from 'a' and sweeping gracefully under 'ALLIED HEALTH'
+ * - Reactive anti-gravity physics: hover clusters elements, mouse-out causes slow randomized drift
+ */
+export default function KoinaLogo({
+  variant = 'light',
+  className = '',
+  size = 'md',
+}: KoinaLogoProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const isDark = variant === 'dark';
+  const navyColor = isDark ? '#FFFFFF' : '#113C5E';
+  const cyanAccent = '#5591B7';
+  const subColor = isDark ? '#93C5FD' : '#5591B7';
+
+  // Dimension scaling following 8pt rhythm
+  const scales = {
+    sm: {
+      height: 38,
+      iconSize: 34,
+      className: 'h-9',
+    },
+    md: {
+      height: 48,
+      iconSize: 42,
+      className: 'h-11 sm:h-12',
+    },
+    lg: {
+      height: 64,
+      iconSize: 56,
+      className: 'h-14 sm:h-16',
+    },
+  }[size];
+
+  if (variant === 'icon-only') {
+    return (
+      <div
+        className={`inline-block relative cursor-pointer select-none ${className}`}
+        style={{ width: scales.iconSize, height: scales.iconSize }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        role="img"
+        aria-label="Koina Allied Health Icon"
+      >
+        <svg
+          viewBox="0 0 100 100"
+          className="w-full h-full overflow-visible transition-transform duration-500 ease-out"
+          style={{
+            transform: isHovered
+              ? 'scale(1.06) rotate(-3deg)'
+              : 'scale(1) rotate(0deg)',
+          }}
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <filter id={`pencil-shader-icon-${size}`} x="0%" y="0%" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" result="noise" />
+              <feColorMatrix
+                type="matrix"
+                values="
+                  0 0 0 0 0.07
+                  0 0 0 0 0.24
+                  0 0 0 0 0.37
+                  0 0 0 0 0.45 0
+                "
+                result="coloredNoise"
+              />
+              <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="clippedNoise" />
+              <feBlend mode="multiply" in="SourceGraphic" in2="clippedNoise" />
+            </filter>
+          </defs>
+
+          {/* Motion ripples on the left (Concept 1 drawing) */}
+          <path
+            d="M 14 36 C 8 44, 8 56, 14 64"
+            stroke={cyanAccent}
+            strokeWidth="3.2"
+            strokeLinecap="round"
+            className="opacity-70 animate-pulse"
+          />
+          <path
+            d="M 8 40 C 3 46, 3 54, 8 60"
+            stroke={cyanAccent}
+            strokeWidth="2.4"
+            strokeLinecap="round"
+            className="opacity-40 animate-pulse"
+          />
+
+          {/* Circular Badge with Pencil Texture */}
+          <circle
+            cx="50"
+            cy="50"
+            r="44"
+            fill={isDark ? '#FFFFFF' : '#113C5E'}
+            filter={isDark ? undefined : `url(#pencil-shader-icon-${size})`}
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="44"
+            stroke={isDark ? 'rgba(255,255,255,0.4)' : 'rgba(17,60,94,0.3)'}
+            strokeWidth="2"
+            strokeDasharray="80 4"
+            fill="none"
+          />
+
+          {/* 'K' Monoline Stem */}
+          <line
+            x1="34"
+            y1="25"
+            x2="34"
+            y2="75"
+            stroke={isDark ? '#113C5E' : '#FFFFFF'}
+            strokeWidth="9"
+            strokeLinecap="round"
+          />
+          {/* Upper Arm */}
+          <line
+            x1="36"
+            y1="50"
+            x2="68"
+            y2="28"
+            stroke={isDark ? '#113C5E' : '#FFFFFF'}
+            strokeWidth="9"
+            strokeLinecap="round"
+          />
+          {/* Lower Leg */}
+          <line
+            x1="36"
+            y1="50"
+            x2="68"
+            y2="72"
+            stroke={isDark ? '#113C5E' : '#FFFFFF'}
+            strokeWidth="9"
+            strokeLinecap="round"
+          />
+          {/* Cyan Junction Dot */}
+          <circle cx="34" cy="50" r="7" fill={cyanAccent} />
+        </svg>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={`inline-flex items-center cursor-pointer select-none group relative ${className}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      role="banner"
+      aria-label="Koina Allied Health"
+    >
+      <svg
+        viewBox="0 0 280 72"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={`${scales.className} w-auto overflow-visible transition-transform duration-500 ease-out`}
+        style={{
+          transform: isHovered ? 'scale(1.02)' : 'scale(1)',
+        }}
+      >
+        <defs>
+          {/* Arrow Marker for Directional Flow Vectors (Concept 1 Spec) */}
+          <marker
+            id={`cyan-arrow-${variant}-${size}`}
+            viewBox="0 0 10 10"
+            refX="6"
+            refY="5"
+            markerWidth="4"
+            markerHeight="4"
+            orient="auto-start-reverse"
+          >
+            <path d="M 1 2 L 7 5 L 1 8 z" fill={cyanAccent} />
+          </marker>
+
+          {/* Graphite Hatching Texture Pattern */}
+          <pattern
+            id={`graphite-hatch-${variant}-${size}`}
+            width="5"
+            height="5"
+            patternTransform="rotate(38 0 0)"
+            patternUnits="userSpaceOnUse"
+          >
+            <line x1="0" y1="0" x2="0" y2="5" stroke={isDark ? 'rgba(0,0,0,0.18)' : 'rgba(255,255,255,0.15)'} strokeWidth="1" />
+            <line x1="2.5" y1="0" x2="2.5" y2="5" stroke={isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.22)'} strokeWidth="0.8" />
+          </pattern>
+
+          {/* Soft Graphite Pencil Texture Shader */}
+          <filter id={`pencil-shader-logo-${variant}-${size}`} x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" result="pencilNoise" />
+            <feColorMatrix
+              type="matrix"
+              values="
+                0 0 0 0 0.07
+                0 0 0 0 0.24
+                0 0 0 0 0.37
+                0 0 0 0 0.45 0
+              "
+              result="coloredNoise"
+            />
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="clippedNoise" />
+            <feBlend mode="multiply" in="SourceGraphic" in2="clippedNoise" />
+          </filter>
+        </defs>
+
+        {/* ================================================================= */}
+        {/* 1. ICON SPEC: Tilted Circle with Graphite Shader & Cyan Vertex Pin */}
+        {/* ================================================================= */}
+        <g
+          className="transition-transform duration-700 ease-out"
+          style={{
+            transformOrigin: '32px 34px',
+            transform: isHovered ? 'rotate(-6deg) scale(1.05)' : 'rotate(-2deg)',
+          }}
+        >
+          {/* Motion vibration ripples on the left (Concept 1 drawing) */}
+          <path
+            d="M 6 24 C 2 30, 2 38, 6 44"
+            stroke={cyanAccent}
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            className="opacity-70 animate-pulse"
+          />
+          <path
+            d="M 2 28 C -1 32, -1 36, 2 40"
+            stroke={cyanAccent}
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            className="opacity-40 animate-pulse"
+          />
+
+          {/* Upper Right Motion Vibration Arc (Center Drawing) */}
+          <path
+            d="M 48 14 C 54 18, 57 23, 58 29"
+            stroke={cyanAccent}
+            strokeWidth="2"
+            strokeLinecap="round"
+            className="opacity-60"
+          />
+
+          {/* State 1 Drift Particles / Bubbles (Spec Image Left & Behind Circle) */}
+          <g className="transition-all duration-700 ease-out" style={{ transform: isHovered ? 'translate(2px, 1px) scale(0.95)' : 'translate(0, 0)' }}>
+            <circle cx="50" cy="18" r="4.2" fill={cyanAccent} opacity={isHovered ? 0.95 : 0.75} />
+            <circle cx="58" cy="22" r="2.8" fill="#93C5FD" opacity={isHovered ? 0.9 : 0.65} />
+            <circle cx="54" cy="11" r="1.8" fill={cyanAccent} opacity={isHovered ? 0.85 : 0.55} />
+          </g>
+
+          {/* Shaded Circle with Pencil Shader */}
+          <circle
+            cx="32"
+            cy="34"
+            r="26"
+            fill={isDark ? '#FFFFFF' : '#113C5E'}
+            filter={isDark ? undefined : `url(#pencil-shader-logo-${variant}-${size})`}
+          />
+          {/* Graphite Hatch Texture Overlay */}
+          <circle
+            cx="32"
+            cy="34"
+            r="26"
+            fill={`url(#graphite-hatch-${variant}-${size})`}
+            className="opacity-60"
+          />
+          {/* Subtle Outer Pencil Texture Ring */}
+          <circle
+            cx="32"
+            cy="34"
+            r="26"
+            stroke={isDark ? 'rgba(255,255,255,0.4)' : 'rgba(17,60,94,0.35)'}
+            strokeWidth="1.6"
+            strokeDasharray="50 3"
+            fill="none"
+          />
+
+          {/* White 'K' Monoline */}
+          <line
+            x1="22"
+            y1="19"
+            x2="22"
+            y2="49"
+            stroke={isDark ? '#113C5E' : '#FFFFFF'}
+            strokeWidth="5.5"
+            strokeLinecap="round"
+          />
+          <line
+            x1="23"
+            y1="34"
+            x2="42"
+            y2="21"
+            stroke={isDark ? '#113C5E' : '#FFFFFF'}
+            strokeWidth="5.5"
+            strokeLinecap="round"
+          />
+          <line
+            x1="23"
+            y1="34"
+            x2="42"
+            y2="47"
+            stroke={isDark ? '#113C5E' : '#FFFFFF'}
+            strokeWidth="5.5"
+            strokeLinecap="round"
+          />
+          {/* Cyan Pin Dot on Vertex */}
+          <circle cx="22" cy="34" r="4.2" fill={cyanAccent} />
+        </g>
+
+        {/* ================================================================= */}
+        {/* 2. DYNAMIC ORBITAL DASHED FLOW TRAILS (State 3 & Spec Arrows)     */}
+        {/* ================================================================= */}
+        <g
+          className="transition-opacity duration-500 pointer-events-none"
+          style={{ opacity: isHovered ? 0.95 : 0.55 }}
+        >
+          {/* Upper Orbit Loop with Arrow Marker */}
+          <path
+            d="M 24 10 C 36 4, 52 4, 64 10"
+            stroke={cyanAccent}
+            strokeWidth="1.5"
+            strokeDasharray="3 3"
+            strokeLinecap="round"
+            markerEnd={`url(#cyan-arrow-${variant}-${size})`}
+          />
+          {/* Over-Koina Flow Arrow */}
+          <path
+            d="M 68 8 C 88 3, 114 4, 134 9"
+            stroke={cyanAccent}
+            strokeWidth="1.4"
+            strokeDasharray="3 3"
+            strokeLinecap="round"
+            markerEnd={`url(#cyan-arrow-${variant}-${size})`}
+          />
+          {/* Under-mark return Loop with Arrow Marker */}
+          <path
+            d="M 60 63 C 44 68, 24 67, 14 58"
+            stroke={cyanAccent}
+            strokeWidth="1.4"
+            strokeDasharray="3 3"
+            strokeLinecap="round"
+            markerEnd={`url(#cyan-arrow-${variant}-${size})`}
+          />
+        </g>
+
+        {/* ================================================================= */}
+        {/* 3. WORDMARK 'Koina' (Traced exactly from the infographic spec)     */}
+        {/* ================================================================= */}
+        <g
+          className="transition-transform duration-500 ease-out"
+          style={{
+            transform: isHovered ? 'translate3d(1px, 0, 0)' : 'translate3d(0, 0, 0)',
+          }}
+        >
+          {/* --- K --- */}
+          {/* Vertical Stem with rounded terminals */}
+          <line
+            x1="74"
+            y1="12"
+            x2="74"
+            y2="44"
+            stroke={navyColor}
+            strokeWidth="5.2"
+            strokeLinecap="round"
+          />
+          {/* Upper Arm */}
+          <line
+            x1="75"
+            y1="28"
+            x2="98"
+            y2="13"
+            stroke={navyColor}
+            strokeWidth="5.2"
+            strokeLinecap="round"
+          />
+          {/* Lower Leg */}
+          <line
+            x1="75"
+            y1="28"
+            x2="98"
+            y2="44"
+            stroke={navyColor}
+            strokeWidth="5.2"
+            strokeLinecap="round"
+          />
+          {/* Cyan Junction Dot Accent on K */}
+          <circle cx="74" cy="28" r="4.2" fill={cyanAccent} />
+
+          {/* --- o --- */}
+          {/* Clean Fineliner Rounded Oval */}
+          <ellipse
+            cx="118"
+            cy="30"
+            rx="11.5"
+            ry="14"
+            stroke={navyColor}
+            strokeWidth="5"
+            strokeLinecap="round"
+          />
+
+          {/* --- i --- */}
+          {/* Vertical Stem */}
+          <line
+            x1="141"
+            y1="19"
+            x2="141"
+            y2="44"
+            stroke={navyColor}
+            strokeWidth="5"
+            strokeLinecap="round"
+          />
+          {/* Cyan Round Dot Pin floating above i */}
+          <circle cx="141" cy="10" r="4.2" fill={cyanAccent} />
+
+          {/* --- n --- */}
+          {/* Left Stem */}
+          <line
+            x1="158"
+            y1="19"
+            x2="158"
+            y2="44"
+            stroke={navyColor}
+            strokeWidth="5"
+            strokeLinecap="round"
+          />
+          {/* Arch & Right Leg */}
+          <path
+            d="M 158 26 C 162 20, 169 17, 176 17 C 184 17, 188 21, 188 29 L 188 44"
+            stroke={navyColor}
+            strokeWidth="5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+
+          {/* --- a --- */}
+          {/* Rounded Bowl cleanly spaced */}
+          <path
+            d="M 218 25 C 215 19, 209 17, 203 17 C 195 17, 189 23, 189 31 C 189 39, 195 44.5, 203 44.5 C 210 44.5, 215 41, 218 34"
+            stroke={navyColor}
+            strokeWidth="5"
+            strokeLinecap="round"
+          />
+          {/* Right Vertical Stem */}
+          <line
+            x1="218"
+            y1="19"
+            x2="218"
+            y2="44"
+            stroke={navyColor}
+            strokeWidth="5"
+            strokeLinecap="round"
+          />
+
+          {/* ================================================================= */}
+          {/* 4. ELEMENT SPEC: THE ANIMATED 'WAVE' TETHER                       */}
+          {/* Curves from 'a' tail, loops out to right and under ALLIED HEALTH  */}
+          {/* ================================================================= */}
+          <path
+            d={
+              isHovered
+                ? 'M 218 41 C 228 36, 240 46, 252 38 C 262 31, 255 48, 238 56 C 210 68, 140 68, 80 62'
+                : 'M 218 41 C 226 35, 238 45, 250 39 C 260 33, 256 46, 240 54 C 215 65, 145 66, 78 61'
+            }
+            stroke={cyanAccent}
+            strokeWidth="3.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="transition-all duration-700 ease-out"
+          />
+        </g>
+
+        {/* ================================================================= */}
+        {/* 5. SUBTITLE: 'ALLIED HEALTH' (Tracked directly under 'Koina')      */}
+        {/* ================================================================= */}
+        <text
+          x="74"
+          y="56"
+          fill={subColor}
+          fontSize="10.8"
+          fontWeight="700"
+          letterSpacing="0.28em"
+          fontFamily="system-ui, -apple-system, sans-serif"
+          className="uppercase tracking-[0.28em]"
+        >
+          ALLIED HEALTH
+        </text>
+      </svg>
+    </div>
+  );
+}
