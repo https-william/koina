@@ -64,10 +64,6 @@ export default function AntiGravityHeroArt({ className = '' }: AntiGravityHeroAr
           {/* Opacity: 0.20 - 0.35 | Soft Sky Lines                     */}
           {/* ========================================================= */}
           <g className="text-sky-400 opacity-25">
-            {/* Background Floating Aura Rings */}
-            <ellipse cx="440" cy="270" rx="140" ry="110" stroke="#93C5FD" strokeWidth="1.8" strokeDasharray="6 6" className="animate-celestial-orbit" />
-            <ellipse cx="250" cy="220" rx="100" ry="70" stroke="#93C5FD" strokeWidth="1.6" strokeDasharray="4 6" className="animate-low-gravity" />
-
             {/* Floating Care Companion (Astronaut / Guardian in zero gravity) */}
             <g className="animate-low-gravity-alt">
               <path
@@ -251,9 +247,8 @@ export default function AntiGravityHeroArt({ className = '' }: AntiGravityHeroAr
           <path
             d="M 290 235 C 290 170, 350 140, 390 145 C 435 150, 480 170, 470 235"
             stroke="#93C5FD"
-            strokeWidth="2"
+            strokeWidth="1.8"
             strokeLinecap="round"
-            strokeDasharray="6 4"
             className="animate-low-gravity-alt"
           />
 
@@ -480,9 +475,8 @@ export default function AntiGravityHeroArt({ className = '' }: AntiGravityHeroAr
               <path
                 d="M 370 348 C 362 336, 355 352, 370 376"
                 stroke="#60A5FA"
-                strokeWidth="2.2"
+                strokeWidth="2"
                 strokeLinecap="round"
-                strokeDasharray="4 3"
               />
             </g>
           </g>

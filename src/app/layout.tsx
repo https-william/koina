@@ -22,10 +22,11 @@ export const metadata: Metadata = {
     'Allied health care for every stage of life. Providing Occupational Therapy, Physiotherapy, Positive Behaviour Support, Speech Pathology, and AHAs across Queensland through NDIS, Aged Care, DVA, or privately.',
   icons: {
     icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
       { url: '/favicon.png', type: 'image/png' },
       { url: '/koina-icon.png', type: 'image/png' },
     ],
-    apple: [{ url: '/koina-icon.png' }],
+    apple: [{ url: '/favicon.svg' }],
   },
   keywords: [
     'Allied Health Queensland',

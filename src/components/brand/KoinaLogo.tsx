@@ -9,12 +9,12 @@ interface KoinaLogoProps {
 }
 
 /**
- * KoinaLogo — Exact Vector Tracing from Developer Application Spec (Concept 1: Floating Brand Identity)
+ * KoinaLogo — Exact Vector Artwork from Brand Guidelines & Application Spec
  * Features:
- * - Hand-drawn 'K' circle with soft graphite-pencil texture shader and cyan vertex pin
+ * - Hand-drawn circular 'K' badge in brand navy with clean white monoline K & cyan vertex pin
  * - Fineliner typography for 'Koina' with cyan junction dot on K and cyan tittle on i
- * - Animated wave path tether emerging from 'a' and sweeping gracefully under 'ALLIED HEALTH'
- * - Reactive anti-gravity physics: hover clusters elements, mouse-out causes slow randomized drift
+ * - Animated wave path tether emerging from 'a' and sweeping smoothly under 'ALLIED HEALTH'
+ * - Reactive anti-gravity physics: subtle hovering cluster & zero-gravity gentle breathing
  */
 export default function KoinaLogo({
   variant = 'light',
@@ -68,48 +68,14 @@ export default function KoinaLogo({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <defs>
-            <filter id={`pencil-shader-icon-${size}`} x="0%" y="0%" width="100%" height="100%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" result="noise" />
-              <feColorMatrix
-                type="matrix"
-                values="
-                  0 0 0 0 0.07
-                  0 0 0 0 0.24
-                  0 0 0 0 0.37
-                  0 0 0 0 0.45 0
-                "
-                result="coloredNoise"
-              />
-              <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="clippedNoise" />
-              <feBlend mode="multiply" in="SourceGraphic" in2="clippedNoise" />
-            </filter>
-          </defs>
-
-          {/* Motion ripples on the left (Concept 1 drawing) */}
-          <path
-            d="M 14 36 C 8 44, 8 56, 14 64"
-            stroke={cyanAccent}
-            strokeWidth="3.2"
-            strokeLinecap="round"
-            className="opacity-70 animate-pulse"
-          />
-          <path
-            d="M 8 40 C 3 46, 3 54, 8 60"
-            stroke={cyanAccent}
-            strokeWidth="2.4"
-            strokeLinecap="round"
-            className="opacity-40 animate-pulse"
-          />
-
-          {/* Circular Badge with Pencil Texture */}
+          {/* Circular Badge */}
           <circle
             cx="50"
             cy="50"
             r="44"
             fill={isDark ? '#FFFFFF' : '#113C5E'}
-            filter={isDark ? undefined : `url(#pencil-shader-icon-${size})`}
           />
+          {/* Subtle Outer Pencil Texture Ring */}
           <circle
             cx="50"
             cy="50"
@@ -151,7 +117,7 @@ export default function KoinaLogo({
             strokeLinecap="round"
           />
           {/* Cyan Junction Dot */}
-          <circle cx="34" cy="50" r="7" fill={cyanAccent} />
+          <circle cx="34" cy="50" r="7.5" fill={cyanAccent} />
         </svg>
       </div>
     );
@@ -174,109 +140,24 @@ export default function KoinaLogo({
           transform: isHovered ? 'scale(1.02)' : 'scale(1)',
         }}
       >
-        <defs>
-          {/* Arrow Marker for Directional Flow Vectors (Concept 1 Spec) */}
-          <marker
-            id={`cyan-arrow-${variant}-${size}`}
-            viewBox="0 0 10 10"
-            refX="6"
-            refY="5"
-            markerWidth="4"
-            markerHeight="4"
-            orient="auto-start-reverse"
-          >
-            <path d="M 1 2 L 7 5 L 1 8 z" fill={cyanAccent} />
-          </marker>
-
-          {/* Graphite Hatching Texture Pattern */}
-          <pattern
-            id={`graphite-hatch-${variant}-${size}`}
-            width="5"
-            height="5"
-            patternTransform="rotate(38 0 0)"
-            patternUnits="userSpaceOnUse"
-          >
-            <line x1="0" y1="0" x2="0" y2="5" stroke={isDark ? 'rgba(0,0,0,0.18)' : 'rgba(255,255,255,0.15)'} strokeWidth="1" />
-            <line x1="2.5" y1="0" x2="2.5" y2="5" stroke={isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.22)'} strokeWidth="0.8" />
-          </pattern>
-
-          {/* Soft Graphite Pencil Texture Shader */}
-          <filter id={`pencil-shader-logo-${variant}-${size}`} x="0%" y="0%" width="100%" height="100%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" result="pencilNoise" />
-            <feColorMatrix
-              type="matrix"
-              values="
-                0 0 0 0 0.07
-                0 0 0 0 0.24
-                0 0 0 0 0.37
-                0 0 0 0 0.45 0
-              "
-              result="coloredNoise"
-            />
-            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="clippedNoise" />
-            <feBlend mode="multiply" in="SourceGraphic" in2="clippedNoise" />
-          </filter>
-        </defs>
-
         {/* ================================================================= */}
-        {/* 1. ICON SPEC: Tilted Circle with Graphite Shader & Cyan Vertex Pin */}
+        {/* 1. ICON: Clean Circular Badge with 'K' & Cyan Vertex Pin          */}
         {/* ================================================================= */}
         <g
           className="transition-transform duration-700 ease-out"
           style={{
             transformOrigin: '32px 34px',
-            transform: isHovered ? 'rotate(-6deg) scale(1.05)' : 'rotate(-2deg)',
+            transform: isHovered ? 'rotate(-5deg) scale(1.04)' : 'rotate(-2deg)',
           }}
         >
-          {/* Motion vibration ripples on the left (Concept 1 drawing) */}
-          <path
-            d="M 6 24 C 2 30, 2 38, 6 44"
-            stroke={cyanAccent}
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            className="opacity-70 animate-pulse"
-          />
-          <path
-            d="M 2 28 C -1 32, -1 36, 2 40"
-            stroke={cyanAccent}
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            className="opacity-40 animate-pulse"
-          />
-
-          {/* Upper Right Motion Vibration Arc (Center Drawing) */}
-          <path
-            d="M 48 14 C 54 18, 57 23, 58 29"
-            stroke={cyanAccent}
-            strokeWidth="2"
-            strokeLinecap="round"
-            className="opacity-60"
-          />
-
-          {/* State 1 Drift Particles / Bubbles (Spec Image Left & Behind Circle) */}
-          <g className="transition-all duration-700 ease-out" style={{ transform: isHovered ? 'translate(2px, 1px) scale(0.95)' : 'translate(0, 0)' }}>
-            <circle cx="50" cy="18" r="4.2" fill={cyanAccent} opacity={isHovered ? 0.95 : 0.75} />
-            <circle cx="58" cy="22" r="2.8" fill="#93C5FD" opacity={isHovered ? 0.9 : 0.65} />
-            <circle cx="54" cy="11" r="1.8" fill={cyanAccent} opacity={isHovered ? 0.85 : 0.55} />
-          </g>
-
-          {/* Shaded Circle with Pencil Shader */}
+          {/* Solid Circle Badge */}
           <circle
             cx="32"
             cy="34"
             r="26"
             fill={isDark ? '#FFFFFF' : '#113C5E'}
-            filter={isDark ? undefined : `url(#pencil-shader-logo-${variant}-${size})`}
           />
-          {/* Graphite Hatch Texture Overlay */}
-          <circle
-            cx="32"
-            cy="34"
-            r="26"
-            fill={`url(#graphite-hatch-${variant}-${size})`}
-            className="opacity-60"
-          />
-          {/* Subtle Outer Pencil Texture Ring */}
+          {/* Subtle Outer Pencil Texture Contour Ring */}
           <circle
             cx="32"
             cy="34"
@@ -320,43 +201,7 @@ export default function KoinaLogo({
         </g>
 
         {/* ================================================================= */}
-        {/* 2. DYNAMIC ORBITAL DASHED FLOW TRAILS (State 3 & Spec Arrows)     */}
-        {/* ================================================================= */}
-        <g
-          className="transition-opacity duration-500 pointer-events-none"
-          style={{ opacity: isHovered ? 0.95 : 0.55 }}
-        >
-          {/* Upper Orbit Loop with Arrow Marker */}
-          <path
-            d="M 24 10 C 36 4, 52 4, 64 10"
-            stroke={cyanAccent}
-            strokeWidth="1.5"
-            strokeDasharray="3 3"
-            strokeLinecap="round"
-            markerEnd={`url(#cyan-arrow-${variant}-${size})`}
-          />
-          {/* Over-Koina Flow Arrow */}
-          <path
-            d="M 68 8 C 88 3, 114 4, 134 9"
-            stroke={cyanAccent}
-            strokeWidth="1.4"
-            strokeDasharray="3 3"
-            strokeLinecap="round"
-            markerEnd={`url(#cyan-arrow-${variant}-${size})`}
-          />
-          {/* Under-mark return Loop with Arrow Marker */}
-          <path
-            d="M 60 63 C 44 68, 24 67, 14 58"
-            stroke={cyanAccent}
-            strokeWidth="1.4"
-            strokeDasharray="3 3"
-            strokeLinecap="round"
-            markerEnd={`url(#cyan-arrow-${variant}-${size})`}
-          />
-        </g>
-
-        {/* ================================================================= */}
-        {/* 3. WORDMARK 'Koina' (Traced exactly from the infographic spec)     */}
+        {/* 2. WORDMARK 'Koina' (Traced exactly from the infographic spec)     */}
         {/* ================================================================= */}
         <g
           className="transition-transform duration-500 ease-out"
@@ -464,7 +309,7 @@ export default function KoinaLogo({
           />
 
           {/* ================================================================= */}
-          {/* 4. ELEMENT SPEC: THE ANIMATED 'WAVE' TETHER                       */}
+          {/* 3. ELEMENT SPEC: THE ANIMATED 'WAVE' TETHER                       */}
           {/* Curves from 'a' tail, loops out to right and under ALLIED HEALTH  */}
           {/* ================================================================= */}
           <path
@@ -482,7 +327,7 @@ export default function KoinaLogo({
         </g>
 
         {/* ================================================================= */}
-        {/* 5. SUBTITLE: 'ALLIED HEALTH' (Tracked directly under 'Koina')      */}
+        {/* 4. SUBTITLE: 'ALLIED HEALTH' (Tracked directly under 'Koina')      */}
         {/* ================================================================= */}
         <text
           x="74"
