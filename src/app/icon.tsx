@@ -24,40 +24,40 @@ export default function Icon() {
         <svg
           width="48"
           height="48"
-          viewBox="0 0 48 48"
+          viewBox="0 0 100 100"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           {/* Bold White 'K' Monoline */}
           <line
-            x1="14"
-            y1="8"
-            x2="14"
-            y2="40"
+            x1="36"
+            y1="24"
+            x2="36"
+            y2="76"
             stroke="#FFFFFF"
-            strokeWidth="6"
+            strokeWidth="8.5"
             strokeLinecap="round"
           />
           <line
-            x1="15"
-            y1="24"
-            x2="36"
-            y2="10"
+            x1="36"
+            y1="50"
+            x2="68"
+            y2="28"
             stroke="#FFFFFF"
-            strokeWidth="6"
+            strokeWidth="8.5"
             strokeLinecap="round"
           />
           <line
-            x1="15"
-            y1="24"
-            x2="36"
-            y2="38"
+            x1="36"
+            y1="50"
+            x2="68"
+            y2="72"
             stroke="#FFFFFF"
-            strokeWidth="6"
+            strokeWidth="8.5"
             strokeLinecap="round"
           />
           {/* Cyan Vertex Dot */}
-          <circle cx="14" cy="24" r="4.5" fill="#5591B7" />
+          <circle cx="36" cy="50" r="7" fill="#5591B7" />
         </svg>
       </div>
     ),

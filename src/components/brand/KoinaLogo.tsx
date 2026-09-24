@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 
 interface KoinaLogoProps {
   variant?: 'light' | 'dark' | 'icon-only';
@@ -9,20 +9,24 @@ interface KoinaLogoProps {
 }
 
 /**
- * KoinaLogo — Exact Vector Artwork from Brand Guidelines & Application Spec
- * Features:
- * - Hand-drawn circular 'K' badge in brand navy with clean white monoline K & cyan vertex pin
- * - Fineliner typography for 'Koina' with cyan junction dot on K and cyan tittle on i
- * - Animated wave path tether emerging from 'a' and sweeping smoothly under 'ALLIED HEALTH'
- * - Reactive anti-gravity physics: subtle hovering cluster & zero-gravity gentle breathing
+ * KoinaLogo — Traced exactly from Developer Spec (Icon Optimization & Word Mark Optimization)
+ * Reference: media_1790291162041.png & media_1790291142242.png
+ *
+ * (1) ICON OPTIMIZATION:
+ *     - Deep navy circle (128x128 50% radius)
+ *     - Monoline white 'K'
+ *     - Cyan vertex dot pin
+ * (2) WORD MARK OPTIMIZATION:
+ *     - 'Koina' letterforms with cyan dot at K junction & cyan tittle on i
+ *     - 'ALLIED HEALTH' uppercase tracked lettering
+ * (3) ELEMENT ISOLATION:
+ *     - Organic flow wave element cleanly positioned under ALLIED HEALTH
  */
 export default function KoinaLogo({
   variant = 'light',
   className = '',
   size = 'md',
 }: KoinaLogoProps) {
-  const [isHovered, setIsHovered] = useState(false);
-
   const isDark = variant === 'dark';
   const navyColor = isDark ? '#FFFFFF' : '#113C5E';
   const cyanAccent = '#5591B7';
@@ -31,14 +35,14 @@ export default function KoinaLogo({
   // Dimension scaling following 8pt rhythm
   const scales = {
     sm: {
-      height: 38,
-      iconSize: 34,
-      className: 'h-9',
+      height: 36,
+      iconSize: 32,
+      className: 'h-8 sm:h-9',
     },
     md: {
       height: 48,
       iconSize: 42,
-      className: 'h-11 sm:h-12',
+      className: 'h-10 sm:h-11',
     },
     lg: {
       height: 64,
@@ -47,53 +51,37 @@ export default function KoinaLogo({
     },
   }[size];
 
+  // 1. Standalone Icon (Icon Optimization from Spec)
   if (variant === 'icon-only') {
     return (
       <div
-        className={`inline-block relative cursor-pointer select-none ${className}`}
+        className={`inline-block relative select-none ${className}`}
         style={{ width: scales.iconSize, height: scales.iconSize }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
         role="img"
         aria-label="Koina Allied Health Icon"
       >
         <svg
           viewBox="0 0 100 100"
-          className="w-full h-full overflow-visible transition-transform duration-500 ease-out"
-          style={{
-            transform: isHovered
-              ? 'scale(1.06) rotate(-3deg)'
-              : 'scale(1) rotate(0deg)',
-          }}
+          className="w-full h-full overflow-visible transition-transform duration-300 ease-out hover:scale-105"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Circular Badge */}
+          {/* Deep Navy Circle Badge */}
           <circle
             cx="50"
             cy="50"
-            r="44"
+            r="46"
             fill={isDark ? '#FFFFFF' : '#113C5E'}
           />
-          {/* Subtle Outer Pencil Texture Ring */}
-          <circle
-            cx="50"
-            cy="50"
-            r="44"
-            stroke={isDark ? 'rgba(255,255,255,0.4)' : 'rgba(17,60,94,0.3)'}
-            strokeWidth="2"
-            strokeDasharray="80 4"
-            fill="none"
-          />
 
-          {/* 'K' Monoline Stem */}
+          {/* White 'K' Monoline Stem */}
           <line
-            x1="34"
-            y1="25"
-            x2="34"
-            y2="75"
+            x1="36"
+            y1="24"
+            x2="36"
+            y2="76"
             stroke={isDark ? '#113C5E' : '#FFFFFF'}
-            strokeWidth="9"
+            strokeWidth="8"
             strokeLinecap="round"
           />
           {/* Upper Arm */}
@@ -103,7 +91,7 @@ export default function KoinaLogo({
             x2="68"
             y2="28"
             stroke={isDark ? '#113C5E' : '#FFFFFF'}
-            strokeWidth="9"
+            strokeWidth="8"
             strokeLinecap="round"
           />
           {/* Lower Leg */}
@@ -113,234 +101,196 @@ export default function KoinaLogo({
             x2="68"
             y2="72"
             stroke={isDark ? '#113C5E' : '#FFFFFF'}
-            strokeWidth="9"
+            strokeWidth="8"
             strokeLinecap="round"
           />
-          {/* Cyan Junction Dot */}
-          <circle cx="34" cy="50" r="7.5" fill={cyanAccent} />
+          {/* Cyan Junction Dot on K vertex */}
+          <circle cx="36" cy="50" r="6.5" fill={cyanAccent} />
         </svg>
       </div>
     );
   }
 
+  // 2. Full Brand Logo (Icon + Wordmark + Organic Flow Element)
   return (
     <div
-      className={`inline-flex items-center cursor-pointer select-none group relative ${className}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className={`inline-flex items-center select-none group relative ${className}`}
       role="banner"
       aria-label="Koina Allied Health"
     >
       <svg
-        viewBox="0 0 280 72"
+        viewBox="0 0 260 70"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={`${scales.className} w-auto overflow-visible transition-transform duration-500 ease-out`}
-        style={{
-          transform: isHovered ? 'scale(1.02)' : 'scale(1)',
-        }}
+        className={`${scales.className} w-auto overflow-visible transition-transform duration-300 ease-out`}
       >
         {/* ================================================================= */}
-        {/* 1. ICON: Clean Circular Badge with 'K' & Cyan Vertex Pin          */}
+        {/* 1. ICON OPTIMIZATION: Circular K Badge with Cyan Vertex Dot       */}
         {/* ================================================================= */}
-        <g
-          className="transition-transform duration-700 ease-out"
-          style={{
-            transformOrigin: '32px 34px',
-            transform: isHovered ? 'rotate(-5deg) scale(1.04)' : 'rotate(-2deg)',
-          }}
-        >
-          {/* Solid Circle Badge */}
+        <g className="transition-transform duration-300 group-hover:scale-105" style={{ transformOrigin: '30px 32px' }}>
           <circle
-            cx="32"
-            cy="34"
-            r="26"
+            cx="30"
+            cy="32"
+            r="25"
             fill={isDark ? '#FFFFFF' : '#113C5E'}
-          />
-          {/* Subtle Outer Pencil Texture Contour Ring */}
-          <circle
-            cx="32"
-            cy="34"
-            r="26"
-            stroke={isDark ? 'rgba(255,255,255,0.4)' : 'rgba(17,60,94,0.35)'}
-            strokeWidth="1.6"
-            strokeDasharray="50 3"
-            fill="none"
           />
 
           {/* White 'K' Monoline */}
           <line
             x1="22"
-            y1="19"
+            y1="18"
             x2="22"
-            y2="49"
+            y2="46"
             stroke={isDark ? '#113C5E' : '#FFFFFF'}
-            strokeWidth="5.5"
+            strokeWidth="4.6"
             strokeLinecap="round"
           />
           <line
-            x1="23"
-            y1="34"
-            x2="42"
-            y2="21"
+            x1="22"
+            y1="32"
+            x2="40"
+            y2="20"
             stroke={isDark ? '#113C5E' : '#FFFFFF'}
-            strokeWidth="5.5"
+            strokeWidth="4.6"
             strokeLinecap="round"
           />
           <line
-            x1="23"
-            y1="34"
-            x2="42"
-            y2="47"
+            x1="22"
+            y1="32"
+            x2="40"
+            y2="44"
             stroke={isDark ? '#113C5E' : '#FFFFFF'}
-            strokeWidth="5.5"
+            strokeWidth="4.6"
             strokeLinecap="round"
           />
-          {/* Cyan Pin Dot on Vertex */}
-          <circle cx="22" cy="34" r="4.2" fill={cyanAccent} />
+          {/* Cyan Vertex Dot */}
+          <circle cx="22" cy="32" r="3.8" fill={cyanAccent} />
         </g>
 
         {/* ================================================================= */}
-        {/* 2. WORDMARK 'Koina' (Traced exactly from the infographic spec)     */}
+        {/* 2. WORD MARK OPTIMIZATION: 'Koina' from Brand Spec                */}
         {/* ================================================================= */}
-        <g
-          className="transition-transform duration-500 ease-out"
-          style={{
-            transform: isHovered ? 'translate3d(1px, 0, 0)' : 'translate3d(0, 0, 0)',
-          }}
-        >
+        <g>
           {/* --- K --- */}
-          {/* Vertical Stem with rounded terminals */}
           <line
-            x1="74"
+            x1="68"
             y1="12"
-            x2="74"
-            y2="44"
+            x2="68"
+            y2="42"
             stroke={navyColor}
-            strokeWidth="5.2"
+            strokeWidth="4.8"
             strokeLinecap="round"
           />
-          {/* Upper Arm */}
           <line
-            x1="75"
-            y1="28"
-            x2="98"
+            x1="68"
+            y1="27"
+            x2="90"
             y2="13"
             stroke={navyColor}
-            strokeWidth="5.2"
+            strokeWidth="4.8"
             strokeLinecap="round"
           />
-          {/* Lower Leg */}
           <line
-            x1="75"
-            y1="28"
-            x2="98"
-            y2="44"
+            x1="68"
+            y1="27"
+            x2="90"
+            y2="42"
             stroke={navyColor}
-            strokeWidth="5.2"
+            strokeWidth="4.8"
             strokeLinecap="round"
           />
           {/* Cyan Junction Dot Accent on K */}
-          <circle cx="74" cy="28" r="4.2" fill={cyanAccent} />
+          <circle cx="68" cy="27" r="4" fill={cyanAccent} />
 
           {/* --- o --- */}
-          {/* Clean Fineliner Rounded Oval */}
           <ellipse
-            cx="118"
-            cy="30"
-            rx="11.5"
-            ry="14"
+            cx="108"
+            cy="29"
+            rx="11"
+            ry="13"
             stroke={navyColor}
-            strokeWidth="5"
+            strokeWidth="4.6"
             strokeLinecap="round"
+            fill="none"
           />
 
           {/* --- i --- */}
-          {/* Vertical Stem */}
           <line
-            x1="141"
+            x1="130"
             y1="19"
-            x2="141"
-            y2="44"
+            x2="130"
+            y2="42"
             stroke={navyColor}
-            strokeWidth="5"
+            strokeWidth="4.6"
             strokeLinecap="round"
           />
-          {/* Cyan Round Dot Pin floating above i */}
-          <circle cx="141" cy="10" r="4.2" fill={cyanAccent} />
+          {/* Cyan Round Dot Pin floating cleanly above i */}
+          <circle cx="130" cy="10" r="4" fill={cyanAccent} />
 
           {/* --- n --- */}
-          {/* Left Stem */}
           <line
-            x1="158"
+            x1="147"
             y1="19"
-            x2="158"
-            y2="44"
+            x2="147"
+            y2="42"
             stroke={navyColor}
-            strokeWidth="5"
+            strokeWidth="4.6"
             strokeLinecap="round"
           />
-          {/* Arch & Right Leg */}
           <path
-            d="M 158 26 C 162 20, 169 17, 176 17 C 184 17, 188 21, 188 29 L 188 44"
+            d="M 147 26 C 151 19, 159 17, 166 17 C 174 17, 178 22, 178 29 L 178 42"
             stroke={navyColor}
-            strokeWidth="5"
+            strokeWidth="4.6"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
 
           {/* --- a --- */}
-          {/* Rounded Bowl cleanly spaced */}
           <path
-            d="M 218 25 C 215 19, 209 17, 203 17 C 195 17, 189 23, 189 31 C 189 39, 195 44.5, 203 44.5 C 210 44.5, 215 41, 218 34"
+            d="M 207 25 C 204 19, 198 17, 192 17 C 184 17, 178 23, 178 30 C 178 38, 184 43.5, 192 43.5 C 199 43.5, 204 40, 207 34"
             stroke={navyColor}
-            strokeWidth="5"
+            strokeWidth="4.6"
             strokeLinecap="round"
           />
-          {/* Right Vertical Stem */}
           <line
-            x1="218"
+            x1="207"
             y1="19"
-            x2="218"
-            y2="44"
+            x2="207"
+            y2="42"
             stroke={navyColor}
-            strokeWidth="5"
+            strokeWidth="4.6"
             strokeLinecap="round"
-          />
-
-          {/* ================================================================= */}
-          {/* 3. ELEMENT SPEC: THE ANIMATED 'WAVE' TETHER                       */}
-          {/* Curves from 'a' tail, loops out to right and under ALLIED HEALTH  */}
-          {/* ================================================================= */}
-          <path
-            d={
-              isHovered
-                ? 'M 218 41 C 228 36, 240 46, 252 38 C 262 31, 255 48, 238 56 C 210 68, 140 68, 80 62'
-                : 'M 218 41 C 226 35, 238 45, 250 39 C 260 33, 256 46, 240 54 C 215 65, 145 66, 78 61'
-            }
-            stroke={cyanAccent}
-            strokeWidth="3.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="transition-all duration-700 ease-out"
           />
         </g>
 
         {/* ================================================================= */}
-        {/* 4. SUBTITLE: 'ALLIED HEALTH' (Tracked directly under 'Koina')      */}
+        {/* 3. SUBTITLE: 'ALLIED HEALTH'                                       */}
         {/* ================================================================= */}
         <text
-          x="74"
-          y="56"
+          x="68"
+          y="53"
           fill={subColor}
-          fontSize="10.8"
-          fontWeight="700"
-          letterSpacing="0.28em"
+          fontSize="9.8"
+          fontWeight="600"
+          letterSpacing="0.22em"
           fontFamily="system-ui, -apple-system, sans-serif"
-          className="uppercase tracking-[0.28em]"
+          className="uppercase tracking-[0.22em]"
         >
           ALLIED HEALTH
         </text>
+
+        {/* ================================================================= */}
+        {/* 4. ELEMENT ISOLATION: The Organic Flow Element                    */}
+        {/* Sweeps smoothly under ALLIED HEALTH and rises into wave crest     */}
+        {/* ================================================================= */}
+        <path
+          d="M 68 60 Q 138 62 203 58 C 213 56, 217 48, 223 47 C 228 46, 232 49, 229 53 C 226 57, 214 58, 203 58"
+          stroke={cyanAccent}
+          strokeWidth="2.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="transition-all duration-300 group-hover:translate-x-1"
+        />
       </svg>
     </div>
   );
