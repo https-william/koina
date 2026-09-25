@@ -13,12 +13,12 @@ export default function WhoWeSupport() {
     {
       id: 'ndis' as const,
       title: 'NDIS Participants',
-      badge: 'Registered Provider',
+      badge: 'Plan & Self-Managed',
       icon: ShieldCheck,
       summary:
-        'Full clinical support for plan-managed, self-managed, and agency-managed participants looking to achieve meaningful developmental and functional goals.',
+        'Full clinical support for plan-managed and self-managed participants looking to achieve meaningful developmental and functional goals.',
       highlights: [
-        'Plan-Managed, Self-Managed & Agency-Managed participants',
+        'Plan-Managed and Self-Managed NDIS participants',
         'Capacity Building (Improved Daily Living & Relationships)',
         'Core Supports (Allied Health Assistant supervision)',
         'Transparent line-item billing strictly aligned with the NDIS Price Guide',

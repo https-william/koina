@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { QUEENSLAND_REGIONS } from '@/data/locations';
 import {
-  Search,
   Home,
   Video,
   ArrowRight,
@@ -15,7 +14,6 @@ import { DoodleSparkle, DoodleWaveDivider } from '@/components/brand/Doodles';
 
 export default function LocationsDirectoryClient() {
   const [selectedZone, setSelectedZone] = useState<string>('All');
-  const [searchQuery, setSearchQuery] = useState('');
 
   const zones = [
     'All',
@@ -26,28 +24,21 @@ export default function LocationsDirectoryClient() {
   ];
 
   const filteredRegions = QUEENSLAND_REGIONS.filter((region) => {
-    const matchesZone = selectedZone === 'All' || region.zone === selectedZone;
-    const matchesQuery =
-      region.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      region.suburbs.some((s) => s.toLowerCase().includes(searchQuery.toLowerCase()));
-    return matchesZone && matchesQuery;
+    return selectedZone === 'All' || region.zone === selectedZone;
   });
 
   return (
     <section className="py-20 md:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Controls: Search & Zone Filters */}
-        <div className="flex flex-col lg:flex-row gap-5 justify-between items-stretch lg:items-center mb-12">
-          {/* Search Input */}
-          <div className="relative max-w-md w-full">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
-            <input
-              type="text"
-              placeholder="Search suburb or region (e.g., Chermside, Cairns, Toowoomba)..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-slate-300 bg-canvas text-sm sm:text-base text-slate-900 placeholder:text-slate-500 focus:bg-white focus:border-brand-navy focus:ring-1 focus:ring-brand-navy outline-none transition-all shadow-xs"
-            />
+        {/* Statewide Zone Filters */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center mb-12">
+          <div>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+              Statewide Coverage Hubs
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1">
+              Filter by Queensland regional area or view all mobile delivery zones:
+            </p>
           </div>
 
           {/* Zone Filter Chips */}

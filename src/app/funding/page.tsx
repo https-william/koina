@@ -25,10 +25,10 @@ export default function FundingPage() {
     {
       id: 'ndis',
       title: 'NDIS (National Disability Insurance Scheme)',
-      badge: 'Registered Provider',
+      badge: 'Plan & Self-Managed',
       icon: ShieldCheck,
       whoItsFor:
-        'NDIS participants with self-managed, plan-managed, or NDIA-managed (agency-managed) funding.',
+        'NDIS participants with plan-managed or self-managed funding across Queensland.',
       coveredServices: [
         'Capacity Building (Improved Daily Living, Improved Relationships)',
         'Core Supports (via Therapy Assistants)',

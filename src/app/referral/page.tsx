@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Make a Referral | Koina Allied Health Queensland',
     description:
-      'Fast, simple allied health intake across Queensland. Direct clinical triage within 24 hours for NDIS, Aged Care, DVA, and private referrals.',
+      'Fast, simple allied health intake across Queensland. Direct clinical intake review within 24 hours for NDIS, Aged Care, DVA, and private referrals.',
     url: 'https://koina.com.au/referral',
     siteName: 'Koina Allied Health',
     locale: 'en_AU',
@@ -49,7 +49,7 @@ export default function ReferralPage() {
         '@id': 'https://koina.com.au/referral#contact',
         name: 'Koina Allied Health Intake & Referrals',
         description:
-          'Online referral and intake portal for allied health services across Queensland. 24-hour clinical triage for NDIS, Aged Care, DVA, and private participants.',
+          'Online referral and intake portal for allied health services across Queensland. 24-hour clinical intake review for NDIS, Aged Care, DVA, and private participants.',
         url: 'https://koina.com.au/referral',
         mainEntity: {
           '@type': 'MedicalBusiness',
@@ -127,10 +127,10 @@ export default function ReferralPage() {
                 </div>
                 <div className="mt-4 pt-4 border-t border-slate-100 w-full">
                   <p className="text-xs font-bold uppercase tracking-wider text-brand-navy mb-1">
-                    Direct Clinical Triage
+                    Direct Clinical Intake
                   </p>
                   <p className="text-xs text-slate-700 leading-relaxed font-medium">
-                    Referrals are reviewed directly by our clinical coordination team to match the right therapist in your Queensland area.
+                    Referrals are reviewed directly by our clinical coordination team to match the right therapist for your home or community.
                   </p>
                 </div>
               </div>
@@ -187,7 +187,7 @@ export default function ReferralPage() {
                         Monday – Friday: 9:00 AM – 5:00 PM (AEST)
                       </p>
                       <p className="text-xs text-slate-700 mt-0.5">
-                        Statewide Queensland triage
+                        Queensland-wide mobile & in-home service
                       </p>
                     </div>
                   </div>

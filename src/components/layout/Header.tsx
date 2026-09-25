@@ -14,8 +14,7 @@ export default function Header() {
   const navLinks = [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Location', href: '/locations' },
-    { label: 'Make a Referral', href: '/referral' },
+    { label: 'Contact Us', href: '/contact' },
   ];
 
   const isActive = (href: string) => {
@@ -37,7 +36,7 @@ export default function Header() {
             <span className="hidden sm:inline-block text-white/20">•</span>
             <span className="hidden sm:flex items-center gap-1.5 text-slate-200 font-medium">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Registered NDIS & DVA Provider</span>
+              <span>NDIS, DVA & Aged Care Support</span>
             </span>
           </div>
 

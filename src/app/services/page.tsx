@@ -55,14 +55,14 @@ export default function ServicesPage() {
       title: 'Occupational Therapy',
       icon: Accessibility,
       art: OpenDoodleDailyLiving,
-      tagline: 'Supporting you to do the things you want and need to do in everyday life.',
+      tagline: 'Functional capacity evaluations, equipment trials, and home modifications supporting everyday independence.',
       inclusions: [
-        'Functional Capacity Assessments (FCA) for NDIS plan reviews',
+        'Functional Capacity Assessments (FCA) for NDIS plan reviews and funding justification',
+        'Assistive technology & equipment trials, clinical justification, and prescription',
         'Home modification assessments (grab rails, access ramps, accessible bathrooms)',
-        'Assistive technology & equipment trials and prescription',
-        'Daily living skills development (cooking, dressing, personal care)',
-        'Sensory processing, regulation and ergonomic strategies',
-        'Workplace and economic participation assessments',
+        'Daily living skills development (cooking, dressing, personal routines, and community access)',
+        'Sensory processing, regulation and ergonomic home strategies',
+        'Supported Independent Living (SIL) and SDA housing suitability assessments',
       ],
       delivered: 'In-home visits, mobile community settings, or via telehealth across Queensland.',
       ctaService: 'Occupational Therapy',
@@ -72,13 +72,13 @@ export default function ServicesPage() {
       title: 'Physiotherapy',
       icon: Activity,
       art: OpenDoodleMobility,
-      tagline: 'Helping you move better, manage pain, and build strength and confidence.',
+      tagline: 'Mobility rehabilitation, musculoskeletal recovery, and physical conditioning delivered in your home.',
       inclusions: [
-        'Mobility, gait and transfers assessments',
-        'Proactive falls prevention and balance training',
+        'Mobility, gait, transfers, and posture assessments',
+        'Musculoskeletal recovery, pain management, and physical conditioning programs',
+        'Proactive falls prevention and balance retraining',
         'Post-surgery, post-hospital and injury rehabilitation',
-        'Pain management and physical conditioning programs',
-        'Exercise programs tailored directly to your home environment',
+        'Home-tailored exercise programs to maintain functional independence',
         'Neurological rehabilitation (stroke, Parkinson’s, MS, cerebral palsy)',
       ],
       delivered: 'In-home visits, mobile visits, or via telehealth across Queensland.',
@@ -89,14 +89,14 @@ export default function ServicesPage() {
       title: 'Speech Pathology',
       icon: MessageSquareText,
       art: OpenDoodleConversation,
-      tagline: 'Supporting clear communication, safe swallowing, and confidence at every age.',
+      tagline: 'Specialised support for dysphagia, swallowing safety, and clear communication therapy.',
       inclusions: [
-        'Comprehensive swallowing assessments and dysphagia management',
+        'Comprehensive dysphagia swallowing assessments and safe feeding management',
         'Mealtime management plans (NDIS Quality & Safeguards compliant)',
-        'Speech articulation, language, and voice therapy',
+        'Communication therapy, speech articulation, and voice rehabilitation',
         'Augmentative and Alternative Communication (AAC) — assessment, trial, and setup',
-        'Social communication and pragmatic language support',
-        'Cognitive communication therapy following stroke or neurological events',
+        'Social communication and pragmatic language support across all ages',
+        'Cognitive communication therapy following stroke or acquired brain injury',
       ],
       delivered: 'In-home visits, mobile visits, or via telehealth across Queensland.',
       ctaService: 'Speech Pathology',
@@ -136,17 +136,17 @@ export default function ServicesPage() {
     },
     {
       id: 'assessments',
-      title: 'Clinical Assessments',
+      title: 'Clinical Assessment Specialists (RN & Allied Health)',
       icon: ClipboardCheck,
       art: OpenDoodleCareHero,
-      tagline: 'Comprehensive clinical evaluations, diagnostic reports, and funding review evidence.',
+      tagline: 'Registered Nurse (RN) led complex clinical evaluations, continence assessments, and comprehensive diagnostic reports.',
       inclusions: [
-        'Comprehensive Initial Needs Assessments across allied health disciplines',
+        'Registered Nurse (RN) led complex clinical health and nursing assessments',
+        'Comprehensive Continence Assessments, product trials, and plan prescriptions',
         'Functional Capacity Assessments (FCA) for NDIS scheduled plan reviews',
         'Supported Independent Living (SIL) and Specialist Disability Accommodation (SDA) assessments',
-        'Assistive Technology (AT) Level 1–4 assessment and application reports',
-        'Home Modification complex assessment and scope-of-works documentation',
-        'Aged Care / Home Care Package reablement and physical assessment reports',
+        'Assistive Technology (AT Level 1–4) clinical evidence and scope-of-works reports',
+        'Aged Care (Home Care Package Levels 1–4) nursing reviews and reablement plans',
       ],
       delivered: 'In-home, mobile visits, or via telehealth across Queensland with prompt turnaround.',
       ctaService: 'Clinical Assessments',
@@ -223,7 +223,7 @@ export default function ServicesPage() {
     },
     {
       title: 'Positive Behaviour Support',
-      credentials: 'NDIS Commission Registered',
+      credentials: 'NDIS Compliant Behaviour Support',
       description:
         'Functional behaviour assessments, comprehensive BSP formulations, and practical reduction of restrictive practices.',
     },
@@ -234,10 +234,10 @@ export default function ServicesPage() {
         'Supervised assistants delivering high-frequency repetitions, exercise routines, community practice, and cost-effective support.',
     },
     {
-      title: 'Clinical Assessment Specialists',
-      credentials: 'Multidisciplinary',
+      title: 'Registered Nurses (RN) & Assessment Specialists',
+      credentials: 'AHPRA Registered Nurses',
       description:
-        'Specialised assessment clinicians focused on Functional Capacity Assessments (FCA), complex AT, and NDIS review reports.',
+        'Registered Nurse (RN) led complex clinical assessments, continence evaluations, Functional Capacity Assessments (FCA), and detailed review reports.',
     },
   ];
 
@@ -285,8 +285,23 @@ export default function ServicesPage() {
           __html: JSON.stringify(servicesJsonLd),
         }}
       />
-      {/* Header */}
+      {/* Header with Dynamic Video Background */}
       <section className="relative bg-canvas pt-16 md:pt-24 pb-0 overflow-hidden">
+        {/* Dynamic Open-Source / Copyright-Free Video Background with WCAG AAA Contrast Overlay */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-20 filter saturate-50"
+          >
+            <source src="/videos/services-hero-bg.mp4" type="video/mp4" />
+          </video>
+          {/* Gentle gradient wash ensuring crystal-clear readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-canvas/90 via-canvas/80 to-canvas" />
+        </div>
+
         {/* Subtle Background Line Art */}
         <HeroBackgroundLineArt />
         <DoodleBotanicalWatermark className="top-8 right-6 w-80 h-80 text-brand-navy opacity-20 -rotate-12" />

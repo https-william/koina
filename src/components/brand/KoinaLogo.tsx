@@ -19,37 +19,37 @@ export default function KoinaLogo({
   size = 'md',
 }: KoinaLogoProps) {
   const isDark = variant === 'dark';
-  const navyColor = isDark ? '#FFFFFF' : '#113C5E';
-  const cyanAccent = '#5591B7';
-  const subColor = isDark ? '#93C5FD' : '#5591B7';
+  const navyColor = isDark ? '#FFFFFF' : '#0B1E2E';
+  const cyanAccent = isDark ? '#38BDF8' : '#0284C7';
+  const subColor = isDark ? '#BAE6FD' : '#0F2E4A';
 
   // Dimension scaling following 8pt rhythm
   const scales = {
     sm: {
-      iconSize: 28,
-      titleSize: 'text-[18px]',
-      subSize: 'text-[8.5px]',
+      iconSize: 30,
+      titleSize: 'text-[19px]',
+      subSize: 'text-[9px]',
       tracking: 'tracking-[0.22em]',
       gap: 'gap-2.5',
-      waveWidth: 96,
+      waveWidth: 98,
       waveHeight: 7,
     },
     md: {
-      iconSize: 36,
-      titleSize: 'text-[22px]',
-      subSize: 'text-[10px]',
+      iconSize: 38,
+      titleSize: 'text-[23px]',
+      subSize: 'text-[10.5px]',
       tracking: 'tracking-[0.24em]',
       gap: 'gap-3',
-      waveWidth: 114,
+      waveWidth: 118,
       waveHeight: 8,
     },
     lg: {
-      iconSize: 48,
-      titleSize: 'text-[28px]',
-      subSize: 'text-[12px]',
+      iconSize: 50,
+      titleSize: 'text-[30px]',
+      subSize: 'text-[12.5px]',
       tracking: 'tracking-[0.25em]',
       gap: 'gap-3.5',
-      waveWidth: 140,
+      waveWidth: 144,
       waveHeight: 10,
     },
   }[size];
@@ -74,44 +74,44 @@ export default function KoinaLogo({
             cx="50"
             cy="50"
             r="46"
-            fill={isDark ? '#FFFFFF' : '#113C5E'}
+            fill={isDark ? '#FFFFFF' : '#0B1E2E'}
           />
-          {/* White 'K' Monoline */}
+          {/* Bold White 'K' Monoline */}
           <line
             x1="36"
-            y1="24"
+            y1="23"
             x2="36"
-            y2="76"
-            stroke={isDark ? '#113C5E' : '#FFFFFF'}
-            strokeWidth="8"
+            y2="77"
+            stroke={isDark ? '#0B1E2E' : '#FFFFFF'}
+            strokeWidth="9.5"
             strokeLinecap="round"
           />
           <line
             x1="36"
             y1="50"
-            x2="68"
-            y2="28"
-            stroke={isDark ? '#113C5E' : '#FFFFFF'}
-            strokeWidth="8"
+            x2="69"
+            y2="27"
+            stroke={isDark ? '#0B1E2E' : '#FFFFFF'}
+            strokeWidth="9.5"
             strokeLinecap="round"
           />
           <line
             x1="36"
             y1="50"
-            x2="68"
-            y2="72"
-            stroke={isDark ? '#113C5E' : '#FFFFFF'}
-            strokeWidth="8"
+            x2="69"
+            y2="73"
+            stroke={isDark ? '#0B1E2E' : '#FFFFFF'}
+            strokeWidth="9.5"
             strokeLinecap="round"
           />
           {/* Cyan Junction Dot */}
-          <circle cx="36" cy="50" r="6.5" fill={cyanAccent} />
+          <circle cx="36" cy="50" r="7" fill={cyanAccent} />
         </svg>
       </div>
     );
   }
 
-  // 2. Full Brand Logo with Clean, Calm Typography
+  // 2. Full Brand Logo with High-Contrast, Bold Typography
   return (
     <div
       className={`inline-flex items-center ${scales.gap} select-none group ${className}`}
@@ -133,54 +133,54 @@ export default function KoinaLogo({
             cx="50"
             cy="50"
             r="46"
-            fill={isDark ? '#FFFFFF' : '#113C5E'}
+            fill={isDark ? '#FFFFFF' : '#0B1E2E'}
           />
           <line
             x1="36"
-            y1="24"
+            y1="23"
             x2="36"
-            y2="76"
-            stroke={isDark ? '#113C5E' : '#FFFFFF'}
-            strokeWidth="8"
+            y2="77"
+            stroke={isDark ? '#0B1E2E' : '#FFFFFF'}
+            strokeWidth="9.5"
             strokeLinecap="round"
           />
           <line
             x1="36"
             y1="50"
-            x2="68"
-            y2="28"
-            stroke={isDark ? '#113C5E' : '#FFFFFF'}
-            strokeWidth="8"
+            x2="69"
+            y2="27"
+            stroke={isDark ? '#0B1E2E' : '#FFFFFF'}
+            strokeWidth="9.5"
             strokeLinecap="round"
           />
           <line
             x1="36"
             y1="50"
-            x2="68"
-            y2="72"
-            stroke={isDark ? '#113C5E' : '#FFFFFF'}
-            strokeWidth="8"
+            x2="69"
+            y2="73"
+            stroke={isDark ? '#0B1E2E' : '#FFFFFF'}
+            strokeWidth="9.5"
             strokeLinecap="round"
           />
-          <circle cx="36" cy="50" r="6.5" fill={cyanAccent} />
+          <circle cx="36" cy="50" r="7" fill={cyanAccent} />
         </svg>
       </div>
 
-      {/* Calm, Clean Typography */}
+      {/* Bold, Accessible Typography for High Visibility */}
       <div className="flex flex-col justify-center leading-none">
         <span
-          className={`font-bold font-sans ${scales.titleSize} tracking-[-0.025em] transition-colors`}
+          className={`font-black font-sans ${scales.titleSize} tracking-[-0.025em] transition-colors`}
           style={{ color: navyColor }}
         >
           Koina
         </span>
         <span
-          className={`font-semibold font-sans uppercase ${scales.subSize} ${scales.tracking} mt-1 transition-colors`}
+          className={`font-extrabold font-sans uppercase ${scales.subSize} ${scales.tracking} mt-1 transition-colors`}
           style={{ color: subColor }}
         >
           ALLIED HEALTH
         </span>
-        {/* Subtle, Calm Flow Underline */}
+        {/* Crisp Flow Underline */}
         <svg
           width={scales.waveWidth}
           height={scales.waveHeight}
@@ -192,7 +192,7 @@ export default function KoinaLogo({
           <path
             d="M 1 4 Q 60 7 98 4 C 105 3, 110 1.5, 113 2 C 117 2.5, 119 5, 115 6.5 C 111 8, 104 6, 98 4"
             stroke={cyanAccent}
-            strokeWidth="1.8"
+            strokeWidth="2.2"
             strokeLinecap="round"
             strokeLinejoin="round"
           />

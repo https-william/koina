@@ -17,7 +17,7 @@ export default function ClosingCTA() {
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold mb-8">
               <DoodleSparkle className="w-3.5 h-3.5 text-brand-sky" />
-              <span>Queensland Statewide Intake & Triage</span>
+              <span>Allied Health Services Across Queensland</span>
             </div>
 
             <div className="mb-8 flex justify-center">
@@ -29,7 +29,7 @@ export default function ClosingCTA() {
             </h2>
 
             <p className="text-base sm:text-lg lg:text-[19px] text-slate-100 max-w-2xl mx-auto leading-[1.75] mb-10 font-normal">
-              Whether you are an individual planning your care, a family member supporting a loved one, or a support coordinator arranging services for a participant, we are here to help. Reach out today for an honest conversation with our intake team — no obligation, no pressure.
+              Whether you are an individual planning your allied health, a family member supporting a loved one, or a support coordinator arranging services for a participant, we are here to help. Reach out today for a clear, honest conversation with our intake team.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">

@@ -7,7 +7,7 @@ export default function Footer() {
   const quickNav = [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Location', href: '/locations' },
+    { label: 'Contact Us', href: '/contact' },
     { label: 'Make a Referral', href: '/referral' },
   ];
 
@@ -31,12 +31,12 @@ export default function Footer() {
               <KoinaLogo variant="dark" size="md" />
             </Link>
             <p className="text-sm text-slate-200 leading-[1.7] max-w-sm">
-              Healthcare built around the person, not the funding category. Delivering in-home, mobile, and telehealth allied health care across Queensland.
+              Allied health built around the person, not the funding category. Delivering in-home, mobile, and telehealth allied health across Queensland.
             </p>
             <div className="pt-2 flex flex-col gap-2.5 text-xs text-slate-200">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Registered NDIS Provider</span>
+                <span>NDIS Allied Health Support (Plan & Self-Managed)</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -148,14 +148,14 @@ export default function Footer() {
         {/* Bottom Copyright & Legal Notice */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-300">
           <p>
-            © 2026 Koina Allied Health. NDIS Registered Provider. DVA & Aged Care Providers welcome.
+            © 2026 Koina Allied Health. Supporting NDIS, DVA & Aged Care across Queensland.
           </p>
           <div className="flex items-center gap-3 text-slate-400">
             <Link href="/" className="hover:text-white">Home</Link>
             <span>•</span>
             <Link href="/services" className="hover:text-white">Services</Link>
             <span>•</span>
-            <Link href="/locations" className="hover:text-white">Location</Link>
+            <Link href="/contact" className="hover:text-white">Contact Us</Link>
             <span>•</span>
             <Link href="/referral" className="hover:text-white">Make a Referral</Link>
           </div>
