@@ -49,7 +49,7 @@ export default function FundingPage() {
         'Mobility and falls prevention',
         'Home safety and modification assessments',
         'Chronic condition management',
-        'Equipment prescription (walkers, shower chairs, transfer aids)',
+        'Assistive equipment recommendations & fittings (walkers, shower chairs, transfer aids)',
         'Ongoing allied health assistant visits',
       ],
       howToStart:
@@ -64,7 +64,7 @@ export default function FundingPage() {
         'DVA Gold Card holders (all clinically necessary conditions); DVA White Card holders (for accepted conditions).',
       coveredServices: [
         'Physiotherapy, Occupational Therapy, Speech Pathology',
-        'Assistive equipment prescription and home safety trials',
+        'Assistive equipment recommendations and home safety trials',
         'Direct billing to DVA with zero out-of-pocket costs for eligible services',
       ],
       howToStart:
@@ -73,7 +73,7 @@ export default function FundingPage() {
     {
       id: 'private',
       title: 'Private & Self-Funded',
-      badge: 'Direct Bookings & Rebates',
+      badge: 'Direct Referrals & Rebates',
       icon: UserCheck,
       whoItsFor:
         'Anyone who wants to access allied health services without a third-party funding body.',
@@ -83,18 +83,18 @@ export default function FundingPage() {
         'Medicare Chronic Disease Management (CDM / EPC) plans accepted with a GP referral',
       ],
       howToStart:
-        'Book directly online or via email — no referral needed for private self-funded care.',
+        'Refer directly online or via email — no external referral needed for private self-funded care.',
     },
   ];
 
   const faqs = [
     {
       q: 'Do I need a doctor referral to see a Koina clinician?',
-      a: 'If you are paying privately or using an NDIS plan, no referral is required — you can book directly. If you are accessing services through the DVA, an eligible GP referral (Form D904) is required. For Medicare CDM/EPC rebates, your GP must prepare a Chronic Disease Management plan prior to treatment.',
+      a: 'If you are paying privately or using a plan-managed or self-managed NDIS plan, you can refer directly. If you are accessing services through the DVA, an eligible GP referral (Form D904) is required. For Medicare CDM/EPC rebates, your GP must prepare a Chronic Disease Management plan prior to commencing therapy sessions.',
     },
     {
       q: 'How does billing work for NDIS participants?',
-      a: 'For plan-managed participants, we send invoices directly to your nominated plan management agency. For self-managed participants, we issue itemized receipts for reimbursement via the myplace portal. For NDIA-managed participants, we claim directly through the PRODA provider portal. All rates align strictly with the official NDIS Price Guide.',
+      a: 'For plan-managed participants, we send invoices directly to your nominated plan management agency. For self-managed participants, we issue itemized receipts for simple reimbursement via the myplace portal. All rates align strictly with the official NDIS Support Catalogue.',
     },
     {
       q: 'Can Koina clinicians bill directly to my Home Care Package provider?',

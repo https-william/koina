@@ -55,9 +55,9 @@ export default function WhoWeSupport() {
       videoSrc: '/videos/group-therapy.mp4',
       videoTag: 'Dedicated Veteran & Community Support',
       summary:
-        'Comprehensive clinical assessment and treatments for DVA Gold Card and eligible White Card holders, with straightforward direct billing.',
+        'Comprehensive clinical assessment and therapy interventions for DVA Gold Card and eligible White Card holders, with straightforward direct billing.',
       highlights: [
-        'Gold Card holders (clinically indicated treatment across all conditions)',
+        'Gold Card holders (clinically indicated therapy support across all conditions)',
         'Eligible White Card holders (accepted service-related conditions)',
         'Direct claiming through Medicare/DVA with zero out-of-pocket gaps',
         'Rehabilitation, chronic pain management & assistive technology',
@@ -69,7 +69,7 @@ export default function WhoWeSupport() {
     {
       id: 'private' as const,
       title: 'Private Clients',
-      badge: 'Direct Booking',
+      badge: 'Direct Referrals',
       icon: UserCheck,
       videoSrc: '/videos/yoga-mobility.mp4',
       videoTag: 'Wellness, Movement & Prevention',

@@ -22,11 +22,11 @@ export default function ServicesBento() {
       videoSrc: '/videos/physical-therapy.mp4',
       videoCaption: 'Clinical Rehabilitation',
       description:
-        'Functional capacity evaluations, assistive technology prescription, home modifications, and daily living skills.',
+        'Functional capacity evaluations, assistive technology recommendations, home modifications, and daily living skills.',
       highlights: [
         'Functional Capacity Assessments (FCA)',
         'Home modifications & environmental access',
-        'Assistive technology trials & prescription',
+        'Assistive technology trials & recommendations',
       ],
       href: '/services#ot',
       linkText: 'Explore Occupational Therapy',
@@ -53,11 +53,13 @@ export default function ServicesBento() {
       title: 'Speech Pathology',
       badge: 'SPA Certified',
       icon: MessageSquareText,
+      videoSrc: '/videos/speech-therapy.mp4',
+      videoCaption: 'Communication & Articulation',
       description:
         'Comprehensive swallowing assessments, speech articulation therapy, and augmentative communication (AAC).',
       highlights: [
         'Mealtime safety & dysphagia plans',
-        'AAC device prescription & setup',
+        'AAC device assessment & trial',
         'Speech, voice & cognitive communication',
       ],
       href: '/services#speech',
@@ -85,6 +87,8 @@ export default function ServicesBento() {
       title: 'Therapy Assistants (AHAs)',
       badge: 'Clinically Supervised',
       icon: Sparkles,
+      videoSrc: '/videos/therapy-assistant.mp4',
+      videoCaption: 'Community & Routine Practice',
       description:
         'Cost-effective reinforcement of therapy routines under the direct supervision of primary clinicians.',
       highlights: [
@@ -100,6 +104,8 @@ export default function ServicesBento() {
       title: 'Clinical Assessments',
       badge: 'RN & Allied Health',
       icon: ClipboardCheck,
+      videoSrc: '/videos/clinical-assessment.mp4',
+      videoCaption: 'Clinical Reporting & Reviews',
       description:
         'Rigorous diagnostic assessments, functional capacity reporting, and funding review documentation with fast turnaround.',
       highlights: [

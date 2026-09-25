@@ -1,6 +1,7 @@
 export interface QueenslandRegion {
   name: string;
   suburbs: string[];
+  postcodes: string[];
   zone: 'South East Queensland' | 'Darling Downs & Western' | 'Wide Bay & Central' | 'North & Far North Queensland';
   inHome: boolean;
   clinic: boolean;
@@ -13,6 +14,7 @@ export const QUEENSLAND_REGIONS: QueenslandRegion[] = [
   {
     name: 'Gold Coast',
     suburbs: ['Southport', 'Surfers Paradise', 'Robina', 'Helensvale', 'Coolangatta', 'Nerang', 'Varsity Lakes', 'Broadbeach', 'Palm Beach'],
+    postcodes: ['4215', '4217', '4226', '4212', '4225', '4211', '4227', '4218', '4221', '4220', '4214', '4216', '4209'],
     zone: 'South East Queensland',
     inHome: true,
     clinic: true,
@@ -23,6 +25,7 @@ export const QUEENSLAND_REGIONS: QueenslandRegion[] = [
   {
     name: 'Brisbane',
     suburbs: ['Brisbane CBD', 'Chermside', 'Carindale', 'Indooroopilly', 'Mount Gravatt', 'Aspley', 'Sunnybank', 'Mitchelton', 'Wynnum'],
+    postcodes: ['4000', '4032', '4152', '4068', '4122', '4034', '4109', '4053', '4178', '4006', '4101', '4074', '4114'],
     zone: 'South East Queensland',
     inHome: true,
     clinic: false,
@@ -33,6 +36,7 @@ export const QUEENSLAND_REGIONS: QueenslandRegion[] = [
   {
     name: 'Ipswich',
     suburbs: ['Ipswich Central', 'Springfield Central', 'Ripley', 'Brassall', 'Booval', 'Redbank Plains', 'Brookwater'],
+    postcodes: ['4305', '4300', '4306', '4304', '4301', '4303', '4302'],
     zone: 'South East Queensland',
     inHome: true,
     clinic: false,
@@ -43,6 +47,7 @@ export const QUEENSLAND_REGIONS: QueenslandRegion[] = [
   {
     name: 'Sunshine Coast',
     suburbs: ['Maroochydore', 'Caloundra', 'Noosa Heads', 'Buderim', 'Nambour', 'Kawana Waters', 'Coolum Beach'],
+    postcodes: ['4558', '4551', '4567', '4556', '4560', '4575', '4573', '4557', '4564'],
     zone: 'South East Queensland',
     inHome: true,
     clinic: false,
@@ -53,6 +58,7 @@ export const QUEENSLAND_REGIONS: QueenslandRegion[] = [
   {
     name: 'Caboolture',
     suburbs: ['Caboolture', 'Morayfield', 'Burpengary', 'Bellmere', 'Bribie Island', 'Wamuran'],
+    postcodes: ['4510', '4506', '4505', '4507', '4512', '4508', '4504'],
     zone: 'South East Queensland',
     inHome: true,
     clinic: false,
@@ -63,6 +69,7 @@ export const QUEENSLAND_REGIONS: QueenslandRegion[] = [
   {
     name: 'Toowoomba',
     suburbs: ['Toowoomba City', 'Rangeville', 'Highfields', 'Newtown', 'Centenary Heights', 'Drayton'],
+    postcodes: ['4350', '4352'],
     zone: 'Darling Downs & Western',
     inHome: true,
     clinic: false,
@@ -73,6 +80,7 @@ export const QUEENSLAND_REGIONS: QueenslandRegion[] = [
   {
     name: 'South Burnett',
     suburbs: ['Kingaroy', 'Nanango', 'Murgon', 'Wondai', 'Blackbutt', 'Yarraman'],
+    postcodes: ['4610', '4615', '4605', '4606', '4306', '4614', '4601'],
     zone: 'Darling Downs & Western',
     inHome: true,
     clinic: false,
@@ -83,6 +91,7 @@ export const QUEENSLAND_REGIONS: QueenslandRegion[] = [
   {
     name: 'Gympie',
     suburbs: ['Gympie Central', 'Southside', 'Monkland', 'Curra', 'Tin Can Bay'],
+    postcodes: ['4570', '4580', '4581'],
     zone: 'Wide Bay & Central',
     inHome: true,
     clinic: false,
@@ -93,6 +102,7 @@ export const QUEENSLAND_REGIONS: QueenslandRegion[] = [
   {
     name: 'Hervey Bay',
     suburbs: ['Pialba', 'Urangan', 'Torquay', 'Point Vernon', 'Eli Waters', 'Maryborough'],
+    postcodes: ['4655', '4650', '4659'],
     zone: 'Wide Bay & Central',
     inHome: true,
     clinic: false,
@@ -103,6 +113,7 @@ export const QUEENSLAND_REGIONS: QueenslandRegion[] = [
   {
     name: 'Gladstone',
     suburbs: ['Gladstone Central', 'Kin Kora', 'Clinton', 'Tannum Sands', 'Boyne Island', 'Calliope'],
+    postcodes: ['4680'],
     zone: 'Wide Bay & Central',
     inHome: true,
     clinic: false,
@@ -113,6 +124,7 @@ export const QUEENSLAND_REGIONS: QueenslandRegion[] = [
   {
     name: 'Mackay',
     suburbs: ['Mackay City', 'North Mackay', 'Ooralea', 'Andergrove', 'Mount Pleasant', 'Sarina', 'Walkerston'],
+    postcodes: ['4740', '4737', '4751'],
     zone: 'Wide Bay & Central',
     inHome: true,
     clinic: false,
@@ -123,6 +135,7 @@ export const QUEENSLAND_REGIONS: QueenslandRegion[] = [
   {
     name: 'Townsville',
     suburbs: ['Townsville City', 'Annandale', 'Kirwan', 'Douglas', 'Thuringowa', 'North Ward', 'Belgian Gardens'],
+    postcodes: ['4810', '4814', '4817', '4811', '4812', '4815'],
     zone: 'North & Far North Queensland',
     inHome: true,
     clinic: false,
@@ -133,6 +146,7 @@ export const QUEENSLAND_REGIONS: QueenslandRegion[] = [
   {
     name: 'Cairns',
     suburbs: ['Cairns City', 'Redlynch', 'Smithfield', 'Edmonton', 'Gordonvale', 'Palm Cove', 'Trinity Beach'],
+    postcodes: ['4870', '4878', '4869', '4865', '4879'],
     zone: 'North & Far North Queensland',
     inHome: true,
     clinic: false,

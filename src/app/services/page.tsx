@@ -52,7 +52,7 @@ export default function ServicesPage() {
       tagline: 'Functional capacity evaluations, equipment trials, and home modifications supporting everyday independence.',
       inclusions: [
         'Functional Capacity Assessments (FCA) for NDIS plan reviews and funding justification',
-        'Assistive technology & equipment trials, clinical justification, and prescription',
+        'Assistive technology & equipment trials, clinical justification, and recommendations',
         'Home modification assessments (grab rails, access ramps, accessible bathrooms)',
         'Daily living skills development (cooking, dressing, personal routines, and community access)',
         'Sensory processing, regulation and ergonomic home strategies',
@@ -83,6 +83,8 @@ export default function ServicesPage() {
       id: 'speech',
       title: 'Speech Pathology',
       icon: MessageSquareText,
+      videoSrc: '/videos/speech-therapy.mp4',
+      videoTag: 'Swallowing, Feeding & Communication',
       tagline: 'Specialised support for dysphagia, swallowing safety, and clear communication therapy.',
       inclusions: [
         'Comprehensive dysphagia swallowing assessments and safe feeding management',
@@ -117,9 +119,11 @@ export default function ServicesPage() {
       id: 'aha',
       title: 'Therapy Assistants (Allied Health Assistants)',
       icon: Sparkles,
+      videoSrc: '/videos/therapy-assistant.mp4',
+      videoTag: 'Routine Practice & Community Engagement',
       tagline: 'Making your therapy plan go further with structured, consistent support.',
       inclusions: [
-        'Carrying out exercise and skill programs prescribed by your OT, Physio, or Speech Pathologist',
+        'Carrying out exercise and skill programs developed by your OT, Physio, or Speech Pathologist',
         'More frequent sessions at a lower cost to stretch your funding budget',
         'Practising everyday skills in real-world settings (home, local shops, community)',
         'Ongoing progress monitoring with regular supervising clinician check-ins',
@@ -132,12 +136,12 @@ export default function ServicesPage() {
       id: 'assessments',
       title: 'Clinical Assessment Specialists (RN & Allied Health)',
       icon: ClipboardCheck,
-      videoSrc: '/videos/elderly-care.mp4',
-      videoTag: 'Aged Care & Clinical Reviews',
+      videoSrc: '/videos/clinical-assessment.mp4',
+      videoTag: 'RN Evaluations & Diagnostic Reports',
       tagline: 'Registered Nurse (RN) led complex clinical evaluations, continence assessments, and comprehensive diagnostic reports.',
       inclusions: [
         'Registered Nurse (RN) led complex clinical health and nursing assessments',
-        'Comprehensive Continence Assessments, product trials, and plan prescriptions',
+        'Comprehensive Continence Assessments, product trials, and tailored recommendations',
         'Functional Capacity Assessments (FCA) for NDIS scheduled plan reviews',
         'Supported Independent Living (SIL) and Specialist Disability Accommodation (SDA) assessments',
         'Assistive Technology (AT Level 1–4) clinical evidence and scope-of-works reports',
@@ -214,7 +218,7 @@ export default function ServicesPage() {
       title: 'Speech Pathologists',
       credentials: 'SPA Certified',
       description:
-        'Dysphagia swallowing assessments, mealtime safety management, complex AAC prescription, and communication therapy.',
+        'Dysphagia swallowing assessments, mealtime safety management, AAC trials & recommendations, and communication therapy.',
     },
     {
       title: 'Positive Behaviour Support',
