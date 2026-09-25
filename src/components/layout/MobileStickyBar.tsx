@@ -21,11 +21,11 @@ export default function MobileStickyBar() {
         </a>
 
         <Link
-          href="/contact"
+          href="/referral"
           className="btn-interactive flex-1 min-h-[48px] px-3 py-2 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm"
         >
-          <CalendarCheck className="w-4 h-4 text-white shrink-0" />
-          <span className="truncate">Book Consultation</span>
+          <CalendarCheck className="w-4 h-4 text-brand-sky shrink-0" />
+          <span className="truncate">Make a Referral</span>
         </Link>
       </div>
     </aside>

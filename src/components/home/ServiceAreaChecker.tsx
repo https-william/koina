@@ -29,7 +29,7 @@ export default function ServiceAreaChecker() {
             Delivering Care Across Queensland
           </h2>
           <p className="text-base sm:text-lg text-slate-700 leading-[1.72]">
-            We provide home visits, school/community visits, and clinic sessions throughout 13 dedicated regions:
+            We provide in-home visits, mobile community therapy, and secure telehealth consultations across Queensland:
           </p>
         </div>
 
@@ -82,35 +82,25 @@ export default function ServiceAreaChecker() {
             </div>
 
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-900 text-xs sm:text-sm font-semibold self-start sm:self-auto shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-brand-navy animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
               <span>{selectedRegion.status}</span>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 py-7">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 py-7">
             <div className="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-200/80 shadow-sm">
               <Home className="w-5 h-5 text-brand-navy shrink-0 mt-0.5" />
               <div>
-                <p className="text-xs sm:text-sm font-semibold text-slate-900 mb-0.5">In-Home & Mobile</p>
-                <p className="text-xs text-slate-700 leading-snug">Available across all suburbs</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-200/80 shadow-sm">
-              <Building2 className="w-5 h-5 text-brand-navy shrink-0 mt-0.5" />
-              <div>
-                <p className="text-xs sm:text-sm font-semibold text-slate-900 mb-0.5">Clinic Facility</p>
-                <p className="text-xs text-slate-700 leading-snug">
-                  {selectedRegion.clinic ? 'Gold Coast Headquarters' : 'Mobile In-Home Service'}
-                </p>
+                <p className="text-xs sm:text-sm font-semibold text-slate-900 mb-0.5">In-Home & Mobile Visits</p>
+                <p className="text-xs text-slate-700 leading-snug">Therapists travel directly to your home or community setting</p>
               </div>
             </div>
 
             <div className="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-200/80 shadow-sm">
               <Video className="w-5 h-5 text-brand-sky shrink-0 mt-0.5" />
               <div>
-                <p className="text-xs sm:text-sm font-semibold text-slate-900 mb-0.5">Telehealth Option</p>
-                <p className="text-xs text-slate-700 leading-snug">Secure video consultations</p>
+                <p className="text-xs sm:text-sm font-semibold text-slate-900 mb-0.5">Secure Telehealth Option</p>
+                <p className="text-xs text-slate-700 leading-snug">Encrypted video sessions available statewide</p>
               </div>
             </div>
           </div>
@@ -142,13 +132,13 @@ export default function ServiceAreaChecker() {
           {/* Action Row */}
           <div className="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-5">
             <p className="text-xs text-slate-700 italic text-center sm:text-left leading-relaxed">
-              Need care in another Queensland community? Telehealth consultations and regional outreach are available.
+              Need care in another Queensland community? Telehealth consultations and regional mobile outreach are available statewide.
             </p>
             <Link
-              href={`/contact?region=${encodeURIComponent(selectedRegion.name)}`}
+              href={`/referral?region=${encodeURIComponent(selectedRegion.name)}`}
               className="btn-interactive shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white text-xs sm:text-sm font-semibold shadow-sm min-h-[44px]"
             >
-              <span>Book in {selectedRegion.name}</span>
+              <span>Make a Referral</span>
               <ArrowRight className="w-4 h-4 text-white" />
             </Link>
           </div>

@@ -105,8 +105,8 @@ export default function AntiGravityHeroArt({ className = '' }: AntiGravityHeroAr
               fill="none"
             />
 
-            {/* Walking Cane with subtle gentle drift */}
-            <g className="animate-low-gravity-cane">
+            {/* Walking Cane - stable, static vector */}
+            <g>
               <path
                 d="M 252 380 C 252 370, 240 370, 240 380 L 240 455"
                 stroke="#113C5E"
@@ -138,8 +138,8 @@ export default function AntiGravityHeroArt({ className = '' }: AntiGravityHeroAr
           {/* Features: Elegant hair bun, gentle smile, joyful step     */}
           {/* ========================================================= */}
           <g className="text-brand-navy">
-            {/* Top Hair Bun with subtle drift */}
-            <g className="animate-low-gravity-bun">
+            {/* Top Hair Bun */}
+            <g>
               <circle
                 cx="428"
                 cy="195"
@@ -210,8 +210,8 @@ export default function AntiGravityHeroArt({ className = '' }: AntiGravityHeroAr
             <line x1="416" y1="390" x2="416" y2="446" stroke="#113C5E" strokeWidth="3.5" strokeLinecap="round" />
             <path d="M 416 446 C 418 452, 426 453, 432 455 H 410" stroke="#113C5E" strokeWidth="3.4" strokeLinecap="round" />
 
-            {/* Joyful Back-Kicked Leg in Air */}
-            <g className="animate-low-gravity" style={{ transformOrigin: '438px 390px' }}>
+            {/* Step Leg */}
+            <g>
               <path
                 d="M 436 390 C 440 415, 454 430, 465 440"
                 stroke="#113C5E"
@@ -238,8 +238,8 @@ export default function AntiGravityHeroArt({ className = '' }: AntiGravityHeroAr
               fill="#FFFFFF"
             />
 
-            {/* Gentle Floating Care Heart drifting in zero gravity */}
-            <g className="animate-low-gravity" style={{ transformOrigin: '370px 320px' }}>
+            {/* Care Heart - Static, gentle connection */}
+            <g>
               <path
                 d="M 370 320 C 370 305, 386 300, 393 312 C 400 300, 416 305, 416 320 C 416 338, 393 352, 393 352 C 393 352, 370 338, 370 320 Z"
                 stroke="#2563EB"

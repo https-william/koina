@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { CheckCircle2, ArrowRight, ArrowLeft, Mail, Phone, User, AlertCircle } from 'lucide-react';
+import { CheckCircle2, ArrowRight, ArrowLeft, Mail, Phone, User, MessageSquare, ShieldCheck, HeartHandshake } from 'lucide-react';
 import { DoodleSparkle } from '@/components/brand/Doodles';
 
 export default function IntakeForm() {
@@ -16,7 +16,7 @@ export default function IntakeForm() {
     fullName: '',
     phone: '',
     email: '',
-    preferredContact: 'Email' as 'Email' | 'Phone',
+    preferredContact: 'Phone' as 'Phone' | 'Email' | 'SMS',
     fundingCategory: 'NDIS',
     services: [] as string[],
     message: '',
@@ -28,9 +28,9 @@ export default function IntakeForm() {
 
     setFormData((prev) => {
       let funding = prev.fundingCategory;
-      if (fundingParam === 'ndis') funding = 'NDIS';
-      if (fundingParam === 'aged-care') funding = 'Aged Care / Home Care Package';
-      if (fundingParam === 'dva') funding = 'DVA';
+      if (fundingParam === 'ndis') funding = 'NDIS (Plan, Self, or Agency-Managed)';
+      if (fundingParam === 'aged-care') funding = 'Home Care Package (HCP / CHSP)';
+      if (fundingParam === 'dva') funding = 'DVA (Gold or White Card)';
       if (fundingParam === 'private') funding = 'Private / Self-Funded';
 
       let services = [...prev.services];
@@ -47,9 +47,9 @@ export default function IntakeForm() {
   }, [searchParams]);
 
   const fundingCategories = [
-    'NDIS',
-    'Aged Care / Home Care Package',
-    'DVA',
+    'NDIS (Plan, Self, or Agency-Managed)',
+    'Home Care Package (HCP / CHSP)',
+    'DVA (Gold or White Card)',
     'Private / Self-Funded',
     'Other / Not Sure',
   ];
@@ -58,8 +58,9 @@ export default function IntakeForm() {
     'Occupational Therapy',
     'Physiotherapy',
     'Speech Pathology',
-    'Positive Behaviour Support',
-    'Therapy Assistants',
+    'Positive Behaviour Support (PBS)',
+    'Therapy Assistance (AHAs)',
+    'Clinical Assessments',
     'Not sure — help me choose',
   ];
 
@@ -87,12 +88,12 @@ export default function IntakeForm() {
       } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
         errs.email = 'Please enter a valid email address';
       }
-      if (!formData.fundingCategory) errs.fundingCategory = 'Please choose a funding category';
+      if (!formData.fundingCategory) errs.fundingCategory = 'Please select a funding category';
     }
 
     if (step === 2) {
       if (formData.services.length === 0) {
-        errs.services = 'Please select at least one service or "Not sure"';
+        errs.services = 'Please select at least one discipline or "Not sure"';
       }
     }
 
@@ -127,25 +128,25 @@ export default function IntakeForm() {
         </div>
 
         <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
-          Enquiry Received
+          Referral Received
         </h3>
 
         <p className="text-base text-slate-800 leading-[1.72] mb-8">
-          Thank you, <strong className="text-slate-900 font-bold">{formData.fullName}</strong>. Our Queensland intake team has received your enquiry and will be in touch within 24 business hours.
+          Thank you, <strong className="text-slate-900 font-bold">{formData.fullName}</strong>. Our Queensland clinical intake team has received your referral and will review it promptly within 24 business hours.
         </p>
 
-        {/* Summary snapshot with Generous Padding */}
+        {/* Summary snapshot */}
         <div className="bg-canvas rounded-2xl p-6 border border-slate-200 text-left text-sm space-y-3 mb-8">
           <div className="flex justify-between py-1.5 border-b border-slate-200">
-            <span className="text-slate-700 font-medium">Contact Method:</span>
-            <span className="font-bold text-slate-900">Via {formData.preferredContact} ({formData.preferredContact === 'Phone' ? formData.phone : formData.email})</span>
+            <span className="text-slate-700 font-medium">Preferred Contact:</span>
+            <span className="font-bold text-slate-900">Via {formData.preferredContact} ({formData.preferredContact === 'Email' ? formData.email : formData.phone})</span>
           </div>
           <div className="flex justify-between py-1.5 border-b border-slate-200">
             <span className="text-slate-700 font-medium">Funding Category:</span>
             <span className="font-bold text-slate-900">{formData.fundingCategory}</span>
           </div>
           <div className="flex justify-between py-1.5">
-            <span className="text-slate-700 font-medium">Services Requested:</span>
+            <span className="text-slate-700 font-medium">Discipline(s):</span>
             <span className="font-bold text-slate-900">{formData.services.join(', ')}</span>
           </div>
         </div>
@@ -157,7 +158,7 @@ export default function IntakeForm() {
           }}
           className="btn-interactive px-8 py-4 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white text-sm font-bold shadow-sm transition-all"
         >
-          Submit Another Enquiry
+          Submit Another Referral
         </button>
       </div>
     );
@@ -165,11 +166,11 @@ export default function IntakeForm() {
 
   return (
     <div className="rounded-[32px] bg-white border border-slate-200 shadow-ambient overflow-hidden">
-      {/* Step Indicator Header with Relaxed Spacing */}
+      {/* Step Indicator Header */}
       <div className="bg-brand-navy p-7 sm:p-8 text-white">
         <div className="flex items-center justify-between text-xs sm:text-sm font-semibold mb-3">
           <span className="text-slate-200">
-            Step {currentStep} of 2: {currentStep === 1 ? 'Your Details & Funding' : 'Services & Message'}
+            Step {currentStep} of 2: {currentStep === 1 ? 'Client Contact & Funding' : 'Clinical Disciplines & Details'}
           </span>
           <span className="font-bold text-brand-sky">{progressPercent}% Completed</span>
         </div>
@@ -183,7 +184,7 @@ export default function IntakeForm() {
         </div>
       </div>
 
-      {/* Form Content with Generous Field Gaps */}
+      {/* Form Content */}
       <form onSubmit={handleSubmit} className="p-7 sm:p-10 space-y-7">
         {currentStep === 1 && (
           <div className="space-y-6">
@@ -247,15 +248,15 @@ export default function IntakeForm() {
               <label className="block text-sm font-bold text-slate-900 mb-2">
                 Preferred Contact Method
               </label>
-              <div className="grid grid-cols-2 gap-4">
-                {(['Email', 'Phone'] as const).map((method) => {
+              <div className="grid grid-cols-3 gap-3">
+                {(['Phone', 'Email', 'SMS'] as const).map((method) => {
                   const isSelected = formData.preferredContact === method;
                   return (
                     <button
                       key={method}
                       type="button"
                       onClick={() => setFormData({ ...formData, preferredContact: method })}
-                      className={`py-3.5 px-5 rounded-xl border text-sm font-bold transition-all ${
+                      className={`py-3 px-4 rounded-xl border text-xs sm:text-sm font-bold transition-all ${
                         isSelected
                           ? 'bg-brand-navy text-white border-brand-navy shadow-sm'
                           : 'bg-white text-slate-800 hover:bg-slate-50 border-slate-300 shadow-xs'
@@ -272,7 +273,7 @@ export default function IntakeForm() {
               <label className="block text-sm font-bold text-slate-900 mb-2.5">
                 Funding Category <span className="text-brand-navy">*</span>
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 gap-2.5">
                 {fundingCategories.map((fund) => {
                   const isSelected = formData.fundingCategory === fund;
                   return (
@@ -280,7 +281,7 @@ export default function IntakeForm() {
                       key={fund}
                       type="button"
                       onClick={() => setFormData({ ...formData, fundingCategory: fund })}
-                      className={`min-h-[48px] px-4 py-2.5 rounded-xl border text-left flex items-center justify-between text-xs sm:text-sm font-semibold transition-all ${
+                      className={`min-h-[46px] px-4 py-2.5 rounded-xl border text-left flex items-center justify-between text-xs sm:text-sm font-semibold transition-all ${
                         isSelected
                           ? 'bg-brand-navy text-white border-brand-navy shadow-sm'
                           : 'bg-white border-slate-300 text-slate-800 hover:bg-slate-50'
@@ -303,10 +304,10 @@ export default function IntakeForm() {
           <div className="space-y-6">
             <div>
               <label className="block text-sm font-bold text-slate-900 mb-2">
-                Service(s) You&apos;re Interested In <span className="text-brand-navy">*</span>
+                Allied Health Discipline(s) Needed <span className="text-brand-navy">*</span>
               </label>
               <p className="text-xs text-slate-700 mb-4 font-normal">
-                Select one or more services needed:
+                Select one or more services for this referral:
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {serviceOptions.map((srv) => {
@@ -339,20 +340,20 @@ export default function IntakeForm() {
 
             <div>
               <label className="block text-sm font-bold text-slate-900 mb-2">
-                What can we help with? <span className="text-slate-600 font-normal">(Optional)</span>
+                Referral Notes & Participant Goals <span className="text-slate-600 font-normal">(Optional)</span>
               </label>
               <textarea
                 rows={4}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                placeholder="Share any goals, upcoming plan reviews, or questions you have..."
+                placeholder="Share any key participant goals, upcoming NDIS plan review dates, or specific clinician preferences..."
                 className="w-full p-4 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 placeholder:text-slate-500 focus:border-brand-navy focus:ring-1 focus:ring-brand-navy outline-none transition-all shadow-xs leading-relaxed"
               />
             </div>
           </div>
         )}
 
-        {/* Buttons with Generous Touch Target */}
+        {/* Buttons */}
         <div className="pt-6 border-t border-slate-200 flex items-center justify-between gap-4">
           {currentStep === 2 ? (
             <button
@@ -382,7 +383,7 @@ export default function IntakeForm() {
               className="btn-interactive inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white text-sm font-bold shadow-sm min-h-[50px]"
             >
               <DoodleSparkle className="w-4 h-4 text-brand-sky" />
-              <span>Submit Enquiry</span>
+              <span>Make a Referral</span>
             </button>
           )}
         </div>

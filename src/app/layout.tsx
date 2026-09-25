@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Koina Allied Health | Community & In-Home Healthcare Across Queensland',
     description:
-      'Care delivered where you feel most comfortable: at home, in clinic, or via telehealth across Queensland.',
+      'Care delivered where you feel most comfortable: in-home, mobile, or via telehealth across Queensland.',
     images: ['/koina-logo.png'],
   },
 };

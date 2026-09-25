@@ -4,37 +4,20 @@ import { Mail, MapPin, Clock, ShieldCheck, HeartHandshake, CheckCircle2 } from '
 import KoinaLogo from '@/components/brand/KoinaLogo';
 
 export default function Footer() {
-  const serviceLocations = [
-    'Gold Coast',
-    'Brisbane',
-    'Ipswich',
-    'Toowoomba',
-    'South Burnett',
-    'Cairns',
-    'Townsville',
-    'Mackay',
-    'Hervey Bay',
-    'Gympie',
-    'Sunshine Coast',
-    'Caboolture',
-    'Gladstone',
-  ];
-
   const quickNav = [
     { label: 'Home', href: '/' },
-    { label: 'About Us', href: '/about' },
-    { label: 'Our Services', href: '/services' },
-    { label: 'Funding & Eligibility', href: '/funding' },
-    { label: 'Locations & Coverage', href: '/locations' },
-    { label: 'Contact & Referrals', href: '/contact' },
+    { label: 'Services', href: '/services' },
+    { label: 'Location', href: '/locations' },
+    { label: 'Make a Referral', href: '/referral' },
   ];
 
   const servicesList = [
     { label: 'Occupational Therapy (OT)', href: '/services#ot' },
     { label: 'Physiotherapy', href: '/services#physio' },
-    { label: 'Positive Behaviour Support (PBS)', href: '/services#pbs' },
     { label: 'Speech Pathology', href: '/services#speech' },
+    { label: 'Positive Behaviour Support (PBS)', href: '/services#pbs' },
     { label: 'Therapy Assistants (AHAs)', href: '/services#aha' },
+    { label: 'Clinical Assessments', href: '/services#assessments' },
   ];
 
   return (
@@ -48,7 +31,7 @@ export default function Footer() {
               <KoinaLogo variant="dark" size="md" />
             </Link>
             <p className="text-sm text-slate-200 leading-[1.7] max-w-sm">
-              Healthcare built around the person, not the funding category. Delivering community, home, and clinic-based allied health care across Queensland.
+              Healthcare built around the person, not the funding category. Delivering in-home, mobile, and telehealth allied health care across Queensland.
             </p>
             <div className="pt-2 flex flex-col gap-2.5 text-xs text-slate-200">
               <div className="flex items-center gap-2">
@@ -120,8 +103,8 @@ export default function Footer() {
               <div className="flex items-start gap-2.5 text-slate-300">
                 <MapPin className="w-4 h-4 text-brand-sky mt-0.5 shrink-0" />
                 <div>
-                  <span className="text-slate-100 font-medium">Gold Coast, Queensland</span>
-                  <span className="block text-xs text-slate-300 mt-0.5">In-home visits statewide</span>
+                  <span className="text-slate-100 font-medium">Queensland, Australia</span>
+                  <span className="block text-xs text-slate-300 mt-0.5">In-home & mobile visits statewide</span>
                 </div>
               </div>
               <div className="flex items-start gap-2.5 text-slate-300">
@@ -133,10 +116,10 @@ export default function Footer() {
               </div>
               <div className="pt-2">
                 <Link
-                  href="/contact"
+                  href="/referral"
                   className="btn-interactive inline-flex items-center gap-1.5 text-xs text-brand-sky hover:text-white font-semibold"
                 >
-                  <span>Submit an Online Referral</span>
+                  <span>Make a Referral</span>
                   <span>→</span>
                 </Link>
               </div>
@@ -144,41 +127,37 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Queensland Service Regions Band */}
-        <div className="py-6 border-b border-white/10">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3.5">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-200">
-              Service Areas Across Queensland
+        {/* Queensland Service Delivery Band */}
+        <div className="py-6 border-b border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-200 block mb-0.5">
+              Delivering Care Across Queensland
             </span>
             <span className="text-xs text-slate-300">
-              In-home visits, clinic appointments & telehealth
+              In-home visits, mobile community therapy & secure statewide telehealth.
             </span>
           </div>
-          <div className="flex flex-wrap gap-2">
-            {serviceLocations.map((loc) => (
-              <span
-                key={loc}
-                className="text-xs px-3 py-1.5 rounded-lg bg-white/10 text-slate-200 border border-white/15 font-medium"
-              >
-                {loc}
-              </span>
-            ))}
-          </div>
+          <Link
+            href="/referral"
+            className="btn-interactive px-4 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-white text-xs font-semibold border border-white/20 transition-all shrink-0"
+          >
+            Make a Referral
+          </Link>
         </div>
 
-        {/* Bottom Copyright & Legal Notice strictly matching Handoff Page 8 */}
+        {/* Bottom Copyright & Legal Notice */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-300">
           <p>
             © 2026 Koina Allied Health. NDIS Registered Provider. DVA & Aged Care Providers welcome.
           </p>
           <div className="flex items-center gap-3 text-slate-400">
-            <Link href="/about" className="hover:text-white">About</Link>
+            <Link href="/" className="hover:text-white">Home</Link>
             <span>•</span>
             <Link href="/services" className="hover:text-white">Services</Link>
             <span>•</span>
-            <Link href="/funding" className="hover:text-white">Funding</Link>
+            <Link href="/locations" className="hover:text-white">Location</Link>
             <span>•</span>
-            <Link href="/contact" className="hover:text-white">Contact</Link>
+            <Link href="/referral" className="hover:text-white">Make a Referral</Link>
           </div>
         </div>
       </div>

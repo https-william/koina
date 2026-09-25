@@ -64,14 +64,14 @@ export default function LocationsPage() {
               </h1>
 
               <p className="text-base sm:text-lg text-slate-800 leading-[1.75] font-normal mb-8 max-w-2xl">
-                We provide mobile in-home therapy, school and workplace visits, and clinic sessions across 13 primary Queensland coverage hubs, supported by statewide telehealth.
+                We provide in-home therapy, school, and community visits across Queensland, supported by secure statewide telehealth.
               </p>
 
               {/* Coverage Snapshot Badges */}
               <div className="flex flex-wrap gap-3">
                 <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-800 shadow-xs">
                   <CheckCircle2 className="w-4 h-4 text-brand-sky" />
-                  13 Regional Coverage Hubs
+                  Delivering Care Across Queensland
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-800 shadow-xs">
                   <CheckCircle2 className="w-4 h-4 text-brand-sky" />
@@ -155,7 +155,7 @@ export default function LocationsPage() {
                       {region.zone}
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-slate-900 text-xs font-bold border border-slate-200 shadow-xs">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
                       {region.status}
                     </span>
                   </div>
@@ -173,14 +173,8 @@ export default function LocationsPage() {
                   <div className="flex flex-wrap gap-2 mb-6">
                     <span className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-xl bg-white text-slate-800 font-semibold border border-slate-200 shadow-xs">
                       <Home className="w-3.5 h-3.5 text-brand-navy" />
-                      In-Home Mobile
+                      In-Home & Mobile
                     </span>
-                    {region.clinic && (
-                      <span className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-xl bg-white text-slate-800 font-semibold border border-slate-200 shadow-xs">
-                        <Building2 className="w-3.5 h-3.5 text-brand-navy" />
-                        Clinic Facility
-                      </span>
-                    )}
                     <span className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-xl bg-white text-slate-800 font-semibold border border-slate-200 shadow-xs">
                       <Video className="w-3.5 h-3.5 text-brand-sky" />
                       Telehealth
@@ -207,10 +201,10 @@ export default function LocationsPage() {
 
                 <div className="pt-5 border-t border-slate-200 flex items-center justify-between">
                   <Link
-                    href={`/contact?region=${encodeURIComponent(region.name)}`}
+                    href={`/referral?region=${encodeURIComponent(region.name)}`}
                     className="btn-interactive inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-navy hover:text-brand-navy-light transition-colors"
                   >
-                    <span>Book in {region.name}</span>
+                    <span>Make a Referral</span>
                     <ArrowRight className="w-4 h-4 text-brand-navy" />
                   </Link>
 
@@ -230,13 +224,13 @@ export default function LocationsPage() {
                 No matching region found
               </h3>
               <p className="text-sm text-slate-800 mb-6 leading-relaxed">
-                Don’t worry! We offer secure telehealth consultations and periodic regional outreach trips across Queensland.
+                Don’t worry! We offer secure telehealth consultations and regional mobile outreach trips across Queensland.
               </p>
               <Link
-                href="/contact"
+                href="/referral"
                 className="btn-interactive inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white text-xs sm:text-sm font-semibold shadow-sm"
               >
-                <span>Enquire About Your Suburb</span>
+                <span>Make a Referral for Your Suburb</span>
                 <ArrowRight className="w-4 h-4 text-white" />
               </Link>
             </div>
@@ -249,14 +243,15 @@ export default function LocationsPage() {
                 Need care in another Queensland community?
               </h3>
               <p className="text-sm text-slate-800 leading-relaxed max-w-xl">
-                Telehealth consultations and regional outreach are available statewide for clients outside our primary metropolitan travel hubs.
+                Telehealth consultations and regional outreach are available statewide for clients across Queensland.
               </p>
             </div>
             <Link
-              href="/contact"
-              className="btn-interactive shrink-0 px-7 py-3.5 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white font-semibold text-sm shadow-sm transition-all min-h-[48px]"
+              href="/referral"
+              className="btn-interactive shrink-0 px-7 py-3.5 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white font-semibold text-sm shadow-sm transition-all min-h-[48px] inline-flex items-center gap-2"
             >
-              Contact Intake Team
+              <span>Make a Referral</span>
+              <ArrowRight className="w-4 h-4 text-white" />
             </Link>
           </div>
         </div>

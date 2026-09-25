@@ -237,10 +237,10 @@ export default function FundingPage() {
 
                     <div className="space-y-3 pt-5 border-t border-slate-100">
                       <Link
-                        href={`/contact?funding=${stream.id}`}
+                        href={`/referral?funding=${stream.id}`}
                         className="btn-interactive w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white text-xs sm:text-sm font-semibold shadow-sm transition-all min-h-[48px]"
                       >
-                        <span>Start Referral Under {stream.badge}</span>
+                        <span>Make a Referral Under {stream.badge}</span>
                         <ArrowRight className="w-4 h-4 text-white" />
                       </Link>
 
@@ -310,10 +310,10 @@ export default function FundingPage() {
                 </p>
                 <div className="pt-2">
                   <Link
-                    href="/contact"
+                    href="/referral"
                     className="btn-interactive inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white font-semibold text-sm sm:text-base shadow-sm transition-all min-h-[50px]"
                   >
-                    <span>Contact Intake Team</span>
+                    <span>Make a Referral</span>
                     <ArrowRight className="w-4 h-4 text-white" />
                   </Link>
                 </div>

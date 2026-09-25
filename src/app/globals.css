@@ -79,71 +79,31 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   75% { transform: rotate(1.5deg); }
 }
 
+/* Accessible Static Design System for Disability-First Safety */
+/* Motion is kept completely static to prevent cognitive fatigue, visual distraction, or sensory overload */
 .animate-doodle-wobble {
-  animation: doodle-wobble 4s ease-in-out infinite;
-}
-
-/* Open Doodles Self-Drawing & Continuous Looping Animation System */
-@keyframes drawIn {
-  from {
-    stroke-dashoffset: var(--path-length, 1000);
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
+  animation: none;
 }
 
 .animate-draw-in {
-  animation: drawIn 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-@keyframes continuousDoodleLoop {
-  0% {
-    stroke-dashoffset: var(--path-length, 1000);
-  }
-  38%, 68% {
-    stroke-dashoffset: 0;
-  }
-  94%, 100% {
-    stroke-dashoffset: calc(-1 * var(--path-length, 1000));
-  }
+  stroke-dashoffset: 0;
 }
 
 .animate-continuous-loop {
-  animation: continuousDoodleLoop 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-@keyframes doodle-float {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-5px) rotate(0.4deg);
-  }
+  animation: none;
+  stroke-dashoffset: 0;
 }
 
 .animate-doodle-float {
-  animation: doodle-float 5s ease-in-out infinite;
-}
-
-@keyframes doodle-ripple {
-  0%, 100% {
-    stroke-opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    stroke-opacity: 0.85;
-    transform: scale(1.015);
-  }
+  animation: none;
 }
 
 .doodle-interactive {
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+  transition: transform 0.2s ease, filter 0.2s ease;
 }
 
 .doodle-interactive:hover {
-  transform: translateY(-4px) scale(1.018);
-  filter: drop-shadow(0 8px 16px rgba(17, 60, 94, 0.08));
+  transform: translateY(-2px);
 }
 
 .stroke-doodle {
@@ -151,109 +111,24 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   stroke-linejoin: round;
 }
 
-/* Continuous Infinite Looping Stroke Trace */
-@keyframes infinite-path-trace {
-  0% {
-    stroke-dashoffset: 2400;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-
-.animate-infinite-trace {
-  stroke-dasharray: 600 600;
-  animation: infinite-path-trace 12s linear infinite;
-}
-
-.animate-infinite-trace-fast {
-  stroke-dasharray: 400 400;
-  animation: infinite-path-trace 8s linear infinite;
-}
-
+/* Static Monoline Traces */
+.animate-infinite-trace,
+.animate-infinite-trace-fast,
 .animate-infinite-trace-slow {
-  stroke-dasharray: 800 800;
-  animation: infinite-path-trace 18s linear infinite;
+  animation: none;
 }
 
-/* Low-Gravity Anti-Gravity Drift Particles */
-@keyframes low-gravity-drift {
-  0%, 100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-  33% {
-    transform: translate3d(2px, -6px, 0) rotate(1.2deg);
-  }
-  66% {
-    transform: translate3d(-3px, -11px, 0) rotate(-1deg);
-  }
-}
-
-.animate-low-gravity {
-  animation: low-gravity-drift 7s ease-in-out infinite;
-  will-change: transform;
-}
-
-@keyframes low-gravity-drift-alt {
-  0%, 100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-  40% {
-    transform: translate3d(-3px, -8px, 0) rotate(-1.5deg);
-  }
-  75% {
-    transform: translate3d(2px, -4px, 0) rotate(0.8deg);
-  }
-}
-
-.animate-low-gravity-alt {
-  animation: low-gravity-drift-alt 9s ease-in-out infinite;
-  will-change: transform;
-}
-
-@keyframes low-gravity-cane {
-  0%, 100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-  50% {
-    transform: translate3d(1px, -7px, 0) rotate(2deg);
-  }
-}
-
-.animate-low-gravity-cane {
-  transform-origin: 30% 90%;
-  animation: low-gravity-cane 6s ease-in-out infinite;
-  will-change: transform;
-}
-
-@keyframes low-gravity-bun {
-  0%, 100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-  50% {
-    transform: translate3d(0px, -4px, 0) rotate(-2deg);
-  }
-}
-
-.animate-low-gravity-bun {
-  transform-origin: 62% 20%;
-  animation: low-gravity-bun 5s ease-in-out infinite;
-  will-change: transform;
-}
-
-@keyframes celestial-orbit {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-celestial-orbit {
-  transform-origin: center;
-  animation: celestial-orbit 40s linear infinite;
-  will-change: transform;
+/* Static Low-Gravity Elements */
+.animate-low-gravity,
+.animate-low-gravity-alt,
+.animate-low-gravity-cane,
+.animate-low-gravity-bun,
+.animate-celestial-orbit,
+.animate-logo-drift,
+.animate-morph-a,
+.animate-morph-b {
+  animation: none;
+  transform: none;
 }
 
 /* Logo Wave Tether Animated Flow */

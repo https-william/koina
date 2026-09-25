@@ -34,10 +34,10 @@ export default function ClosingCTA() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
               <Link
-                href="/contact"
+                href="/referral"
                 className="btn-interactive w-full sm:w-auto min-h-[50px] inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-brand-navy font-bold text-sm sm:text-base shadow-sm transition-all"
               >
-                <span>Contact Us</span>
+                <span>Make a Referral</span>
                 <ArrowRight className="w-4 h-4 text-brand-navy" />
               </Link>
 

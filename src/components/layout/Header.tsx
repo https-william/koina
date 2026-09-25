@@ -13,11 +13,9 @@ export default function Header() {
 
   const navLinks = [
     { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
     { label: 'Services', href: '/services' },
-    { label: 'Funding & Eligibility', href: '/funding' },
-    { label: 'Locations', href: '/locations' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'Location', href: '/locations' },
+    { label: 'Make a Referral', href: '/referral' },
   ];
 
   const isActive = (href: string) => {
@@ -53,7 +51,7 @@ export default function Header() {
             </a>
             <span className="hidden md:inline-block text-white/20">•</span>
             <span className="hidden md:inline text-xs text-slate-300 font-medium">
-              Queensland In-Home, Clinic & Telehealth
+              Queensland In-Home, Mobile & Telehealth
             </span>
           </div>
         </div>
@@ -90,10 +88,10 @@ export default function Header() {
           {/* Header Action CTA (10% High-Intent Accent) */}
           <div className="hidden lg:flex items-center space-x-4">
             <Link
-              href="/contact"
+              href="/referral"
               className="btn-interactive inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-navy text-white font-semibold text-sm shadow-sm hover:bg-brand-navy-light"
             >
-              <span>Book a Consultation</span>
+              <span>Make a Referral</span>
               <ArrowRight className="w-4 h-4 text-brand-sky" />
             </Link>
           </div>
@@ -101,10 +99,10 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <div className="flex lg:hidden items-center space-x-3">
             <Link
-              href="/contact"
+              href="/referral"
               className="btn-interactive px-3.5 py-2 rounded-xl bg-brand-navy text-white font-medium text-xs sm:text-sm"
             >
-              Consultation
+              Referral
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -145,11 +143,11 @@ export default function Header() {
                 <span>contact@koina.com.au</span>
               </a>
               <Link
-                href="/contact"
+                href="/referral"
                 onClick={() => setMobileMenuOpen(false)}
                 className="btn-interactive flex items-center justify-center gap-2 py-3.5 rounded-xl bg-brand-navy text-white font-semibold text-sm shadow-sm"
               >
-                <span>Book a Consultation</span>
+                <span>Make a Referral</span>
                 <ArrowRight className="w-4 h-4 text-brand-sky" />
               </Link>
             </div>

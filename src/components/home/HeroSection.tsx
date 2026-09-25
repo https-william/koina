@@ -34,16 +34,16 @@ export default function HeroSection() {
 
             {/* Subheadline (24px to CTA: mb-6) */}
             <p className="text-sm sm:text-base text-slate-700 leading-relaxed max-w-xl mb-6 font-normal">
-              Koina Allied Health supports individuals, families, older Australians, and veterans across Queensland — through the NDIS, Aged Care, DVA, or privately. Care delivered where you feel most comfortable: at home, in clinic, or via telehealth.
+              Koina Allied Health supports individuals, families, older Australians, and veterans across Queensland — through the NDIS, Aged Care, DVA, or privately. Care delivered where you feel most comfortable: in-home, mobile, or via telehealth across Queensland.
             </p>
 
             {/* CTA Button Pair with 2:1 Visual Dominance */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
               <Link
-                href="/contact"
+                href="/referral"
                 className="btn-interactive inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white font-semibold text-sm sm:text-base shadow-sm focus:ring-2 focus:ring-brand-navy focus:ring-offset-2 min-h-[46px]"
               >
-                <span>Book a Consultation</span>
+                <span>Make a Referral</span>
                 <ArrowRight className="w-4 h-4 text-white" />
               </Link>
 
@@ -51,7 +51,7 @@ export default function HeroSection() {
                 href="/services"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white border border-slate-300 text-slate-800 font-semibold text-sm sm:text-base hover:bg-slate-50 transition-colors min-h-[46px] shadow-xs"
               >
-                <span>Explore Services & Funding</span>
+                <span>Explore Services</span>
               </Link>
             </div>
 
@@ -81,7 +81,7 @@ export default function HeroSection() {
                 01
               </div>
               <p className="text-xs font-semibold text-slate-800">
-                In-Home & Mobile Visits across 13 QLD regions
+                In-home & mobile visits across Queensland
               </p>
             </div>
 
@@ -90,7 +90,7 @@ export default function HeroSection() {
                 02
               </div>
               <p className="text-xs font-semibold text-slate-800">
-                Permanent clinical placements — familiar faces who stay
+                Zero billing surprises — NDIS & DVA transparent pricing
               </p>
             </div>
 
@@ -99,7 +99,7 @@ export default function HeroSection() {
                 03
               </div>
               <p className="text-xs font-semibold text-slate-800">
-                Zero billing surprises — NDIS & DVA transparent pricing
+                Secure telehealth available statewide
               </p>
             </div>
           </div>

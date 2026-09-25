@@ -223,18 +223,18 @@ export default function WhoWeSupport() {
 
               <div className="pt-2 flex flex-col gap-3">
                 <Link
-                  href={`/contact?funding=${currentPathway.id}`}
+                  href={`/referral?funding=${currentPathway.id}`}
                   className="btn-interactive inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white text-sm font-semibold shadow-sm min-h-[46px]"
                 >
-                  <span>Submit {currentPathway.title} Referral</span>
+                  <span>Make a Referral</span>
                   <ArrowRight className="w-4 h-4 text-white" />
                 </Link>
 
                 <Link
-                  href={currentPathway.ctaHref}
+                  href="/services"
                   className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-800 text-xs sm:text-sm font-semibold hover:bg-slate-100 transition-colors min-h-[44px]"
                 >
-                  <span>{currentPathway.ctaText}</span>
+                  <span>Explore Allied Health Disciplines</span>
                 </Link>
               </div>
             </div>
