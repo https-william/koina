@@ -9,11 +9,71 @@ export const metadata: Metadata = {
   title: 'Make a Referral | NDIS, Aged Care & DVA Allied Health Intake | Koina Allied Health',
   description:
     'Make an allied health referral for Occupational Therapy, Physiotherapy, Speech Pathology, Positive Behaviour Support, or Clinical Assessments across Queensland. Rapid 24-hour intake.',
+  alternates: {
+    canonical: '/referral',
+  },
+  openGraph: {
+    title: 'Make a Referral | Koina Allied Health Queensland',
+    description:
+      'Fast, simple allied health intake across Queensland. Direct clinical triage within 24 hours for NDIS, Aged Care, DVA, and private referrals.',
+    url: 'https://koina.com.au/referral',
+    siteName: 'Koina Allied Health',
+    locale: 'en_AU',
+    type: 'website',
+  },
 };
 
 export default function ReferralPage() {
+  const referralJsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://koina.com.au',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Make a Referral',
+            item: 'https://koina.com.au/referral',
+          },
+        ],
+      },
+      {
+        '@type': 'ContactPage',
+        '@id': 'https://koina.com.au/referral#contact',
+        name: 'Koina Allied Health Intake & Referrals',
+        description:
+          'Online referral and intake portal for allied health services across Queensland. 24-hour clinical triage for NDIS, Aged Care, DVA, and private participants.',
+        url: 'https://koina.com.au/referral',
+        mainEntity: {
+          '@type': 'MedicalBusiness',
+          name: 'Koina Allied Health Central Intake',
+          email: 'contact@koina.com.au',
+          areaServed: 'Queensland, Australia',
+          availableChannel: {
+            '@type': 'ServiceChannel',
+            serviceType: 'Online Allied Health Referral',
+            serviceUrl: 'https://koina.com.au/referral',
+          },
+        },
+      },
+    ],
+  };
+
   return (
     <div className="bg-canvas min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(referralJsonLd),
+        }}
+      />
       {/* Hero Header */}
       <section className="relative bg-canvas pt-16 md:pt-24 pb-0 overflow-hidden">
         {/* Subtle Background Line Art */}

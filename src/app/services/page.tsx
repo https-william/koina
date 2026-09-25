@@ -31,9 +31,21 @@ import {
 } from '@/components/brand/OpenDoodlesArt';
 
 export const metadata: Metadata = {
-  title: 'Our Services | Allied Health Disciplines | Koina Allied Health',
+  title: 'Allied Health Services Queensland | OT, Physio, Speech, PBS & Assessments',
   description:
-    'Multidisciplinary allied health care across Queensland. Occupational Therapy, Physiotherapy, Speech Pathology, Positive Behaviour Support, Therapy Assistants, and Clinical Assessments delivered in-home, mobile, or via telehealth.',
+    'Multidisciplinary in-home, mobile & telehealth allied health services across Queensland. Occupational Therapy, Physiotherapy, Speech Pathology, Positive Behaviour Support (PBS), AHAs, and Clinical Assessments.',
+  alternates: {
+    canonical: '/services',
+  },
+  openGraph: {
+    title: 'Allied Health Services Queensland | Koina Allied Health',
+    description:
+      'In-home, mobile and telehealth allied health disciplines across Queensland. Occupational Therapy, Physiotherapy, Speech Pathology, Positive Behaviour Support, and Clinical Assessments.',
+    url: 'https://koina.com.au/services',
+    siteName: 'Koina Allied Health',
+    locale: 'en_AU',
+    type: 'website',
+  },
 };
 
 export default function ServicesPage() {
@@ -229,8 +241,50 @@ export default function ServicesPage() {
     },
   ];
 
+  const servicesJsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://koina.com.au',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Services',
+            item: 'https://koina.com.au/services',
+          },
+        ],
+      },
+      {
+        '@type': 'ItemList',
+        name: 'Koina Allied Health Clinical Services & Disciplines',
+        description:
+          'Multidisciplinary in-home, mobile, and telehealth allied health services delivered across Queensland.',
+        itemListElement: services.map((svc, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: svc.title,
+          url: `https://koina.com.au/services#${svc.id}`,
+          description: svc.tagline,
+        })),
+      },
+    ],
+  };
+
   return (
     <div className="bg-canvas min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(servicesJsonLd),
+        }}
+      />
       {/* Header */}
       <section className="relative bg-canvas pt-16 md:pt-24 pb-0 overflow-hidden">
         {/* Subtle Background Line Art */}
