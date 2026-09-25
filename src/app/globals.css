@@ -123,10 +123,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .animate-low-gravity-alt,
 .animate-low-gravity-cane,
 .animate-low-gravity-bun,
-.animate-celestial-orbit,
-.animate-logo-drift,
-.animate-morph-a,
-.animate-morph-b {
+.animate-celestial-orbit {
   animation: none;
   transform: none;
 }
@@ -155,7 +152,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   will-change: transform;
 }
 
-/* Symbol Morph Sequence (Heart to Care Hands and Back) */
+/* Gentle Symbol Morph & Pulse Sequence (Heart to Care Hands) */
 @keyframes symbol-morph-fade {
   0%, 45% {
     opacity: 1;
@@ -163,7 +160,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
   50%, 95% {
     opacity: 0;
-    transform: scale(0.92);
+    transform: scale(0.94);
   }
   100% {
     opacity: 1;
@@ -174,7 +171,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @keyframes symbol-morph-fade-reverse {
   0%, 45% {
     opacity: 0;
-    transform: scale(0.92);
+    transform: scale(0.94);
   }
   50%, 95% {
     opacity: 1;
@@ -182,19 +179,34 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
   100% {
     opacity: 0;
-    transform: scale(0.92);
+    transform: scale(0.94);
+  }
+}
+
+@keyframes gentle-pulse-glow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.35;
   }
 }
 
 .animate-morph-a {
-  animation: symbol-morph-fade 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: symbol-morph-fade 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .animate-morph-b {
-  animation: symbol-morph-fade-reverse 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: symbol-morph-fade-reverse 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-/* Value Props Infinite Scrolling Ticker / Marquee */
+.animate-pulse-glow {
+  animation: gentle-pulse-glow 4s ease-in-out infinite;
+}
+
+/* Value Props Slow, Calm Ticker (WCAG Accessible for Neurodiverse & Disabled Users) */
 @keyframes marquee {
   0% {
     transform: translateX(0%);
@@ -207,10 +219,26 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 34s linear infinite;
+  animation: marquee 85s linear infinite;
+  will-change: transform;
 }
 
-.animate-marquee:hover {
+.animate-marquee:hover,
+.animate-marquee:focus-within {
   animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none !important;
+    overflow-x: auto;
+  }
+  .animate-morph-a,
+  .animate-morph-b,
+  .animate-pulse-glow,
+  .animate-logo-drift {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 

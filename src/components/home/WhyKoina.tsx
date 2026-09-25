@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, HeartHandshake, Compass, ShieldCheck } from 'lucide-react';
-import { DoodleSparkle, DoodleBotanicalWatermark, DoodleWaveDivider, DoodleUnderline } from '@/components/brand/Doodles';
+import { DoodleSparkle, DoodleWaveDivider, DoodleUnderline } from '@/components/brand/Doodles';
 
 export default function WhyKoina() {
   const anchors = [
@@ -23,11 +23,8 @@ export default function WhyKoina() {
   ];
 
   return (
-    <section className="relative py-16 md:py-24 bg-white overflow-hidden">
-      {/* Subtle organic watermark */}
-      <DoodleBotanicalWatermark className="bottom-12 right-6 w-80 h-80 text-brand-navy opacity-[0.035] -rotate-45 hidden lg:block" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-16">
+    <section className="relative py-14 md:py-20 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-12">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200/90 text-slate-800 text-xs font-semibold mb-4 shadow-sm">

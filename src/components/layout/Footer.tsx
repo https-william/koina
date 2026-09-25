@@ -7,6 +7,7 @@ export default function Footer() {
   const quickNav = [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
+    { label: 'Locations', href: '/locations' },
     { label: 'Contact Us', href: '/contact' },
     { label: 'Make a Referral', href: '/referral' },
   ];

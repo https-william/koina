@@ -3,15 +3,26 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, ShieldCheck, CheckCircle2, HeartHandshake, MapPin } from 'lucide-react';
-import { DoodleUnderline, DoodleSparkle, DoodleWaveDivider, HeroBackgroundLineArt } from '@/components/brand/Doodles';
-import AntiGravityHeroArt from '@/components/brand/AntiGravityHeroArt';
+import { DoodleUnderline, DoodleSparkle, DoodleWaveDivider } from '@/components/brand/Doodles';
 import ValuePropsTicker from '@/components/home/ValuePropsTicker';
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden pt-6 sm:pt-8 md:pt-10 pb-0 bg-canvas">
-      {/* Creative Subtle Background Line Art (Sun arc, continuous care wave, native eucalyptus fronds) */}
-      <HeroBackgroundLineArt />
+    <section className="relative overflow-hidden pt-8 sm:pt-10 md:pt-14 pb-0 bg-canvas">
+      {/* Dynamic Video Background with Soft Canvas Overlay */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-25 filter saturate-110 contrast-105"
+        >
+          <source src="/videos/services-hero-bg.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-canvas via-canvas/90 to-canvas/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-canvas" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-8 md:pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
@@ -56,10 +67,38 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right Visual Dimension Column: Monoline Care Art */}
+          {/* Right Visual Dimension Column: Dynamic Video Showcase Card */}
           <div className="lg:col-span-5 relative flex justify-center">
-            <div className="relative w-full max-w-[460px]">
-              <AntiGravityHeroArt />
+            <div className="relative w-full max-w-[460px] rounded-[28px] overflow-hidden bg-slate-900 border-2 border-white/80 shadow-2xl group">
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                >
+                  <source src="/videos/services-hero-bg.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-slate-950/20" />
+
+                {/* Live Status Badge */}
+                <div className="absolute top-3.5 left-3.5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/20 text-white text-xs font-semibold shadow-md">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>In-Home & Mobile Care</span>
+                </div>
+
+                {/* Bottom Overlay Summary */}
+                <div className="absolute bottom-3.5 left-3.5 right-3.5 p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-white/60 shadow-lg text-slate-900">
+                  <div className="flex items-center justify-between text-xs font-bold text-brand-navy mb-0.5">
+                    <span>Queensland Outreach</span>
+                    <span className="text-emerald-700 font-semibold">Immediate Capacity</span>
+                  </div>
+                  <p className="text-[11px] text-slate-600 leading-snug">
+                    Therapists visit your home, school, aged care, or connect statewide via secure telehealth.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

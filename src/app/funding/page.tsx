@@ -11,8 +11,7 @@ import {
   HelpCircle,
   Mail,
 } from 'lucide-react';
-import { DoodleUnderline, DoodleSparkle, DoodleBotanicalWatermark, DoodleWaveDivider, HeroBackgroundLineArt, CareConnectionLineArt } from '@/components/brand/Doodles';
-import { OpenDoodleConnectingHands, OpenDoodleCareHero } from '@/components/brand/OpenDoodlesArt';
+import { DoodleUnderline, DoodleSparkle, DoodleWaveDivider } from '@/components/brand/Doodles';
 
 export const metadata: Metadata = {
   title: 'Funding & Eligibility | NDIS, Aged Care, DVA & Private | Koina Allied Health',
@@ -109,22 +108,18 @@ export default function FundingPage() {
 
   return (
     <div className="bg-canvas min-h-screen">
-      {/* Hero Header with Two-Column Open Doodles Monoline Art */}
-      <section className="relative bg-canvas pt-16 md:pt-24 pb-0 overflow-hidden">
-        {/* Subtle Background Line Art */}
-        <HeroBackgroundLineArt />
-        <DoodleBotanicalWatermark className="top-8 right-6 w-80 h-80 text-brand-navy opacity-20 -rotate-12" />
-
+      {/* Hero Header with Clean Professional Layout */}
+      <section className="relative bg-canvas pt-14 md:pt-20 pb-0 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center mb-10">
             {/* Left Content Column */}
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 text-slate-800 text-xs font-semibold mb-6 shadow-sm">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 text-slate-800 text-xs font-semibold mb-5 shadow-sm">
                 <ShieldCheck className="w-3.5 h-3.5 text-brand-navy" />
                 <span>Funding & Eligibility Guide</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-[-0.025em] leading-[1.18] mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-[-0.025em] leading-[1.18] mb-5">
                 However You&apos;re Funded,{' '}
                 <span className="relative inline-block">
                   We Can Help
@@ -132,7 +127,7 @@ export default function FundingPage() {
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-800 leading-[1.75] font-normal mb-8 max-w-2xl">
+              <p className="text-base sm:text-lg text-slate-700 leading-[1.75] font-normal mb-7 max-w-2xl">
                 Navigating healthcare funding in Australia can be complicated. We keep it straightforward. Here&apos;s a clear breakdown of the funding streams we work with, what&apos;s covered, and how to get started.
               </p>
 
@@ -151,18 +146,41 @@ export default function FundingPage() {
               </div>
             </div>
 
-            {/* Right Open Doodles Monoline Art */}
+            {/* Right Funding Pathways Summary Card */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-md p-6 sm:p-8 rounded-[36px] bg-white border border-slate-200 shadow-ambient flex flex-col items-center text-center">
-                <div className="w-full flex justify-center">
-                  <OpenDoodleConnectingHands className="w-64 h-56 text-brand-navy" />
+              <div className="relative w-full max-w-md p-6 sm:p-7 rounded-[28px] bg-white border border-slate-200/90 shadow-ambient space-y-4">
+                <div className="flex items-center gap-3 pb-3.5 border-b border-slate-100">
+                  <div className="w-10 h-10 rounded-xl bg-brand-navy/10 flex items-center justify-center text-brand-navy shrink-0">
+                    <ShieldCheck className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-slate-900">Direct Funding Coordination</h3>
+                    <p className="text-xs text-slate-500">Transparent & Accountable</p>
+                  </div>
                 </div>
-                <div className="mt-4 pt-4 border-t border-slate-100 w-full">
-                  <p className="text-xs font-bold uppercase tracking-wider text-brand-navy mb-1">
-                    Care Coordination
-                  </p>
-                  <p className="text-xs text-slate-700 leading-relaxed font-medium">
-                    We bridge communication between participants, care managers, and funding bodies seamlessly.
+
+                <div className="space-y-2.5">
+                  <div className="p-2.5 rounded-xl bg-canvas border border-slate-200/80 flex items-center justify-between">
+                    <span className="text-xs text-slate-700 font-medium">NDIS</span>
+                    <span className="text-xs font-bold text-brand-navy">Plan & Self-Managed</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-canvas border border-slate-200/80 flex items-center justify-between">
+                    <span className="text-xs text-slate-700 font-medium">My Aged Care</span>
+                    <span className="text-xs font-bold text-brand-navy">HCP Levels 1–4 & CHSP</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-canvas border border-slate-200/80 flex items-center justify-between">
+                    <span className="text-xs text-slate-700 font-medium">Veterans</span>
+                    <span className="text-xs font-bold text-brand-navy">DVA Gold & White Card</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-canvas border border-slate-200/80 flex items-center justify-between">
+                    <span className="text-xs text-slate-700 font-medium">Private</span>
+                    <span className="text-xs font-bold text-brand-navy">Health Fund & Medicare CDM</span>
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-slate-100">
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Zero surprise gap fees or hidden charges. Itemised line-item billing strictly adhering to national standards.
                   </p>
                 </div>
               </div>
@@ -264,11 +282,9 @@ export default function FundingPage() {
       </section>
 
       {/* Funding FAQs & Guidance */}
-      <section className="relative py-20 md:py-28 bg-canvas overflow-hidden">
-        <DoodleBotanicalWatermark className="bottom-12 right-6 w-80 h-80 text-brand-navy opacity-20 -rotate-45" />
-
+      <section className="relative py-16 md:py-24 bg-canvas overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
+          <div className="text-center mb-14">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-slate-800 text-xs font-semibold mb-4 shadow-sm">
               <HelpCircle className="w-3.5 h-3.5 text-brand-navy" />
               <span>Got Questions?</span>
@@ -278,49 +294,51 @@ export default function FundingPage() {
             </h2>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-5">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="rounded-[28px] bg-white border border-slate-200 p-7 sm:p-9 space-y-3 shadow-sm hover:shadow-ambient transition-all"
+                className="rounded-2xl bg-white border border-slate-200 p-6 sm:p-7 space-y-2.5 shadow-sm hover:shadow-ambient transition-all"
               >
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
                   {faq.q}
                 </h3>
-                <p className="text-sm sm:text-base text-slate-800 leading-[1.72]">
+                <p className="text-sm text-slate-700 leading-[1.72]">
                   {faq.a}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* Not Sure Where You Fit? Callout with Open Doodles Monoline Art */}
-          <div className="mt-16 rounded-[36px] bg-white border border-slate-200 p-10 sm:p-14 shadow-ambient">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-              <div className="md:col-span-8 space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-semibold">
-                  <DoodleSparkle className="w-3.5 h-3.5 text-brand-navy" />
-                  <span>Personalized Guidance</span>
-                </div>
-                <h3 className="font-bold text-2xl sm:text-3xl text-slate-900">
-                  Not Sure Where You Fit?
-                </h3>
-                <p className="text-base text-slate-800 leading-[1.75]">
-                  Many of the people we speak to aren&apos;t sure which funding stream applies, or have multiple types of support in place. That&apos;s completely normal. Get in touch with our intake team — we&apos;ll help you figure out what you&apos;re eligible for and the best way to access the care you need.
-                </p>
-                <div className="pt-2">
-                  <Link
-                    href="/referral"
-                    className="btn-interactive inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white font-semibold text-sm sm:text-base shadow-sm transition-all min-h-[50px]"
-                  >
-                    <span>Make a Referral</span>
-                    <ArrowRight className="w-4 h-4 text-white" />
-                  </Link>
-                </div>
+          {/* Not Sure Where You Fit? Callout */}
+          <div className="mt-14 rounded-[28px] sm:rounded-[32px] bg-white border border-slate-200 p-8 sm:p-10 shadow-ambient">
+            <div className="max-w-2xl mx-auto text-center space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-semibold">
+                <DoodleSparkle className="w-3.5 h-3.5 text-brand-navy" />
+                <span>Personalized Guidance</span>
               </div>
+              <h3 className="font-bold text-2xl sm:text-3xl text-slate-900">
+                Not Sure Where You Fit?
+              </h3>
+              <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+                Many of the people we speak to aren&apos;t sure which funding stream applies, or have multiple types of support in place. That&apos;s completely normal. Get in touch with our intake team — we&apos;ll help you figure out what you&apos;re eligible for and the best way to access the care you need.
+              </p>
+              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+                <Link
+                  href="/referral"
+                  className="btn-interactive inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white font-semibold text-sm shadow-sm transition-all min-h-[46px]"
+                >
+                  <span>Make a Referral</span>
+                  <ArrowRight className="w-4 h-4 text-white" />
+                </Link>
 
-              <div className="md:col-span-4 flex justify-center">
-                <OpenDoodleCareHero className="w-56 h-48 text-brand-navy" />
+                <a
+                  href="mailto:contact@koina.com.au"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 font-semibold text-sm hover:bg-slate-100 transition-colors min-h-[46px]"
+                >
+                  <Mail className="w-4 h-4 text-brand-navy" />
+                  <span>contact@koina.com.au</span>
+                </a>
               </div>
             </div>
           </div>

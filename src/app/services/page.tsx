@@ -21,14 +21,7 @@ import {
   ShieldCheck,
   UserCheck,
 } from 'lucide-react';
-import { DoodleUnderline, DoodleSparkle, DoodleBotanicalWatermark, DoodleWaveDivider, HeroBackgroundLineArt, DoodleHeart } from '@/components/brand/Doodles';
-import {
-  OpenDoodleDailyLiving,
-  OpenDoodleMobility,
-  OpenDoodleConversation,
-  OpenDoodleConnectingHands,
-  OpenDoodleCareHero,
-} from '@/components/brand/OpenDoodlesArt';
+import { DoodleUnderline, DoodleSparkle, DoodleWaveDivider, DoodleHeart } from '@/components/brand/Doodles';
 
 export const metadata: Metadata = {
   title: 'Allied Health Services Queensland | OT, Physio, Speech, PBS & Assessments',
@@ -54,7 +47,6 @@ export default function ServicesPage() {
       id: 'ot',
       title: 'Occupational Therapy',
       icon: Accessibility,
-      art: OpenDoodleDailyLiving,
       tagline: 'Functional capacity evaluations, equipment trials, and home modifications supporting everyday independence.',
       inclusions: [
         'Functional Capacity Assessments (FCA) for NDIS plan reviews and funding justification',
@@ -71,7 +63,6 @@ export default function ServicesPage() {
       id: 'physio',
       title: 'Physiotherapy',
       icon: Activity,
-      art: OpenDoodleMobility,
       tagline: 'Mobility rehabilitation, musculoskeletal recovery, and physical conditioning delivered in your home.',
       inclusions: [
         'Mobility, gait, transfers, and posture assessments',
@@ -88,7 +79,6 @@ export default function ServicesPage() {
       id: 'speech',
       title: 'Speech Pathology',
       icon: MessageSquareText,
-      art: OpenDoodleConversation,
       tagline: 'Specialised support for dysphagia, swallowing safety, and clear communication therapy.',
       inclusions: [
         'Comprehensive dysphagia swallowing assessments and safe feeding management',
@@ -105,7 +95,6 @@ export default function ServicesPage() {
       id: 'pbs',
       title: 'Positive Behaviour Support (PBS)',
       icon: Heart,
-      art: OpenDoodleConnectingHands,
       tagline: 'Compassionate, person-centred behaviour support that respects dignity and builds on strengths.',
       inclusions: [
         'Functional Behaviour Assessments (FBA)',
@@ -122,7 +111,6 @@ export default function ServicesPage() {
       id: 'aha',
       title: 'Therapy Assistants (Allied Health Assistants)',
       icon: Sparkles,
-      art: OpenDoodleCareHero,
       tagline: 'Making your therapy plan go further with structured, consistent support.',
       inclusions: [
         'Carrying out exercise and skill programs prescribed by your OT, Physio, or Speech Pathologist',
@@ -138,7 +126,6 @@ export default function ServicesPage() {
       id: 'assessments',
       title: 'Clinical Assessment Specialists (RN & Allied Health)',
       icon: ClipboardCheck,
-      art: OpenDoodleCareHero,
       tagline: 'Registered Nurse (RN) led complex clinical evaluations, continence assessments, and comprehensive diagnostic reports.',
       inclusions: [
         'Registered Nurse (RN) led complex clinical health and nursing assessments',
@@ -287,24 +274,21 @@ export default function ServicesPage() {
       />
       {/* Header with Dynamic Video Background */}
       <section className="relative bg-canvas pt-16 md:pt-24 pb-0 overflow-hidden">
-        {/* Dynamic Open-Source / Copyright-Free Video Background with WCAG AAA Contrast Overlay */}
+        {/* Dynamic Video Background with High Visibility and Readable Contrast Overlay */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover opacity-20 filter saturate-50"
+            className="w-full h-full object-cover opacity-60 filter saturate-105 contrast-105"
           >
             <source src="/videos/services-hero-bg.mp4" type="video/mp4" />
           </video>
-          {/* Gentle gradient wash ensuring crystal-clear readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-canvas/90 via-canvas/80 to-canvas" />
+          {/* Gentle gradient wash ensuring crystal-clear readability while video is clearly visible */}
+          <div className="absolute inset-0 bg-gradient-to-r from-canvas/95 via-canvas/80 to-canvas/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-canvas" />
         </div>
-
-        {/* Subtle Background Line Art */}
-        <HeroBackgroundLineArt />
-        <DoodleBotanicalWatermark className="top-8 right-6 w-80 h-80 text-brand-navy opacity-20 -rotate-12" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-16 md:pb-20">
           <div className="max-w-3xl">
@@ -336,7 +320,6 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 pb-16">
           {services.map((service, index) => {
             const Icon = service.icon;
-            const ArtComponent = service.art;
             return (
               <div
                 key={service.id}
@@ -359,7 +342,6 @@ export default function ServicesPage() {
                           </h2>
                         </div>
                       </div>
-                      <ArtComponent className="w-20 h-16 sm:w-24 sm:h-20 shrink-0 hidden sm:block -mt-2 -mr-1" />
                     </div>
 
                     <p className="text-base sm:text-[17px] text-slate-800 font-semibold leading-[1.6]">
@@ -420,8 +402,6 @@ export default function ServicesPage() {
 
       {/* How It Works (With Embedded Referral CTA in Step 01 Tile as Mandated by CEO) */}
       <section className="relative py-16 md:py-24 bg-canvas overflow-hidden">
-        <DoodleBotanicalWatermark className="bottom-10 right-4 w-72 h-72 text-brand-navy opacity-20 rotate-90" />
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-16">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 text-slate-800 text-xs font-semibold mb-4 shadow-sm">

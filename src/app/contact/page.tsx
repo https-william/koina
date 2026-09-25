@@ -5,11 +5,8 @@ import { Mail, Clock, MapPin, ArrowRight, ShieldCheck, CheckCircle2, MessageSqua
 import {
   DoodleUnderline,
   DoodleSparkle,
-  DoodleBotanicalWatermark,
   DoodleWaveDivider,
-  HeroBackgroundLineArt,
 } from '@/components/brand/Doodles';
-import { OpenDoodleConversation } from '@/components/brand/OpenDoodlesArt';
 import ContactFormClient from '@/components/contact/ContactFormClient';
 
 export const metadata: Metadata = {
@@ -79,20 +76,17 @@ export default function ContactPage() {
       />
 
       {/* Hero Header */}
-      <section className="relative bg-canvas pt-16 md:pt-24 pb-0 overflow-hidden">
-        <HeroBackgroundLineArt />
-        <DoodleBotanicalWatermark className="top-8 right-6 w-80 h-80 text-brand-navy opacity-20 -rotate-12" />
-
+      <section className="relative bg-canvas pt-14 md:pt-20 pb-0 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center mb-10">
             {/* Left Content Column */}
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 text-slate-800 text-xs font-semibold mb-6 shadow-sm">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 text-slate-800 text-xs font-semibold mb-5 shadow-sm">
                 <DoodleSparkle className="w-3.5 h-3.5 text-brand-sky" />
                 <span>Central Queensland Office</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-[-0.025em] leading-[1.18] mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-[-0.025em] leading-[1.18] mb-5">
                 Contact{' '}
                 <span className="relative inline-block">
                   Koina
@@ -100,7 +94,7 @@ export default function ContactPage() {
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-700 leading-[1.75] font-normal mb-8 max-w-2xl">
+              <p className="text-base sm:text-lg text-slate-700 leading-[1.75] font-normal mb-7 max-w-2xl">
                 Have a question about our allied health disciplines, funding pathways, or scheduling? Reach out to our central team today. We are here to help.
               </p>
 
@@ -124,18 +118,48 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Right Open Doodles Art */}
+            {/* Right Direct Intake & Support Hub Card */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-md p-6 sm:p-8 rounded-[36px] bg-white border border-slate-200 shadow-ambient flex flex-col items-center text-center">
-                <div className="w-full flex justify-center">
-                  <OpenDoodleConversation className="w-64 h-56 text-brand-navy" />
+              <div className="relative w-full max-w-md p-6 sm:p-7 rounded-[28px] bg-white border border-slate-200/90 shadow-ambient space-y-4">
+                <div className="flex items-center gap-3 pb-3.5 border-b border-slate-100">
+                  <div className="w-10 h-10 rounded-xl bg-brand-navy/10 flex items-center justify-center text-brand-navy shrink-0">
+                    <MessageSquare className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-slate-900">Direct Intake & Inquiries</h3>
+                    <p className="text-xs text-slate-500">Queensland Client Care Team</p>
+                  </div>
                 </div>
-                <div className="mt-4 pt-4 border-t border-slate-100 w-full">
-                  <p className="text-xs font-bold uppercase tracking-wider text-brand-navy mb-1">
-                    Warm, Helpful Guidance
-                  </p>
-                  <p className="text-xs text-slate-700 leading-relaxed font-medium">
-                    We explain funding and therapy options in plain English without corporate jargon.
+
+                <div className="space-y-3">
+                  <div className="flex items-start gap-2.5 text-xs text-slate-800">
+                    <Clock className="w-4 h-4 text-brand-sky shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-semibold block">Hours of Operation</span>
+                      <span className="text-slate-600">Monday to Friday: 9:00 AM – 5:00 PM AEST</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2.5 text-xs text-slate-800">
+                    <Mail className="w-4 h-4 text-brand-sky shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-semibold block">Email Inquiries</span>
+                      <a href="mailto:contact@koina.com.au" className="text-brand-navy hover:underline font-medium">contact@koina.com.au</a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2.5 text-xs text-slate-800">
+                    <MapPin className="w-4 h-4 text-brand-sky shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-semibold block">Service Model</span>
+                      <span className="text-slate-600">In-Home, Mobile Community Visits & Telehealth</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-slate-100">
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    All referrals and clinical messages are reviewed by an intake clinician within 24 business hours.
                   </p>
                 </div>
               </div>

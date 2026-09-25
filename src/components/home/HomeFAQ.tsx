@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { ChevronDown, HelpCircle, ArrowRight, ShieldCheck, Mail } from 'lucide-react';
-import { DoodleSparkle, DoodleBotanicalWatermark, DoodleWaveDivider, DoodleUnderline } from '@/components/brand/Doodles';
+import { DoodleSparkle, DoodleWaveDivider, DoodleUnderline } from '@/components/brand/Doodles';
 
 interface FAQItem {
   question: string;
@@ -58,11 +58,8 @@ export default function HomeFAQ() {
   };
 
   return (
-    <section className="relative py-16 md:py-24 bg-white overflow-hidden" id="faq">
-      {/* Subtle background watermark */}
-      <DoodleBotanicalWatermark className="top-12 left-4 w-72 h-72 text-brand-navy opacity-[0.03] rotate-12 hidden lg:block" />
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-16">
+    <section className="relative py-14 md:py-20 bg-white overflow-hidden" id="faq">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-12">
         {/* Section Header */}
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200/90 text-slate-800 text-xs font-semibold mb-4 shadow-sm">

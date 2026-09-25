@@ -57,12 +57,21 @@ const TICKER_ITEMS = [
 
 export default function ValuePropsTicker() {
   return (
-    <div className="relative w-full overflow-hidden py-3 bg-white/90 backdrop-blur-sm border-y border-slate-200/90 shadow-xs">
+    <div
+      role="region"
+      aria-label="Key Service Highlights Ticker"
+      className="relative w-full overflow-hidden py-3 bg-white/90 backdrop-blur-sm border-y border-slate-200/90 shadow-xs"
+    >
       {/* Subtle fade edges for smooth entrance/exit */}
       <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-canvas to-transparent z-10" />
       <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-canvas to-transparent z-10" />
 
-      <div className="animate-marquee flex items-center gap-3 select-none">
+      <div
+        className="animate-marquee flex items-center gap-3 select-none"
+        tabIndex={0}
+        aria-roledescription="marquee"
+        title="Ticker slows down for readability. Hover or focus to pause."
+      >
         {/* Render twice for continuous infinite seamless loop */}
         {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, index) => {
           const Icon = item.icon;

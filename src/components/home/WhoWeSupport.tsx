@@ -2,9 +2,8 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, ShieldCheck, HeartHandshake, Award, UserCheck, CheckCircle2 } from 'lucide-react';
-import { DoodleUnderline, DoodleHeart, DoodleBotanicalWatermark, DoodleWaveDivider } from '@/components/brand/Doodles';
-import { OpenDoodleConnectingHands } from '@/components/brand/OpenDoodlesArt';
+import { ArrowRight, ShieldCheck, HeartHandshake, Award, UserCheck, CheckCircle2, Heart } from 'lucide-react';
+import { DoodleUnderline, DoodleHeart, DoodleWaveDivider } from '@/components/brand/Doodles';
 
 export default function WhoWeSupport() {
   const [activeTab, setActiveTab] = useState<'ndis' | 'aged-care' | 'dva' | 'private'>('ndis');
@@ -84,12 +83,9 @@ export default function WhoWeSupport() {
   const IconComponent = currentPathway.icon;
 
   return (
-    <section className="relative py-16 md:py-24 bg-white overflow-hidden">
-      {/* Subtle organic watermark */}
-      <DoodleBotanicalWatermark className="top-12 left-4 w-72 h-72 text-brand-navy opacity-[0.03] rotate-12 hidden lg:block" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-16">
-        {/* Intro: Care Centred on People, Not Paperwork with Hand-drawn Underline & Connecting Hands Art */}
+    <section className="relative py-14 md:py-20 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-12">
+        {/* Intro: Care Centred on People, Not Paperwork with Hand-drawn Underline & Animated Care Symbol */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-16 pb-12 border-b border-slate-100">
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200/90 text-slate-800 text-xs font-semibold mb-4 shadow-sm">
@@ -116,14 +112,50 @@ export default function WhoWeSupport() {
           </div>
 
           <div className="lg:col-span-5 flex justify-center">
-            <div className="p-6 rounded-[28px] bg-canvas border border-slate-200/80 shadow-soft w-full max-w-sm flex flex-col items-center text-center">
-              <OpenDoodleConnectingHands className="w-full max-w-[240px] h-auto" />
-              <p className="mt-3 text-xs sm:text-sm font-semibold text-slate-800">
-                Shared Purpose & Respect
-              </p>
-              <p className="text-xs text-slate-700 mt-1 leading-relaxed">
-                Care that is a true partnership with you and your family.
-              </p>
+            <div className="p-7 sm:p-8 rounded-[32px] bg-canvas border border-slate-200/90 shadow-soft w-full max-w-sm flex flex-col items-center text-center relative overflow-hidden">
+              {/* Soft background pulse glow */}
+              <div className="w-48 h-48 rounded-full bg-brand-sky/15 absolute -top-8 -right-8 pointer-events-none animate-pulse-glow" />
+
+              {/* Central Morphing / Crossfading Clinical Symbols */}
+              <div className="relative w-36 h-36 flex items-center justify-center my-3">
+                {/* Concentric Pulsing Radar / Aura Rings */}
+                <div className="absolute inset-0 rounded-full border border-brand-sky/30 animate-ping opacity-25" style={{ animationDuration: '3s' }} />
+                <div className="absolute inset-2 rounded-full border border-brand-navy/20" />
+                <div className="absolute inset-5 rounded-full bg-white shadow-ambient border border-slate-200/80 flex items-center justify-center" />
+
+                {/* State A: Person-Centred Heart (using .animate-morph-a) */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center animate-morph-a">
+                  <div className="w-14 h-14 rounded-2xl bg-brand-navy/10 flex items-center justify-center text-brand-navy">
+                    <Heart className="w-7 h-7 text-brand-navy fill-brand-sky/20" />
+                  </div>
+                  <span className="text-[10px] font-bold tracking-wider uppercase text-brand-navy mt-1">
+                    Person-First
+                  </span>
+                </div>
+
+                {/* State B: Genuine Partnership (using .animate-morph-b) */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center animate-morph-b">
+                  <div className="w-14 h-14 rounded-2xl bg-brand-navy/10 flex items-center justify-center text-brand-navy">
+                    <HeartHandshake className="w-7 h-7 text-brand-navy" />
+                  </div>
+                  <span className="text-[10px] font-bold tracking-wider uppercase text-brand-sky mt-1">
+                    Partnership
+                  </span>
+                </div>
+              </div>
+
+              <div className="relative z-10 mt-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-semibold text-brand-navy shadow-xs mb-2">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>Relationship-Centred</span>
+                </span>
+                <p className="text-sm font-bold text-slate-900">
+                  Shared Purpose & Respect
+                </p>
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Care that is a genuine partnership with you, your family, and your support network.
+                </p>
+              </div>
             </div>
           </div>
         </div>

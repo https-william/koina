@@ -3,12 +3,8 @@ import { Metadata } from 'next';
 import { MapPin, CheckCircle2 } from 'lucide-react';
 import {
   DoodleUnderline,
-  DoodleBotanicalWatermark,
   DoodleWaveDivider,
-  HeroBackgroundLineArt,
-  QueenslandJourneyLineArt,
 } from '@/components/brand/Doodles';
-import { OpenDoodleMobility } from '@/components/brand/OpenDoodlesArt';
 import LocationsDirectoryClient from '@/components/locations/LocationsDirectoryClient';
 import { QUEENSLAND_REGIONS } from '@/data/locations';
 
@@ -90,23 +86,18 @@ export default function LocationsPage() {
         }}
       />
 
-      {/* Hero Header with Two-Column Open Doodles Monoline Art */}
-      <section className="relative bg-canvas pt-16 md:pt-24 pb-0 overflow-hidden">
-        {/* Subtle Background Line Art */}
-        <HeroBackgroundLineArt />
-        <QueenslandJourneyLineArt className="top-8 right-6 w-96 h-80 hidden lg:block" />
-        <DoodleBotanicalWatermark className="top-8 right-6 w-80 h-80 text-brand-navy opacity-20 -rotate-12" />
-
+      {/* Hero Header with Clean Professional Layout */}
+      <section className="relative bg-canvas pt-14 md:pt-20 pb-0 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center mb-10">
             {/* Left Content Column */}
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 text-slate-800 text-xs font-semibold mb-6 shadow-sm">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 text-slate-800 text-xs font-semibold mb-5 shadow-sm">
                 <MapPin className="w-3.5 h-3.5 text-brand-navy" />
                 <span>Statewide Coverage Across Queensland</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-[-0.025em] leading-[1.18] mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-[-0.025em] leading-[1.18] mb-5">
                 Community & Mobile Care{' '}
                 <span className="relative inline-block">
                   Across Queensland
@@ -114,12 +105,12 @@ export default function LocationsPage() {
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-800 leading-[1.75] font-normal mb-8 max-w-2xl">
+              <p className="text-base sm:text-lg text-slate-700 leading-[1.75] font-normal mb-7 max-w-2xl">
                 We provide in-home therapy, school, and community visits across Queensland, supported by secure statewide telehealth.
               </p>
 
               {/* Coverage Snapshot Badges */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2.5">
                 <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-800 shadow-xs">
                   <CheckCircle2 className="w-4 h-4 text-brand-sky" />
                   Delivering Care Across Queensland
@@ -135,20 +126,42 @@ export default function LocationsPage() {
               </div>
             </div>
 
-            {/* Right Open Doodles Monoline Art */}
+            {/* Right Professional Delivery Network Card */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-md p-6 sm:p-8 rounded-[36px] bg-white border border-slate-200 shadow-ambient flex flex-col items-center text-center">
-                <div className="w-full flex justify-center">
-                  <OpenDoodleMobility className="w-64 h-56 text-brand-navy" />
+              <div className="relative w-full max-w-md p-6 sm:p-7 rounded-[28px] bg-white border border-slate-200/90 shadow-ambient">
+                <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-10 h-10 rounded-xl bg-brand-navy/10 flex items-center justify-center text-brand-navy">
+                      <MapPin className="w-5 h-5 text-brand-navy" />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-bold text-slate-900">Queensland Network</h3>
+                      <p className="text-xs text-slate-500">In-Home, Mobile & Telehealth</p>
+                    </div>
+                  </div>
+                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                    Immediate Capacity
+                  </span>
                 </div>
-                <div className="mt-4 pt-4 border-t border-slate-100 w-full">
-                  <p className="text-xs font-bold uppercase tracking-wider text-brand-navy mb-1">
-                    Mobile Care Delivery
-                  </p>
-                  <p className="text-xs text-slate-700 leading-relaxed font-medium">
-                    Our therapists travel directly to homes, schools, workplaces, and aged care residences.
-                  </p>
+
+                <div className="space-y-2.5 mb-4">
+                  <div className="p-3 rounded-xl bg-canvas border border-slate-200/80 flex items-center justify-between">
+                    <span className="text-xs text-slate-700 font-medium">Regional Coverage Hubs</span>
+                    <span className="text-xs font-bold text-slate-900">12 Key Regions</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-canvas border border-slate-200/80 flex items-center justify-between">
+                    <span className="text-xs text-slate-700 font-medium">Scheduling Lead Time</span>
+                    <span className="text-xs font-bold text-slate-900">Available Within 48–72h</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-canvas border border-slate-200/80 flex items-center justify-between">
+                    <span className="text-xs text-slate-700 font-medium">Care Settings</span>
+                    <span className="text-xs font-bold text-slate-900">Homes, Aged Care, Telehealth</span>
+                  </div>
                 </div>
+
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Our therapists travel directly to your home or connect with you statewide through secure video telehealth.
+                </p>
               </div>
             </div>
           </div>

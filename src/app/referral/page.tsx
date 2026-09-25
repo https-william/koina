@@ -2,8 +2,7 @@ import React, { Suspense } from 'react';
 import { Metadata } from 'next';
 import IntakeForm from '@/components/intake/IntakeForm';
 import { Mail, Clock, ShieldCheck, CheckCircle2, HeartHandshake, Phone } from 'lucide-react';
-import { DoodleUnderline, DoodleSparkle, DoodleBotanicalWatermark, DoodleWaveDivider, HeroBackgroundLineArt, CareConnectionLineArt } from '@/components/brand/Doodles';
-import { OpenDoodleConversation } from '@/components/brand/OpenDoodlesArt';
+import { DoodleUnderline, DoodleSparkle, DoodleWaveDivider } from '@/components/brand/Doodles';
 
 export const metadata: Metadata = {
   title: 'Make a Referral | NDIS, Aged Care & DVA Allied Health Intake | Koina Allied Health',
@@ -75,22 +74,17 @@ export default function ReferralPage() {
         }}
       />
       {/* Hero Header */}
-      <section className="relative bg-canvas pt-16 md:pt-24 pb-0 overflow-hidden">
-        {/* Subtle Background Line Art */}
-        <HeroBackgroundLineArt />
-        <CareConnectionLineArt className="top-8 right-6 w-96 h-80 hidden lg:block" />
-        <DoodleBotanicalWatermark className="top-8 right-6 w-80 h-80 text-brand-navy opacity-20 -rotate-12" />
-
+      <section className="relative bg-canvas pt-14 md:pt-20 pb-0 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center mb-10">
             {/* Left Content Column */}
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 text-slate-800 text-xs font-semibold mb-6 shadow-sm">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 text-slate-800 text-xs font-semibold mb-5 shadow-sm">
                 <ShieldCheck className="w-3.5 h-3.5 text-brand-navy" />
                 <span>Queensland Statewide Intake</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-[-0.025em] leading-[1.18] mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-[-0.025em] leading-[1.18] mb-5">
                 Make a{' '}
                 <span className="relative inline-block">
                   Referral
@@ -98,12 +92,12 @@ export default function ReferralPage() {
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-800 leading-[1.75] font-normal mb-8 max-w-2xl">
+              <p className="text-base sm:text-lg text-slate-700 leading-[1.75] font-normal mb-7 max-w-2xl">
                 We accept referrals for NDIS participants, Home Care Package recipients, DVA cardholders, and private clients across Queensland. Our clinical intake team reviews each referral within 24 business hours.
               </p>
 
               {/* Highlights */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2.5">
                 <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-800 shadow-xs">
                   <CheckCircle2 className="w-4 h-4 text-brand-sky" />
                   24-Hour Review Turnaround
@@ -119,18 +113,48 @@ export default function ReferralPage() {
               </div>
             </div>
 
-            {/* Right Open Doodles Monoline Art */}
+            {/* Right Clinical Intake Standards Card */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-md p-6 sm:p-8 rounded-[36px] bg-white border border-slate-200 shadow-ambient flex flex-col items-center text-center">
-                <div className="w-full flex justify-center">
-                  <OpenDoodleConversation className="w-64 h-56 text-brand-navy" />
+              <div className="relative w-full max-w-md p-6 sm:p-7 rounded-[28px] bg-white border border-slate-200/90 shadow-ambient space-y-4">
+                <div className="flex items-center gap-3 pb-3.5 border-b border-slate-100">
+                  <div className="w-10 h-10 rounded-xl bg-brand-navy/10 flex items-center justify-center text-brand-navy shrink-0">
+                    <ShieldCheck className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-slate-900">Direct Clinical Intake</h3>
+                    <p className="text-xs text-slate-500">24-Hour Review Turnaround</p>
+                  </div>
                 </div>
-                <div className="mt-4 pt-4 border-t border-slate-100 w-full">
-                  <p className="text-xs font-bold uppercase tracking-wider text-brand-navy mb-1">
-                    Direct Clinical Intake
-                  </p>
-                  <p className="text-xs text-slate-700 leading-relaxed font-medium">
-                    Referrals are reviewed directly by our clinical coordination team to match the right therapist for your home or community.
+
+                <div className="space-y-3">
+                  <div className="flex items-start gap-2.5 text-xs text-slate-800">
+                    <CheckCircle2 className="w-4 h-4 text-brand-sky shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-semibold block">AHPRA-Registered Clinicians</span>
+                      <span className="text-slate-600">Experienced allied health therapists and RN specialists.</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2.5 text-xs text-slate-800">
+                    <CheckCircle2 className="w-4 h-4 text-brand-sky shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-semibold block">Simple Funding Setup</span>
+                      <span className="text-slate-600">NDIS (Plan & Self), My Aged Care, DVA & Private billing.</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2.5 text-xs text-slate-800">
+                    <CheckCircle2 className="w-4 h-4 text-brand-sky shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-semibold block">Statewide Queensland Scheduling</span>
+                      <span className="text-slate-600">In-home visits or secure video telehealth.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-slate-100">
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Referrals are reviewed within 24 business hours to confirm clinician capacity in your area.
                   </p>
                 </div>
               </div>
