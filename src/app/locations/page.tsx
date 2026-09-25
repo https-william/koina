@@ -14,7 +14,7 @@ import {
   Sparkles,
   CheckCircle2,
 } from 'lucide-react';
-import { DoodleUnderline, DoodleSparkle, DoodleBotanicalWatermark, DoodleWaveDivider } from '@/components/brand/Doodles';
+import { DoodleUnderline, DoodleSparkle, DoodleBotanicalWatermark, DoodleWaveDivider, HeroBackgroundLineArt, QueenslandJourneyLineArt } from '@/components/brand/Doodles';
 import { OpenDoodleMobility } from '@/components/brand/OpenDoodlesArt';
 
 export default function LocationsPage() {
@@ -41,7 +41,10 @@ export default function LocationsPage() {
     <div className="bg-canvas min-h-screen">
       {/* Hero Header with Two-Column Open Doodles Monoline Art */}
       <section className="relative bg-canvas pt-16 md:pt-24 pb-0 overflow-hidden">
-        <DoodleBotanicalWatermark className="top-8 right-6 w-80 h-80 text-brand-navy opacity-[0.035] -rotate-12 hidden lg:block" />
+        {/* Subtle Background Line Art */}
+        <HeroBackgroundLineArt />
+        <QueenslandJourneyLineArt className="top-8 right-6 w-96 h-80 hidden lg:block" />
+        <DoodleBotanicalWatermark className="top-8 right-6 w-80 h-80 text-brand-navy opacity-20 -rotate-12" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mb-12">

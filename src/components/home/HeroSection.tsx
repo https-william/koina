@@ -4,15 +4,14 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, ShieldCheck, CheckCircle2, HeartHandshake, Zap, MapPin, Users } from 'lucide-react';
 import KoinaLogo from '@/components/brand/KoinaLogo';
-import { DoodleUnderline, DoodleSparkle, DoodleBotanicalWatermark, DoodleWaveDivider } from '@/components/brand/Doodles';
+import { DoodleUnderline, DoodleSparkle, DoodleBotanicalWatermark, DoodleWaveDivider, HeroBackgroundLineArt } from '@/components/brand/Doodles';
 import AntiGravityHeroArt from '@/components/brand/AntiGravityHeroArt';
 
 export default function HeroSection() {
   return (
     <section className="relative overflow-hidden pt-6 sm:pt-8 md:pt-10 pb-0 bg-canvas">
-      {/* Subtle organic Queensland botanical line-art watermarks */}
-      <DoodleBotanicalWatermark className="top-4 right-6 w-72 h-72 text-brand-navy opacity-[0.035] -rotate-12 hidden lg:block" />
-      <DoodleBotanicalWatermark className="bottom-16 left-4 w-64 h-64 text-brand-navy opacity-[0.03] rotate-45 hidden md:block" />
+      {/* Creative Subtle Background Line Art (Sun arc, continuous care wave, native eucalyptus fronds) */}
+      <HeroBackgroundLineArt />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-8 md:pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
@@ -29,7 +28,7 @@ export default function HeroSection() {
               Allied Health Care for{' '}
               <span className="relative inline-block">
                 Every Stage of Life
-                <DoodleUnderline className="text-brand-sky w-full h-3 -bottom-2 left-0" />
+                <DoodleUnderline className="text-brand-sky w-full h-3.5 -bottom-2.5 sm:-bottom-3 left-0" />
               </span>
             </h1>
 

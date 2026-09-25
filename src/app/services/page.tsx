@@ -17,7 +17,7 @@ import {
   Building2,
   Video,
 } from 'lucide-react';
-import { DoodleUnderline, DoodleSparkle, DoodleBotanicalWatermark, DoodleWaveDivider } from '@/components/brand/Doodles';
+import { DoodleUnderline, DoodleSparkle, DoodleBotanicalWatermark, DoodleWaveDivider, HeroBackgroundLineArt, CareConnectionLineArt } from '@/components/brand/Doodles';
 import {
   OpenDoodleDailyLiving,
   OpenDoodleMobility,
@@ -149,7 +149,9 @@ export default function ServicesPage() {
     <div className="bg-canvas min-h-screen">
       {/* Header */}
       <section className="relative bg-canvas pt-16 md:pt-24 pb-0 overflow-hidden">
-        <DoodleBotanicalWatermark className="top-8 right-6 w-80 h-80 text-brand-navy opacity-[0.035] -rotate-12 hidden lg:block" />
+        {/* Subtle Background Line Art */}
+        <HeroBackgroundLineArt />
+        <DoodleBotanicalWatermark className="top-8 right-6 w-80 h-80 text-brand-navy opacity-20 -rotate-12" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-16 md:pb-20">
           <div className="max-w-3xl">
@@ -266,7 +268,7 @@ export default function ServicesPage() {
 
       {/* How It Works (4-Step Journey from Page 6) */}
       <section className="relative py-16 md:py-24 bg-canvas overflow-hidden">
-        <DoodleBotanicalWatermark className="bottom-10 right-4 w-72 h-72 text-brand-navy opacity-[0.03] rotate-90 hidden lg:block" />
+        <DoodleBotanicalWatermark className="bottom-10 right-4 w-72 h-72 text-brand-navy opacity-20 rotate-90" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-16">
           <div className="text-center max-w-3xl mx-auto mb-16">

@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { ShieldCheck, HeartHandshake, Compass, CheckCircle2, ArrowRight, Award, MapPin, Users, Sparkles } from 'lucide-react';
-import { DoodleUnderline, DoodleSparkle, DoodleBotanicalWatermark, DoodleWaveDivider, DoodleHeart } from '@/components/brand/Doodles';
+import { DoodleUnderline, DoodleSparkle, DoodleBotanicalWatermark, DoodleWaveDivider, DoodleHeart, HeroBackgroundLineArt, CareConnectionLineArt } from '@/components/brand/Doodles';
 import { OpenDoodleConnectingHands, OpenDoodleCareHero } from '@/components/brand/OpenDoodlesArt';
 
 export const metadata: Metadata = {
@@ -103,7 +103,9 @@ export default function AboutPage() {
     <div className="bg-canvas min-h-screen">
       {/* Hero Header */}
       <section className="relative bg-canvas pt-16 md:pt-24 pb-0 overflow-hidden">
-        <DoodleBotanicalWatermark className="top-8 right-6 w-80 h-80 text-brand-navy opacity-[0.035] -rotate-12 hidden lg:block" />
+        {/* Subtle Background Line Art */}
+        <HeroBackgroundLineArt />
+        <DoodleBotanicalWatermark className="top-8 right-6 w-80 h-80 text-brand-navy opacity-20 -rotate-12" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-16 md:pb-20">
           <div className="max-w-3xl">
@@ -190,7 +192,7 @@ export default function AboutPage() {
 
       {/* Our Approach */}
       <section className="relative py-16 md:py-24 bg-canvas overflow-hidden">
-        <DoodleBotanicalWatermark className="bottom-8 left-4 w-72 h-72 text-brand-navy opacity-[0.03] rotate-45 hidden lg:block" />
+        <DoodleBotanicalWatermark className="bottom-8 left-4 w-72 h-72 text-brand-navy opacity-20 rotate-45" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-16">
           <div className="max-w-3xl mb-16">
@@ -325,7 +327,7 @@ export default function AboutPage() {
 
           {/* About Page CTA with Resolved Text Selection & High Contrast */}
           <div className="mt-16 rounded-[40px] bg-brand-navy text-white p-10 sm:p-14 text-center max-w-4xl mx-auto shadow-ambient border border-brand-navy relative overflow-hidden">
-            <DoodleBotanicalWatermark className="top-0 right-0 w-64 h-64 text-white opacity-[0.05] pointer-events-none" />
+            <DoodleBotanicalWatermark className="top-0 right-0 w-72 h-72 text-white opacity-20 pointer-events-none" />
             <div className="relative z-10">
               <h3 className="text-2xl sm:text-3xl font-bold mb-4">
                 Experience Healthcare Centred on You

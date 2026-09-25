@@ -11,7 +11,7 @@ import {
   HelpCircle,
   Mail,
 } from 'lucide-react';
-import { DoodleUnderline, DoodleSparkle, DoodleBotanicalWatermark, DoodleWaveDivider } from '@/components/brand/Doodles';
+import { DoodleUnderline, DoodleSparkle, DoodleBotanicalWatermark, DoodleWaveDivider, HeroBackgroundLineArt, CareConnectionLineArt } from '@/components/brand/Doodles';
 import { OpenDoodleConnectingHands, OpenDoodleCareHero } from '@/components/brand/OpenDoodlesArt';
 
 export const metadata: Metadata = {
@@ -111,7 +111,9 @@ export default function FundingPage() {
     <div className="bg-canvas min-h-screen">
       {/* Hero Header with Two-Column Open Doodles Monoline Art */}
       <section className="relative bg-canvas pt-16 md:pt-24 pb-0 overflow-hidden">
-        <DoodleBotanicalWatermark className="top-8 right-6 w-80 h-80 text-brand-navy opacity-[0.035] -rotate-12 hidden lg:block" />
+        {/* Subtle Background Line Art */}
+        <HeroBackgroundLineArt />
+        <DoodleBotanicalWatermark className="top-8 right-6 w-80 h-80 text-brand-navy opacity-20 -rotate-12" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mb-12">
@@ -263,7 +265,7 @@ export default function FundingPage() {
 
       {/* Funding FAQs & Guidance */}
       <section className="relative py-20 md:py-28 bg-canvas overflow-hidden">
-        <DoodleBotanicalWatermark className="bottom-12 right-6 w-80 h-80 text-brand-navy opacity-[0.035] -rotate-45 hidden lg:block" />
+        <DoodleBotanicalWatermark className="bottom-12 right-6 w-80 h-80 text-brand-navy opacity-20 -rotate-45" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
