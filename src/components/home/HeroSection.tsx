@@ -18,7 +18,7 @@ export default function HeroSection() {
           playsInline
           className="w-full h-full object-cover opacity-25 filter saturate-110 contrast-105"
         >
-          <source src="/videos/home-hero-bg.mp4" type="video/mp4" />
+          <source src="/videos/yoga-mobility.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-canvas via-canvas/90 to-canvas/70" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-canvas" />
@@ -78,7 +78,7 @@ export default function HeroSection() {
                   playsInline
                   className="w-full h-full object-cover"
                 >
-                  <source src="/videos/home-hero-bg.mp4" type="video/mp4" />
+                  <source src="/videos/physical-therapy.mp4" type="video/mp4" />
                 </video>
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-slate-950/20" />
 

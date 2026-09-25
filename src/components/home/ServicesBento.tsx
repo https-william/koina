@@ -19,6 +19,8 @@ export default function ServicesBento() {
       title: 'Occupational Therapy',
       badge: 'AHPRA Registered',
       icon: Accessibility,
+      videoSrc: '/videos/physical-therapy.mp4',
+      videoCaption: 'Clinical Rehabilitation',
       description:
         'Functional capacity evaluations, assistive technology prescription, home modifications, and daily living skills.',
       highlights: [
@@ -34,6 +36,8 @@ export default function ServicesBento() {
       title: 'Physiotherapy',
       badge: 'AHPRA Registered',
       icon: Activity,
+      videoSrc: '/videos/yoga-mobility.mp4',
+      videoCaption: 'Mobility & Wellness',
       description:
         'Mobility rehabilitation, proactive falls prevention, strength rebuilding, and post-operative recovery.',
       highlights: [
@@ -64,6 +68,8 @@ export default function ServicesBento() {
       title: 'Positive Behaviour Support',
       badge: 'NDIS Compliant',
       icon: Heart,
+      videoSrc: '/videos/group-therapy.mp4',
+      videoCaption: 'Support & Community',
       description:
         'Empathetic, evidence-based behaviour support plans designed to reduce restrictive practices and uphold dignity.',
       highlights: [
@@ -147,6 +153,25 @@ export default function ServicesBento() {
                       {item.badge}
                     </span>
                   </div>
+
+                  {item.videoSrc && (
+                    <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-slate-900 border border-slate-200/80 mb-3.5 shadow-xs">
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                      >
+                        <source src={item.videoSrc} type="video/mp4" />
+                      </video>
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute bottom-2 left-2.5 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-slate-900/80 backdrop-blur-xs text-[10px] font-medium text-white border border-white/20">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        <span>{item.videoCaption}</span>
+                      </div>
+                    </div>
+                  )}
 
                   <h3 className="text-lg font-bold text-slate-900 mb-2">
                     {item.title}

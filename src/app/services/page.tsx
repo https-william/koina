@@ -47,6 +47,8 @@ export default function ServicesPage() {
       id: 'ot',
       title: 'Occupational Therapy',
       icon: Accessibility,
+      videoSrc: '/videos/physical-therapy.mp4',
+      videoTag: 'Rehabilitation & Everyday Skills',
       tagline: 'Functional capacity evaluations, equipment trials, and home modifications supporting everyday independence.',
       inclusions: [
         'Functional Capacity Assessments (FCA) for NDIS plan reviews and funding justification',
@@ -63,6 +65,8 @@ export default function ServicesPage() {
       id: 'physio',
       title: 'Physiotherapy',
       icon: Activity,
+      videoSrc: '/videos/yoga-mobility.mp4',
+      videoTag: 'Mobility, Strength & Balance',
       tagline: 'Mobility rehabilitation, musculoskeletal recovery, and physical conditioning delivered in your home.',
       inclusions: [
         'Mobility, gait, transfers, and posture assessments',
@@ -95,6 +99,8 @@ export default function ServicesPage() {
       id: 'pbs',
       title: 'Positive Behaviour Support (PBS)',
       icon: Heart,
+      videoSrc: '/videos/group-therapy.mp4',
+      videoTag: 'Empathetic Behaviour Support',
       tagline: 'Compassionate, person-centred behaviour support that respects dignity and builds on strengths.',
       inclusions: [
         'Functional Behaviour Assessments (FBA)',
@@ -126,6 +132,8 @@ export default function ServicesPage() {
       id: 'assessments',
       title: 'Clinical Assessment Specialists (RN & Allied Health)',
       icon: ClipboardCheck,
+      videoSrc: '/videos/elderly-care.mp4',
+      videoTag: 'Aged Care & Clinical Reviews',
       tagline: 'Registered Nurse (RN) led complex clinical evaluations, continence assessments, and comprehensive diagnostic reports.',
       inclusions: [
         'Registered Nurse (RN) led complex clinical health and nursing assessments',
@@ -283,7 +291,7 @@ export default function ServicesPage() {
             playsInline
             className="w-full h-full object-cover opacity-60 filter saturate-105 contrast-105"
           >
-            <source src="/videos/services-hero-bg.mp4" type="video/mp4" />
+            <source src="/videos/physical-therapy.mp4" type="video/mp4" />
           </video>
           {/* Gentle gradient wash ensuring crystal-clear readability while video is clearly visible */}
           <div className="absolute inset-0 bg-gradient-to-r from-canvas/95 via-canvas/80 to-canvas/40" />
@@ -363,7 +371,26 @@ export default function ServicesPage() {
                     </div>
                   </div>
 
-                  <div className="lg:col-span-5 bg-white rounded-2xl p-7 border border-slate-200/90 space-y-5 shadow-sm">
+                  <div className="lg:col-span-5 bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 space-y-4 shadow-sm overflow-hidden">
+                    {service.videoSrc && (
+                      <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-xs">
+                        <video
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover"
+                        >
+                          <source src={service.videoSrc} type="video/mp4" />
+                        </video>
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute bottom-2.5 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-900/80 backdrop-blur-xs text-xs font-semibold text-white border border-white/20">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                          <span>{service.videoTag}</span>
+                        </div>
+                      </div>
+                    )}
+
                     <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
                       <span className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-1">
                         Service Delivery:

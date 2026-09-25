@@ -14,6 +14,8 @@ export default function WhoWeSupport() {
       title: 'NDIS Participants',
       badge: 'Plan & Self-Managed',
       icon: ShieldCheck,
+      videoSrc: '/videos/physical-therapy.mp4',
+      videoTag: 'Active Rehabilitation & Capacity Building',
       summary:
         'Full clinical support for plan-managed and self-managed participants looking to achieve meaningful developmental and functional goals.',
       highlights: [
@@ -31,6 +33,8 @@ export default function WhoWeSupport() {
       title: 'Older Australians',
       badge: 'HCP & CHSP Partner',
       icon: HeartHandshake,
+      videoSrc: '/videos/elderly-care.mp4',
+      videoTag: 'In-Home Care & Supported Independence',
       summary:
         'Supporting Home Care Package (HCP Levels 1–4), Commonwealth Home Support Programme (CHSP), and privately funded clients to remain safe, capable, and confident at home.',
       highlights: [
@@ -48,6 +52,8 @@ export default function WhoWeSupport() {
       title: 'Veterans & Families',
       badge: 'DVA Approved',
       icon: Award,
+      videoSrc: '/videos/group-therapy.mp4',
+      videoTag: 'Dedicated Veteran & Community Support',
       summary:
         'Comprehensive clinical assessment and treatments for DVA Gold Card and eligible White Card holders, with straightforward direct billing.',
       highlights: [
@@ -65,6 +71,8 @@ export default function WhoWeSupport() {
       title: 'Private Clients',
       badge: 'Direct Booking',
       icon: UserCheck,
+      videoSrc: '/videos/yoga-mobility.mp4',
+      videoTag: 'Wellness, Movement & Prevention',
       summary:
         'Transparent fee structures for individuals and families requiring direct allied health care without referrals, waitlists, or third-party funding delays.',
       highlights: [
@@ -245,7 +253,27 @@ export default function WhoWeSupport() {
               </div>
             </div>
 
-            <div className="lg:col-span-5 flex flex-col justify-center gap-5 bg-white p-7 rounded-2xl border border-slate-200 shadow-sm">
+            <div className="lg:col-span-5 flex flex-col justify-center gap-4 bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+              {currentPathway.videoSrc && (
+                <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-xs mb-1">
+                  <video
+                    key={currentPathway.id}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  >
+                    <source src={currentPathway.videoSrc} type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-2.5 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-900/80 backdrop-blur-xs text-xs font-semibold text-white border border-white/20">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>{currentPathway.videoTag}</span>
+                  </div>
+                </div>
+              )}
+
               <h5 className="font-bold text-base sm:text-lg text-slate-900">
                 Start Care Under {currentPathway.title}
               </h5>
