@@ -1,7 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Metadata } from 'next';
-import { Mail, Clock, MapPin, ArrowRight, ShieldCheck, CheckCircle2, MessageSquare } from 'lucide-react';
+import {
+  Mail,
+  Clock,
+  MapPin,
+  ArrowRight,
+  ShieldCheck,
+  CheckCircle2,
+  Calendar,
+  MessageSquare,
+  Sparkles,
+} from 'lucide-react';
 import {
   DoodleUnderline,
   DoodleSparkle,
@@ -12,12 +23,12 @@ import ContactFormClient from '@/components/contact/ContactFormClient';
 export const metadata: Metadata = {
   title: 'Contact Us | Koina Allied Health Queensland',
   description:
-    'Get in touch with the Koina Allied Health central team. Inquiries for in-home, mobile, and telehealth allied health services across Queensland.',
+    'Get in touch with Koina Allied Health central coordination. Direct email, operating hours, client referral intake, and in-home care delivery across Queensland.',
   alternates: {
     canonical: '/contact',
   },
   openGraph: {
-    title: 'Contact Us | Koina Allied Health',
+    title: 'Contact Us | Koina Allied Health Queensland',
     description:
       'Contact our clinical coordination team for general inquiries or to discuss in-home allied health care across Queensland.',
     url: 'https://koina.com.au/contact',
@@ -75,182 +86,214 @@ export default function ContactPage() {
         }}
       />
 
-      {/* Hero Header */}
-      <section className="relative bg-canvas pt-14 md:pt-20 pb-0 overflow-hidden">
+      {/* Main Header & Immediate Contact Spots */}
+      <section className="relative pt-12 md:pt-16 pb-12 overflow-hidden bg-canvas">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center mb-10">
-            {/* Left Content Column */}
-            <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 text-slate-800 text-xs font-semibold mb-5 shadow-sm">
-                <DoodleSparkle className="w-3.5 h-3.5 text-brand-sky" />
-                <span>Central Queensland Office</span>
-              </div>
-
-              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-[-0.025em] leading-[1.18] mb-5">
-                Contact{' '}
-                <span className="relative inline-block">
-                  Koina
-                  <DoodleUnderline className="text-brand-sky w-full h-3 -bottom-2.5 left-0" />
-                </span>
-              </h1>
-
-              <p className="text-base sm:text-lg text-slate-700 leading-[1.75] font-normal mb-7 max-w-2xl">
-                Have a question about our allied health disciplines, funding pathways, or scheduling? Reach out to our central team today. We are here to help.
-              </p>
-
-              {/* Direct Referral Highlight */}
-              <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm max-w-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-brand-navy">
-                    Looking to refer a client?
-                  </p>
-                  <p className="text-xs text-slate-700 mt-0.5">
-                    Use our direct 3-step referral form for prompt 24-hour review.
-                  </p>
-                </div>
-                <Link
-                  href="/referral"
-                  className="btn-interactive inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-navy text-white text-xs font-semibold shrink-0 shadow-sm"
-                >
-                  <span>Make a Referral</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
+          {/* Header Title & Subtitle */}
+          <div className="max-w-3xl mb-10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-800 text-xs font-semibold mb-4 shadow-xs">
+              <DoodleSparkle className="w-3.5 h-3.5 text-brand-sky" />
+              <span>Central Queensland Care Coordination</span>
             </div>
 
-            {/* Right Direct Intake & Support Hub Card */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-md p-6 sm:p-7 rounded-[28px] bg-white border border-slate-200/90 shadow-ambient space-y-4">
-                <div className="flex items-center gap-3 pb-3.5 border-b border-slate-100">
-                  <div className="w-10 h-10 rounded-xl bg-brand-navy/10 flex items-center justify-center text-brand-navy shrink-0">
-                    <MessageSquare className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-slate-900">Direct Intake & Inquiries</h3>
-                    <p className="text-xs text-slate-500">Queensland Client Care Team</p>
-                  </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15] mb-4">
+              Get in Touch with{' '}
+              <span className="relative inline-block text-brand-navy">
+                Koina
+                <DoodleUnderline className="text-brand-sky w-full h-3 -bottom-2 left-0" />
+              </span>
+            </h1>
+
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+              Have questions regarding clinical disciplines, funding arrangements, or local therapist capacity? Reach out to our central team directly or send an inquiry below.
+            </p>
+          </div>
+
+          {/* High-Visibility Contact Spotlight Cards (Above the fold) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            {/* Card 1: Direct Email */}
+            <a
+              href="mailto:contact@koina.com.au"
+              className="group p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-brand-navy shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+              aria-label="Send direct email to contact@koina.com.au"
+            >
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-brand-navy/10 flex items-center justify-center text-brand-navy mb-3 group-hover:bg-brand-navy group-hover:text-white transition-colors">
+                  <Mail className="w-5 h-5" />
                 </div>
-
-                <div className="space-y-3">
-                  <div className="flex items-start gap-2.5 text-xs text-slate-800">
-                    <Clock className="w-4 h-4 text-brand-sky shrink-0 mt-0.5" />
-                    <div>
-                      <span className="font-semibold block">Hours of Operation</span>
-                      <span className="text-slate-600">Monday to Friday: 9:00 AM – 5:00 PM AEST</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-2.5 text-xs text-slate-800">
-                    <Mail className="w-4 h-4 text-brand-sky shrink-0 mt-0.5" />
-                    <div>
-                      <span className="font-semibold block">Email Inquiries</span>
-                      <a href="mailto:contact@koina.com.au" className="text-brand-navy hover:underline font-medium">contact@koina.com.au</a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-2.5 text-xs text-slate-800">
-                    <MapPin className="w-4 h-4 text-brand-sky shrink-0 mt-0.5" />
-                    <div>
-                      <span className="font-semibold block">Service Model</span>
-                      <span className="text-slate-600">In-Home, Mobile Community Visits & Telehealth</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-slate-100">
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    All referrals and clinical messages are reviewed by an intake clinician within 24 business hours.
-                  </p>
-                </div>
+                <span className="text-xs uppercase font-bold tracking-wider text-slate-500 block">
+                  Direct Email
+                </span>
+                <p className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-brand-navy transition-colors mt-0.5 break-all">
+                  contact@koina.com.au
+                </p>
               </div>
+              <p className="text-xs text-slate-600 mt-3 pt-3 border-t border-slate-100 flex items-center gap-1.5 font-medium">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <span>Reviewed within 24 business hours</span>
+              </p>
+            </a>
+
+            {/* Card 2: Operating Hours */}
+            <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-brand-navy/10 flex items-center justify-center text-brand-navy mb-3">
+                  <Clock className="w-5 h-5" />
+                </div>
+                <span className="text-xs uppercase font-bold tracking-wider text-slate-500 block">
+                  Operating Hours
+                </span>
+                <p className="text-sm sm:text-base font-bold text-slate-900 mt-0.5">
+                  Mon – Fri: 9:00 AM – 5:00 PM
+                </p>
+              </div>
+              <p className="text-xs text-slate-600 mt-3 pt-3 border-t border-slate-100 font-medium">
+                Australian Eastern Standard Time (AEST)
+              </p>
+            </div>
+
+            {/* Card 3: Fast-Track Referral */}
+            <Link
+              href="/referral"
+              className="group p-5 rounded-2xl bg-brand-navy text-white shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+              aria-label="Go to the client referral page"
+            >
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-brand-sky mb-3 group-hover:bg-white group-hover:text-brand-navy transition-colors">
+                  <ArrowRight className="w-5 h-5" />
+                </div>
+                <span className="text-xs uppercase font-bold tracking-wider text-brand-sky block">
+                  Client Intake
+                </span>
+                <p className="text-sm sm:text-base font-bold text-white mt-0.5">
+                  Make a Referral
+                </p>
+              </div>
+              <p className="text-xs text-slate-200 mt-3 pt-3 border-t border-white/15 flex items-center gap-1.5 font-medium">
+                <span>Immediate capacity across 13 regions</span>
+                <ArrowRight className="w-3.5 h-3.5 text-brand-sky group-hover:translate-x-1 transition-transform" />
+              </p>
+            </Link>
+
+            {/* Card 4: Service Delivery */}
+            <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-brand-navy/10 flex items-center justify-center text-brand-navy mb-3">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <span className="text-xs uppercase font-bold tracking-wider text-slate-500 block">
+                  Delivery Model
+                </span>
+                <p className="text-sm sm:text-base font-bold text-slate-900 mt-0.5">
+                  In-Home, Mobile & Telehealth
+                </p>
+              </div>
+              <p className="text-xs text-slate-600 mt-3 pt-3 border-t border-slate-100 font-medium">
+                Therapists visit homes across Queensland
+              </p>
             </div>
           </div>
         </div>
 
-        <DoodleWaveDivider fillColor="#FFFFFF" className="mt-8" />
+        <DoodleWaveDivider fillColor="#FFFFFF" className="mt-4" />
       </section>
 
-      {/* Main Grid: Contact Channels & General Inquiry Form */}
-      <section className="py-20 md:py-28 bg-white">
+      {/* Main Content: Care Image, Support Journey & Inquiry Form */}
+      <section className="py-12 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
-            {/* Left Contact Cards (5 cols) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            {/* Left Column: Team Photo & Intake Process (5 cols) */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="rounded-[32px] bg-canvas border border-slate-200 p-8 sm:p-10 shadow-ambient space-y-6">
-                <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-                  Get in Touch
+              {/* Care Team Image Card */}
+              <div className="relative rounded-[28px] overflow-hidden border border-slate-200 shadow-ambient bg-slate-100 group">
+                <div className="relative w-full h-[360px] sm:h-[420px]">
+                  <Image
+                    src="/images/contact-team.jpg"
+                    alt="Koina Allied Health care coordination team member assisting client referrals in Queensland"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
+                  />
+                  {/* Subtle gradient vignette at bottom */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" />
+                  
+                  {/* Image Badge */}
+                  <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-white/95 backdrop-blur-md border border-white/40 shadow-xs">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                      <p className="text-xs font-semibold text-slate-900">
+                        Queensland Care Intake Active
+                      </p>
+                    </div>
+                    <p className="text-[11px] text-slate-600 mt-0.5">
+                      Direct clinician triage for NDIS, Aged Care, DVA & Private participants
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* What Happens After You Reach Out */}
+              <div className="rounded-[28px] bg-canvas border border-slate-200 p-6 sm:p-7 space-y-4">
+                <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-brand-navy" />
+                  <span>What happens next?</span>
                 </h2>
 
-                <div className="space-y-4">
-                  <a
-                    href="mailto:contact@koina.com.au"
-                    className="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 hover:border-brand-navy transition-all group shadow-xs"
+                <ol className="space-y-3.5 text-xs sm:text-sm text-slate-700">
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-brand-navy text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                      1
+                    </span>
+                    <div>
+                      <strong className="text-slate-900 font-semibold block">Clinician Review:</strong>
+                      <span>Your inquiry or referral is assessed within 24 business hours.</span>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-brand-navy text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                      2
+                    </span>
+                    <div>
+                      <strong className="text-slate-900 font-semibold block">Local Matching:</strong>
+                      <span>We confirm clinician capacity in your specific Queensland suburb.</span>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-brand-navy text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                      3
+                    </span>
+                    <div>
+                      <strong className="text-slate-900 font-semibold block">Booking & Care Plan:</strong>
+                      <span>We confirm appointment times and provide clear service agreements.</span>
+                    </div>
+                  </li>
+                </ol>
+
+                <div className="pt-3 border-t border-slate-200">
+                  <Link
+                    href="/referral"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-navy hover:text-brand-navy-light underline"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-canvas border border-slate-200 text-brand-navy flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
-                      <Mail className="w-6 h-6 text-brand-navy" />
-                    </div>
-                    <div>
-                      <span className="text-xs text-brand-navy uppercase font-bold tracking-wider">
-                        Email Central Office
-                      </span>
-                      <p className="text-sm sm:text-base font-bold text-slate-900 break-all mt-0.5">
-                        contact@koina.com.au
-                      </p>
-                      <p className="text-xs text-slate-700 mt-0.5">
-                        We respond to all inquiries within 24 business hours
-                      </p>
-                    </div>
-                  </a>
-
-                  <div className="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
-                    <div className="w-12 h-12 rounded-xl bg-canvas border border-slate-200 text-brand-navy flex items-center justify-center shrink-0 shadow-xs">
-                      <Clock className="w-6 h-6 text-brand-navy" />
-                    </div>
-                    <div>
-                      <span className="text-xs text-brand-navy uppercase font-bold tracking-wider">
-                        Operating Hours
-                      </span>
-                      <p className="text-sm sm:text-base font-bold text-slate-900 mt-0.5">
-                        Monday – Friday: 9:00 AM – 5:00 PM (AEST)
-                      </p>
-                      <p className="text-xs text-slate-700 mt-0.5">
-                        Queensland Statewide Care & Telehealth
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
-                    <div className="w-12 h-12 rounded-xl bg-canvas border border-slate-200 text-brand-navy flex items-center justify-center shrink-0 shadow-xs">
-                      <MapPin className="w-6 h-6 text-brand-navy" />
-                    </div>
-                    <div>
-                      <span className="text-xs text-brand-navy uppercase font-bold tracking-wider">
-                        Service Delivery
-                      </span>
-                      <p className="text-sm sm:text-base font-bold text-slate-900 mt-0.5">
-                        Mobile, In-Home & Telehealth
-                      </p>
-                      <p className="text-xs text-slate-700 mt-0.5">
-                        Delivering care directly to homes across Queensland
-                      </p>
-                    </div>
-                  </div>
+                    <span>Have full client details ready? Use the 3-step referral form</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
               </div>
             </div>
 
-            {/* Right General Inquiry Form (7 cols) */}
+            {/* Right Column: General Inquiry Form (7 cols) */}
             <div className="lg:col-span-7">
-              <div className="rounded-[32px] bg-white border border-slate-200 p-8 sm:p-10 shadow-ambient space-y-6">
+              <div className="rounded-[32px] bg-white border border-slate-200 p-7 sm:p-10 shadow-ambient space-y-6">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-brand-navy block mb-1">
                     Send a Message
                   </span>
-                  <h3 className="text-2xl font-bold text-slate-900">
-                    General Inquiries
-                  </h3>
-                  <p className="text-sm text-slate-600 mt-1">
-                    Fill out the form below and our team will get back to you shortly.
+                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                    General Inquiries & Support
+                  </h2>
+                  <p className="text-sm text-slate-600 mt-1.5 leading-relaxed">
+                    Fill out the form below and our care coordination team will respond within 24 business hours.
                   </p>
                 </div>
 

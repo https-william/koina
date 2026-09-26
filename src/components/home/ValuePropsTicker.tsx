@@ -60,25 +60,21 @@ export default function ValuePropsTicker() {
     <div
       role="region"
       aria-label="Key Service Highlights Ticker"
-      className="relative w-full overflow-hidden py-3 bg-white/90 backdrop-blur-sm border-y border-slate-200/90 shadow-xs"
+      className="relative w-full overflow-hidden py-2.5 sm:py-3 bg-white/85 backdrop-blur-md rounded-2xl border border-slate-200/80 shadow-xs [mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)]"
     >
-      {/* Subtle fade edges for smooth entrance/exit */}
-      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-canvas to-transparent z-10" />
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-canvas to-transparent z-10" />
-
       <div
         className="animate-marquee flex items-center gap-3 select-none"
         tabIndex={0}
         aria-roledescription="marquee"
-        title="Ticker slows down for readability. Hover or focus to pause."
+        title="Ticker pauses on hover or focus for easy reading."
       >
-        {/* Render twice for continuous infinite seamless loop */}
-        {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, index) => {
+        {/* Render 3x for a continuous, gap-free infinite loop */}
+        {[...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS].map((item, index) => {
           const Icon = item.icon;
           return (
             <div
               key={index}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-canvas border border-slate-200 hover:border-brand-navy hover:bg-white transition-all shadow-xs group shrink-0 cursor-default"
+              className="inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-2 rounded-xl bg-canvas/90 border border-slate-200/80 hover:border-brand-navy hover:bg-white transition-all shadow-xs group shrink-0 cursor-default"
             >
               <div className="w-6 h-6 rounded-lg bg-brand-navy/10 text-brand-navy flex items-center justify-center shrink-0 group-hover:bg-brand-navy group-hover:text-white transition-colors">
                 <Icon className="w-3.5 h-3.5" />

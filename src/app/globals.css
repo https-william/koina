@@ -11,11 +11,27 @@
   --koina-sky: #5591B7;
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 body {
   color: var(--foreground);
   background-color: var(--background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100vw;
+  min-height: 100vh;
+}
+
+/* Ensure mobile form inputs are at least 16px to prevent iOS Safari auto-zoom */
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
 }
 
 /* WCAG AAA High-Contrast Text Selection Rules */
@@ -49,6 +65,7 @@ footer *::-moz-selection {
 /* 5-State Interactive Matrix from UX-SPEC-2026-V1 */
 .btn-interactive {
   transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  min-height: 44px;
 }
 .btn-interactive:hover {
   filter: brightness(1.05);
@@ -61,26 +78,25 @@ footer *::-moz-selection {
   cursor: not-allowed;
 }
 
-/* Custom smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Focus styles for WCAG AAA accessibility */
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
   outline: 2px solid #113C5E;
   outline-offset: 2px;
 }
 
-/* Friendly Handcrafted Doodle Animations */
-@keyframes doodle-wobble {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-1.5deg); }
-  75% { transform: rotate(1.5deg); }
+/* On dark navy surfaces, invert focus ring to high-contrast white */
+.bg-brand-navy a:focus-visible,
+.bg-brand-navy button:focus-visible,
+.bg-brand-navy input:focus-visible,
+.bg-brand-navy select:focus-visible,
+.bg-brand-navy textarea:focus-visible,
+footer a:focus-visible,
+footer button:focus-visible {
+  outline: 2px solid #FFFFFF !important;
+  outline-offset: 2px !important;
 }
 
 /* Accessible Static Design System for Disability-First Safety */
-/* Motion is kept completely static to prevent cognitive fatigue, visual distraction, or sensory overload */
 .animate-doodle-wobble {
   animation: none;
 }
@@ -228,7 +244,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   animation-play-state: paused;
 }
 
+/* Gold standard WCAG 2.2 AA prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
   .animate-marquee {
     animation: none !important;
     overflow-x: auto;
@@ -241,4 +266,3 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     transform: none !important;
   }
 }
-
