@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Metadata } from 'next';
 import {
   Accessibility,
@@ -47,8 +48,9 @@ export default function ServicesPage() {
       id: 'ot',
       title: 'Occupational Therapy',
       icon: Accessibility,
-      videoSrc: '/videos/physical-therapy.mp4',
-      videoTag: 'Rehabilitation & Everyday Skills',
+      imageSrc: '/images/service-ot.jpg',
+      imageAlt: 'Occupational therapist conducting rehabilitation and daily living assessment',
+      imageTag: 'Rehabilitation & Everyday Skills',
       tagline: 'Functional capacity evaluations, equipment trials, and home modifications supporting everyday independence.',
       inclusions: [
         'Functional Capacity Assessments (FCA) for NDIS plan reviews and funding justification',
@@ -65,8 +67,9 @@ export default function ServicesPage() {
       id: 'physio',
       title: 'Physiotherapy',
       icon: Activity,
-      videoSrc: '/videos/yoga-mobility.mp4',
-      videoTag: 'Mobility, Strength & Balance',
+      imageSrc: '/images/service-physio.jpg',
+      imageAlt: 'Physiotherapy mobility rehabilitation and strength conditioning session',
+      imageTag: 'Mobility, Strength & Balance',
       tagline: 'Mobility rehabilitation, musculoskeletal recovery, and physical conditioning delivered in your home.',
       inclusions: [
         'Mobility, gait, transfers, and posture assessments',
@@ -83,8 +86,9 @@ export default function ServicesPage() {
       id: 'speech',
       title: 'Speech Pathology',
       icon: MessageSquareText,
-      videoSrc: '/videos/speech-therapy.mp4',
-      videoTag: 'Swallowing, Feeding & Communication',
+      imageSrc: '/images/service-speech.jpg',
+      imageAlt: 'Speech pathologist guiding articulation and swallowing therapy',
+      imageTag: 'Swallowing, Feeding & Communication',
       tagline: 'Specialised support for dysphagia, swallowing safety, and clear communication therapy.',
       inclusions: [
         'Comprehensive dysphagia swallowing assessments and safe feeding management',
@@ -101,8 +105,9 @@ export default function ServicesPage() {
       id: 'pbs',
       title: 'Positive Behaviour Support (PBS)',
       icon: Heart,
-      videoSrc: '/videos/group-therapy.mp4',
-      videoTag: 'Empathetic Behaviour Support',
+      imageSrc: '/images/service-pbs.jpg',
+      imageAlt: 'Compassionate positive behaviour support consultation',
+      imageTag: 'Empathetic Behaviour Support',
       tagline: 'Compassionate, person-centred behaviour support that respects dignity and builds on strengths.',
       inclusions: [
         'Functional Behaviour Assessments (FBA)',
@@ -119,8 +124,9 @@ export default function ServicesPage() {
       id: 'aha',
       title: 'Therapy Assistants (Allied Health Assistants)',
       icon: Sparkles,
-      videoSrc: '/videos/therapy-assistant.mp4',
-      videoTag: 'Routine Practice & Community Engagement',
+      imageSrc: '/images/service-aha.jpg',
+      imageAlt: 'Allied health assistant reinforcing therapy routine practice',
+      imageTag: 'Routine Practice & Community Engagement',
       tagline: 'Making your therapy plan go further with structured, consistent support.',
       inclusions: [
         'Carrying out exercise and skill programs developed by your OT, Physio, or Speech Pathologist',
@@ -136,8 +142,9 @@ export default function ServicesPage() {
       id: 'assessments',
       title: 'Clinical Assessment Specialists (RN & Allied Health)',
       icon: ClipboardCheck,
-      videoSrc: '/videos/clinical-assessment.mp4',
-      videoTag: 'RN Evaluations & Diagnostic Reports',
+      imageSrc: '/images/service-assessments.jpg',
+      imageAlt: 'Registered Nurse performing comprehensive clinical health evaluation',
+      imageTag: 'RN Evaluations & Diagnostic Reports',
       tagline: 'Registered Nurse (RN) led complex clinical evaluations, continence assessments, and comprehensive diagnostic reports.',
       inclusions: [
         'Registered Nurse (RN) led complex clinical health and nursing assessments',
@@ -376,21 +383,19 @@ export default function ServicesPage() {
                   </div>
 
                   <div className="lg:col-span-5 bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 space-y-4 shadow-sm overflow-hidden">
-                    {service.videoSrc && (
-                      <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-xs">
-                        <video
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          className="w-full h-full object-cover"
-                        >
-                          <source src={service.videoSrc} type="video/mp4" />
-                        </video>
+                    {service.imageSrc && (
+                      <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-slate-100 border border-slate-200/90 shadow-xs">
+                        <Image
+                          src={service.imageSrc}
+                          alt={service.imageAlt || service.title}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 40vw"
+                          className="object-cover"
+                        />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
                         <div className="absolute bottom-2.5 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-900/80 backdrop-blur-xs text-xs font-semibold text-white border border-white/20">
-                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                          <span>{service.videoTag}</span>
+                          <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                          <span>{service.imageTag}</span>
                         </div>
                       </div>
                     )}

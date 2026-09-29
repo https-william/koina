@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   ArrowRight,
   Activity,
@@ -19,8 +20,9 @@ export default function ServicesBento() {
       title: 'Occupational Therapy',
       badge: 'AHPRA Registered',
       icon: Accessibility,
-      videoSrc: '/videos/physical-therapy.mp4',
-      videoCaption: 'Clinical Rehabilitation',
+      imageSrc: '/images/service-ot.jpg',
+      imageAlt: 'Occupational therapist conducting rehabilitation and daily living assessment',
+      imageCaption: 'Clinical Rehabilitation',
       description:
         'Functional capacity evaluations, assistive technology recommendations, home modifications, and daily living skills.',
       highlights: [
@@ -36,8 +38,9 @@ export default function ServicesBento() {
       title: 'Physiotherapy',
       badge: 'AHPRA Registered',
       icon: Activity,
-      videoSrc: '/videos/yoga-mobility.mp4',
-      videoCaption: 'Mobility & Wellness',
+      imageSrc: '/images/service-physio.jpg',
+      imageAlt: 'Physiotherapy mobility rehabilitation and strength conditioning session',
+      imageCaption: 'Mobility & Wellness',
       description:
         'Mobility rehabilitation, proactive falls prevention, strength rebuilding, and post-operative recovery.',
       highlights: [
@@ -53,8 +56,9 @@ export default function ServicesBento() {
       title: 'Speech Pathology',
       badge: 'SPA Certified',
       icon: MessageSquareText,
-      videoSrc: '/videos/speech-therapy.mp4',
-      videoCaption: 'Communication & Articulation',
+      imageSrc: '/images/service-speech.jpg',
+      imageAlt: 'Speech pathologist guiding articulation and communication support',
+      imageCaption: 'Communication & Articulation',
       description:
         'Comprehensive swallowing assessments, speech articulation therapy, and augmentative communication (AAC).',
       highlights: [
@@ -70,8 +74,9 @@ export default function ServicesBento() {
       title: 'Positive Behaviour Support',
       badge: 'NDIS Compliant',
       icon: Heart,
-      videoSrc: '/videos/group-therapy.mp4',
-      videoCaption: 'Support & Community',
+      imageSrc: '/images/service-pbs.jpg',
+      imageAlt: 'Compassionate positive behaviour support consultation',
+      imageCaption: 'Support & Community',
       description:
         'Empathetic, evidence-based behaviour support plans designed to reduce restrictive practices and uphold dignity.',
       highlights: [
@@ -87,8 +92,9 @@ export default function ServicesBento() {
       title: 'Therapy Assistants (AHAs)',
       badge: 'Clinically Supervised',
       icon: Sparkles,
-      videoSrc: '/videos/therapy-assistant.mp4',
-      videoCaption: 'Community & Routine Practice',
+      imageSrc: '/images/service-aha.jpg',
+      imageAlt: 'Allied health assistant reinforcing therapy routine practice',
+      imageCaption: 'Community & Routine Practice',
       description:
         'Cost-effective reinforcement of therapy routines under the direct supervision of primary clinicians.',
       highlights: [
@@ -104,8 +110,9 @@ export default function ServicesBento() {
       title: 'Clinical Assessments',
       badge: 'RN & Allied Health',
       icon: ClipboardCheck,
-      videoSrc: '/videos/clinical-assessment.mp4',
-      videoCaption: 'Clinical Reporting & Reviews',
+      imageSrc: '/images/service-assessments.jpg',
+      imageAlt: 'Registered Nurse performing comprehensive clinical health evaluation',
+      imageCaption: 'Clinical Reporting & Reviews',
       description:
         'Rigorous diagnostic assessments, functional capacity reporting, and funding review documentation with fast turnaround.',
       highlights: [
@@ -119,30 +126,26 @@ export default function ServicesBento() {
   ];
 
   return (
-    <section className="relative py-14 md:py-20 bg-canvas overflow-hidden" id="services-snapshot">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-12">
+    <section className="relative py-20 md:py-28 bg-canvas overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-slate-800 text-xs font-semibold mb-3 shadow-xs">
-              <DoodleSparkle className="w-3.5 h-3.5 text-brand-sky" />
-              <span>Multidisciplinary Allied Health</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-[-0.02em] leading-tight">
-              Core Clinical Disciplines
-            </h2>
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-800 text-xs font-semibold mb-4 shadow-xs">
+            <DoodleSparkle className="w-3.5 h-3.5 text-brand-sky" />
+            <span>Multidisciplinary Allied Health Care</span>
           </div>
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-navy hover:text-brand-navy-light transition-colors group"
-          >
-            <span>View Full Service Scope</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
+
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-4">
+            Specialised Clinical Services Across Queensland
+          </h2>
+
+          <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+            Delivering in-home assessments, mobile therapy sessions, and secure telehealth tailored to your individual goals and funding arrangements.
+          </p>
         </div>
 
-        {/* Compact, Space-Efficient 3-Column Tablet Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        {/* 6-Card Services Grid with Fixed Visual Imagery */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {disciplines.map((item) => {
             const Icon = item.icon;
             return (
@@ -160,21 +163,19 @@ export default function ServicesBento() {
                     </span>
                   </div>
 
-                  {item.videoSrc && (
-                    <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-slate-900 border border-slate-200/80 mb-3.5 shadow-xs">
-                      <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-cover"
-                      >
-                        <source src={item.videoSrc} type="video/mp4" />
-                      </video>
+                  {item.imageSrc && (
+                    <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-slate-100 border border-slate-200/80 mb-3.5 shadow-xs">
+                      <Image
+                        src={item.imageSrc}
+                        alt={item.imageAlt || item.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
                       <div className="absolute bottom-2 left-2.5 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-slate-900/80 backdrop-blur-xs text-[10px] font-medium text-white border border-white/20">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        <span>{item.videoCaption}</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                        <span>{item.imageCaption}</span>
                       </div>
                     </div>
                   )}
@@ -183,46 +184,64 @@ export default function ServicesBento() {
                     {item.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                  <p className="text-sm text-slate-600 leading-relaxed mb-4">
                     {item.description}
                   </p>
 
-                  <div className="space-y-2 mb-5">
-                    {item.highlights.map((highlight, idx) => (
-                      <div key={idx} className="flex items-start gap-2 text-xs text-slate-800 leading-snug">
+                  <ul className="space-y-2 mb-6">
+                    {item.highlights.map((point, idx) => (
+                      <li
+                        key={idx}
+                        className="text-xs text-slate-700 flex items-start gap-2"
+                      >
                         <CheckCircle2 className="w-3.5 h-3.5 text-brand-sky shrink-0 mt-0.5" />
-                        <span>{highlight}</span>
-                      </div>
+                        <span>{point}</span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
 
-                <Link
-                  href={item.href}
-                  className="inline-flex items-center justify-between gap-1.5 text-xs sm:text-sm font-semibold text-brand-navy hover:text-brand-navy-light transition-colors pt-3.5 border-t border-slate-100"
-                >
-                  <span>{item.linkText}</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <Link
+                    href={item.href}
+                    className="text-xs font-bold text-brand-navy hover:text-brand-navy-light inline-flex items-center gap-1 group-hover:underline"
+                  >
+                    <span>{item.linkText}</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-brand-sky group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                  <Link
+                    href={`/referral?service=${encodeURIComponent(item.title)}`}
+                    className="text-[11px] font-semibold text-slate-500 hover:text-brand-navy"
+                  >
+                    Refer
+                  </Link>
+                </div>
               </div>
             );
           })}
         </div>
 
-        {/* Section Bottom Referral CTA */}
-        <div className="mt-10 text-center">
+        {/* Bottom Fast-Track Referral Callout */}
+        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+          <div>
+            <h4 className="text-base sm:text-lg font-bold text-slate-900">
+              Need a multidisciplinary assessment or combined therapy plan?
+            </h4>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-xl">
+              Our clinical intake coordinators collaborate across disciplines to build an integrated care plan with immediate capacity across 13 Queensland hubs.
+            </p>
+          </div>
           <Link
             href="/referral"
-            className="btn-interactive inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white font-semibold text-sm shadow-sm min-h-[46px]"
+            className="btn-interactive min-h-[46px] inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-brand-navy text-white text-xs sm:text-sm font-semibold shadow-xs hover:bg-brand-navy-light shrink-0"
           >
-            <span>Make a Referral</span>
+            <span>Submit a Referral</span>
             <ArrowRight className="w-4 h-4 text-brand-sky" />
           </Link>
         </div>
       </div>
 
-      {/* Prominent Organic Wave Divider Transitioning into White Section */}
-      <DoodleWaveDivider fillColor="#FFFFFF" accentColor="#5591B7" />
+      <DoodleWaveDivider fillColor="#FFFFFF" className="mt-16" />
     </section>
   );
 }

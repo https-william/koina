@@ -8,6 +8,7 @@ export default function Footer() {
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
     { label: 'Locations', href: '/locations' },
+    { label: 'Articles & Guides', href: '/articles' },
     { label: 'Contact Us', href: '/contact' },
     { label: 'Make a Referral', href: '/referral' },
   ];
