@@ -10,9 +10,11 @@ import {
   User,
   Calendar,
   CheckCircle2,
-  Share2,
   ShieldCheck,
   BookOpen,
+  HelpCircle,
+  Lightbulb,
+  Search,
 } from 'lucide-react';
 import { DoodleUnderline, DoodleSparkle, DoodleWaveDivider } from '@/components/brand/Doodles';
 import { ARTICLES_DATA, Article } from '@/data/articles';
@@ -38,8 +40,17 @@ export function generateMetadata({ params }: PageProps): Metadata {
   }
 
   return {
-    title: `${article.title} | Koina Allied Health Articles`,
+    title: `${article.title} | Koina Allied Health`,
     description: article.excerpt,
+    keywords: [
+      article.category,
+      'Allied Health Queensland',
+      'NDIS Allied Health',
+      'In-Home Therapy',
+      'Occupational Therapy Queensland',
+      'Physiotherapy Brisbane Gold Coast',
+      article.title,
+    ],
     alternates: {
       canonical: `/articles/${article.slug}`,
     },
@@ -52,6 +63,14 @@ export function generateMetadata({ params }: PageProps): Metadata {
       type: 'article',
       publishedTime: article.publishedDate,
       authors: [article.author.name],
+      images: [
+        {
+          url: article.imageSrc,
+          width: 1200,
+          height: 630,
+          alt: article.imageAlt,
+        },
+      ],
     },
   };
 }
@@ -77,7 +96,7 @@ export default function ArticleDetailPage({ params }: PageProps) {
       jobTitle: article.author.role,
     },
     publisher: {
-      '@type': 'Organization',
+      '@type': 'MedicalOrganization',
       name: 'Koina Allied Health',
       url: 'https://koina.com.au',
       logo: 'https://koina.com.au/koina-logo.png',
@@ -88,6 +107,22 @@ export default function ArticleDetailPage({ params }: PageProps) {
     },
   };
 
+  const faqJsonLd =
+    article.faqs && article.faqs.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: article.faqs.map((faq) => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: faq.answer,
+            },
+          })),
+        }
+      : null;
+
   return (
     <article className="bg-canvas min-h-screen">
       <script
@@ -96,6 +131,14 @@ export default function ArticleDetailPage({ params }: PageProps) {
           __html: JSON.stringify(articleJsonLd),
         }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqJsonLd),
+          }}
+        />
+      )}
 
       {/* Header & Breadcrumb */}
       <section className="pt-10 md:pt-14 pb-8 bg-canvas">
@@ -105,7 +148,7 @@ export default function ArticleDetailPage({ params }: PageProps) {
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-600 hover:text-brand-navy mb-6 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Back to All Articles</span>
+            <span>Back to All Articles & Guides</span>
           </Link>
 
           <div className="space-y-4">
@@ -124,6 +167,15 @@ export default function ArticleDetailPage({ params }: PageProps) {
                 <span>{article.publishedDate}</span>
               </span>
             </div>
+
+            {article.searchIntentQuery && (
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-blue-50/80 border border-blue-200/80 text-blue-900 text-xs font-medium">
+                <Search className="w-3.5 h-3.5 text-brand-sky shrink-0" />
+                <span>
+                  <strong>Common Search:</strong> &ldquo;{article.searchIntentQuery}&rdquo;
+                </span>
+              </div>
+            )}
 
             <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-tight leading-[1.2]">
               {article.title}
@@ -176,7 +228,7 @@ export default function ArticleDetailPage({ params }: PageProps) {
                 Key Takeaways for Support Coordinators & Families
               </h2>
             </div>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs sm:text-sm text-slate-700">
               {article.keyTakeaways.map((takeaway, index) => (
                 <li key={index} className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
@@ -186,38 +238,63 @@ export default function ArticleDetailPage({ params }: PageProps) {
             </ul>
           </div>
 
-          {/* Article Body Content */}
-          <div className="prose prose-slate max-w-none space-y-6 text-slate-800 leading-[1.8] text-base sm:text-lg font-normal">
-            <p>
-              In community allied health across Queensland, clinical assessments are not mere administrative requirements—they are the foundational roadmap that justifies funding, sets safety parameters, and guides restorative care.
-            </p>
-
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pt-4">
-              1. The Value of In-Home Environmental Evidence
-            </h3>
-            <p>
-              Clinical outcomes captured within clinic walls often fail to reflect the authentic daily challenges individuals experience in their home routines. When therapists evaluate physical transfers, meal preparation, or behavioural triggers in the participant&rsquo;s natural home setting, findings carry significantly higher evidentiary weight with the NDIA and My Aged Care evaluators.
-            </p>
-
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pt-4">
-              2. Multidisciplinary Synergy
-            </h3>
-            <p>
-              Often, a participant requires collaborative care—such as an Occupational Therapist configuring assistive equipment while a Physiotherapist retrains gait, or a Speech Pathologist collaborating with an Allied Health Assistant to reinforce dysphagia mealtime routines. An integrated allied health team ensures recommendations harmonise rather than compete.
-            </p>
-
-            <div className="my-8 p-6 rounded-2xl bg-amber-50/60 border border-amber-200/80 text-amber-900 text-sm leading-relaxed">
-              <strong className="block font-bold mb-1">Clinical Tip for Support Coordinators:</strong>
-              When requesting an annual plan review or home modification quote, ensure your allied health provider aligns line items precisely with current NDIS Price Guide codes to avoid unnecessary claim rejections.
-            </div>
-
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pt-4">
-              3. Transparent Timelines and Next Steps
-            </h3>
-            <p>
-              At Koina Allied Health, referrals are triaged within 24 business hours to match participants with experienced clinicians across 13 Queensland regional hubs. Whether conducting a Functional Capacity Assessment or implementing home modifications, transparent turnaround times keep care plans moving smoothly.
-            </p>
+          {/* Article Dynamic Sections */}
+          <div className="space-y-8 text-slate-800 leading-[1.8] text-base sm:text-lg font-normal">
+            {article.sections.map((section, idx) => (
+              <div key={idx} className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pt-2">
+                  {section.heading}
+                </h2>
+                {section.paragraphs.map((para, pIdx) => (
+                  <p key={pIdx} className="text-slate-700 leading-relaxed">
+                    {para}
+                  </p>
+                ))}
+                {section.callout && (
+                  <div className="my-6 p-6 rounded-2xl bg-amber-50/70 border border-amber-200/90 text-amber-950 text-sm leading-relaxed shadow-xs">
+                    <div className="flex items-center gap-2 font-bold mb-1.5 text-amber-900">
+                      <Lightbulb className="w-4 h-4 text-amber-700" />
+                      <span>{section.callout.title}</span>
+                    </div>
+                    <p className="text-amber-900/90">{section.callout.text}</p>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
+
+          {/* Frequently Asked Questions (AEO Powerhouse) */}
+          {article.faqs && article.faqs.length > 0 && (
+            <div className="mt-12 p-8 sm:p-10 rounded-[32px] bg-white border border-slate-200/90 shadow-ambient space-y-6">
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-brand-sky">
+                  <HelpCircle className="w-5 h-5 text-brand-navy" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900">Frequently Asked Questions</h3>
+                  <p className="text-xs sm:text-sm text-slate-500">
+                    Direct answers regarding funding, referrals, and care delivery.
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                {article.faqs.map((faq, fIdx) => (
+                  <div
+                    key={fIdx}
+                    className="p-5 rounded-2xl bg-canvas border border-slate-200/80 space-y-2 shadow-xs"
+                  >
+                    <h4 className="text-sm sm:text-base font-bold text-slate-900">
+                      {faq.question}
+                    </h4>
+                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                      {faq.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Direct Referral Banner */}
           <div className="p-8 sm:p-10 rounded-[32px] bg-brand-navy text-white shadow-ambient flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
@@ -229,7 +306,7 @@ export default function ArticleDetailPage({ params }: PageProps) {
                 Ready to refer a client for in-home allied health care?
               </h3>
               <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                Submit an intake request online in under 3 minutes. Reviewed by a clinician within 24 business hours.
+                Submit an intake request online in under 3 minutes. Reviewed by a clinician within 24 business hours across 13 Queensland regional hubs.
               </p>
             </div>
             <Link
@@ -243,7 +320,7 @@ export default function ArticleDetailPage({ params }: PageProps) {
 
           {/* Related Articles */}
           <div className="pt-8 border-t border-slate-200 space-y-6">
-            <h3 className="text-xl font-bold text-slate-900">Related Clinical Articles</h3>
+            <h3 className="text-xl font-bold text-slate-900">Related Clinical Articles & Guides</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedArticles.map((rel) => (
                 <Link

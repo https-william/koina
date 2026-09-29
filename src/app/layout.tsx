@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: '%s | Koina Allied Health',
   },
   description:
-    'Allied health care for every stage of life. Providing Occupational Therapy, Physiotherapy, Positive Behaviour Support, Speech Pathology, and AHAs across Queensland through NDIS, Aged Care, DVA, or privately.',
+    'Allied health care for every stage of life. In-home and mobile Occupational Therapy, Physiotherapy, Positive Behaviour Support, Speech Pathology, and AHAs across Queensland through NDIS, Aged Care, DVA, or privately.',
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
@@ -30,18 +30,24 @@ export const metadata: Metadata = {
   },
   keywords: [
     'Allied Health Queensland',
-    'NDIS Provider Gold Coast',
-    'NDIS Occupational Therapy Brisbane',
+    'In-Home Physiotherapy Brisbane',
+    'NDIS Occupational Therapy Gold Coast',
+    'Functional Capacity Assessment QLD',
     'Mobile Physiotherapy Queensland',
-    'Aged Care Allied Health',
-    'DVA Approved Allied Health',
-    'Positive Behaviour Support QLD',
-    'Speech Pathology Gold Coast',
-    'In-Home Therapy Queensland',
+    'Speech Pathology Sunshine Coast',
+    'Positive Behaviour Support NDIS Brisbane',
+    'Home Care Packages Allied Health HCP',
+    'DVA Approved Allied Health Provider',
+    'Allied Health Assistants NDIS Queensland',
+    'In-Home Therapy Toowoomba Ipswich Cairns',
+    'NDIS Provider Gold Coast Robina Southport',
   ],
   authors: [{ name: 'Koina Allied Health Pty Ltd' }],
   creator: 'Koina Allied Health',
   publisher: 'Koina Allied Health',
+  alternates: {
+    canonical: 'https://koina.com.au',
+  },
   openGraph: {
     title: 'Koina Allied Health | Allied Health Care for Every Stage of Life',
     description:
@@ -125,12 +131,26 @@ export default function RootLayout({
       'Caboolture',
       'Gladstone',
     ],
+    knowsAbout: [
+      'National Disability Insurance Scheme (NDIS)',
+      'Home Care Packages (HCP Levels 1-4)',
+      'Department of Veterans Affairs (DVA)',
+      'Australian Health Practitioner Regulation Agency (AHPRA)',
+      'Speech Pathology Australia (SPA)',
+      'Functional Capacity Assessment (FCA)',
+      'IDDSI Mealtime Management',
+      'Assistive Technology Level 1-4',
+    ],
     priceRange: '$$',
   };
 
   return (
     <html lang="en-AU" className={`${plusJakarta.variable} font-sans scroll-smooth`}>
       <head>
+        <meta name="geo.region" content="AU-QLD" />
+        <meta name="geo.placename" content="Queensland, Australia" />
+        <meta name="geo.position" content="-28.0167;153.4000" />
+        <meta name="ICBM" content="-28.0167, 153.4000" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
