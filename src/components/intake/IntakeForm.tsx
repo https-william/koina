@@ -41,6 +41,7 @@ export default function IntakeForm() {
 
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [submitted, setSubmitted] = useState<boolean>(false);
+  const [submitting, setSubmitting] = useState<boolean>(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const [formData, setFormData] = useState({
@@ -218,11 +219,23 @@ export default function IntakeForm() {
     window.scrollTo({ top: 180, behavior: 'smooth' });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateStep(3)) {
-      setSubmitted(true);
-      window.scrollTo({ top: 180, behavior: 'smooth' });
+      setSubmitting(true);
+      try {
+        await fetch('/api/referral', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        });
+      } catch (err) {
+        console.error('Error submitting referral:', err);
+      } finally {
+        setSubmitting(false);
+        setSubmitted(true);
+        window.scrollTo({ top: 180, behavior: 'smooth' });
+      }
     }
   };
 
@@ -1058,9 +1071,10 @@ export default function IntakeForm() {
 
               <button
                 type="submit"
-                className="btn-interactive min-h-[48px] inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white text-sm font-bold shadow-xs"
+                disabled={submitting}
+                className="btn-interactive min-h-[48px] inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white text-sm font-bold shadow-xs disabled:opacity-75 cursor-pointer"
               >
-                <span>Submit Referral</span>
+                <span>{submitting ? 'Submitting to Central Intake...' : 'Submit Referral'}</span>
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
               </button>
             </div>

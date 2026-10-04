@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export default function ContactFormClient() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [formData, setFormData] = useState({
     name: '',
@@ -29,10 +30,22 @@ export default function ContactFormClient() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
-      setSubmitted(true);
+      setSubmitting(true);
+      try {
+        await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        });
+      } catch (err) {
+        console.error('Contact submission error:', err);
+      } finally {
+        setSubmitting(false);
+        setSubmitted(true);
+      }
     }
   };
 
@@ -202,9 +215,10 @@ export default function ContactFormClient() {
       <div className="pt-2">
         <button
           type="submit"
-          className="btn-interactive w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white text-sm sm:text-base font-semibold shadow-md min-h-[48px] focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
+          disabled={submitting}
+          className="btn-interactive w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white text-sm sm:text-base font-semibold shadow-md min-h-[48px] focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 disabled:opacity-75 cursor-pointer"
         >
-          <span>Send Message to Clinical Team</span>
+          <span>{submitting ? 'Sending Message...' : 'Send Message to Clinical Team'}</span>
           <ArrowRight className="w-4 h-4 text-white" />
         </button>
       </div>
