@@ -121,8 +121,27 @@ export async function POST(request: Request) {
     const ghlData = await ghlRes.json();
     const contactId = ghlData.contact?.id;
 
-    // 2. Add Detailed Clinical Intake Note to the Contact
+    // 2. Add Detailed Clinical Intake Note & Opportunity to the Contact
     if (contactId) {
+      // Create Opportunity in Client Intake Pipeline -> New Referral - Triage Pending
+      await fetch('https://services.leadconnectorhq.com/opportunities/', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          Version: '2021-07-28',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          pipelineId: 'aV8OYpqXJByVwPyLlyJu',
+          pipelineStageId: '35d92a62-2c9e-4531-a58e-86b31eecbeb4',
+          locationId,
+          name: `${fullName} - ${Array.isArray(data.services) ? data.services.join(', ') : data.services}`,
+          status: 'open',
+          contactId,
+          monetaryValue: 1930,
+        }),
+      }).catch((err) => console.error('Failed to create GHL opportunity:', err));
+
       const noteContent = `
 KOINA ALLIED HEALTH - NEW INTAKE REFERRAL
 ------------------------------------------------
