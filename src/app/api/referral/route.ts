@@ -25,8 +25,19 @@ export async function POST(request: Request) {
     const contactEmail = data.participantEmail || data.referrerEmail || '';
     const contactPhone = data.participantPhone || data.referrerPhone || '';
 
-    // Generate tags based on funding, discipline, and region
-    const tags: string[] = ['website-referral', 'intake-pending'];
+    // Service mode: Ongoing Therapy vs One-Off Assessment
+    const isOneOff = data.serviceMode === 'one-off-assessment';
+    const serviceModeTitle = isOneOff
+      ? 'One-Off Assessment & Comprehensive Report Only'
+      : 'Ongoing Therapy & Capacity Building';
+
+    // Generate tags based on service mode, funding, discipline, and region
+    const tags: string[] = [
+      'website-referral',
+      'intake-pending',
+      isOneOff ? 'service-mode: one-off-assessment' : 'service-mode: ongoing-therapy',
+      isOneOff ? 'one-off-assessment' : 'ongoing-therapy',
+    ];
 
     if (data.fundingCategory) {
       if (data.fundingCategory.includes('NDIS')) tags.push('funding: ndis');
@@ -61,7 +72,7 @@ export async function POST(request: Request) {
       { id: 'wV3NJbTUPhO1uIx3uxXz', field_value: 'No' },
       {
         id: 'zOR1cGWVPVj30xJPtUrR',
-        field_value: `Referral Goals: ${data.participantGoals || 'Not specified'}\nDiagnosis: ${data.medicalDiagnosis || 'Not specified'}`,
+        field_value: `[SERVICE FORMAT: ${isOneOff ? 'ONE-OFF ASSESSMENT & REPORT ONLY' : 'ONGOING THERAPY'}]\nReferral Goals: ${data.participantGoals || 'Not specified'}\nDiagnosis: ${data.medicalDiagnosis || 'Not specified'}`,
       },
     ];
 
@@ -123,6 +134,18 @@ export async function POST(request: Request) {
 
     // 2. Add Detailed Clinical Intake Note & Opportunity to the Contact
     if (contactId) {
+      const disciplinesList = Array.isArray(data.services) && data.services.length > 0
+        ? data.services.join(', ')
+        : (data.services || 'Occupational Therapy');
+
+      // Opportunity title indicates service track clearly: [ONE-OFF ASSESSMENT] or [ONGOING]
+      const oppTitle = `${fullName} [${isOneOff ? 'ONE-OFF ASSESSMENT' : 'ONGOING'}] - ${disciplinesList}`;
+
+      // Value estimation:
+      // One-off assessment: ~10 hrs FCA / Specialist Assessment @ NDIS $193.99/hr = ~$1,940
+      // Ongoing therapy: standard service agreement commitment = ~$3,880
+      const estimatedValue = isOneOff ? 1940 : 3880;
+
       // Create Opportunity in Client Intake Pipeline -> New Referral - Triage Pending
       await fetch('https://services.leadconnectorhq.com/opportunities/', {
         method: 'POST',
@@ -135,16 +158,17 @@ export async function POST(request: Request) {
           pipelineId: 'aV8OYpqXJByVwPyLlyJu',
           pipelineStageId: '35d92a62-2c9e-4531-a58e-86b31eecbeb4',
           locationId,
-          name: `${fullName} - ${Array.isArray(data.services) ? data.services.join(', ') : data.services}`,
+          name: oppTitle,
           status: 'open',
           contactId,
-          monetaryValue: 1930,
+          monetaryValue: estimatedValue,
         }),
       }).catch((err) => console.error('Failed to create GHL opportunity:', err));
 
       const noteContent = `
 KOINA ALLIED HEALTH - NEW INTAKE REFERRAL
 ------------------------------------------------
+SERVICE FORMAT: ${serviceModeTitle}
 Referrer Type: ${data.referrerType || 'N/A'}
 Referrer Name: ${data.referrerName || 'N/A'} (${data.referrerOrg || 'N/A'})
 Referrer Contact: ${data.referrerPhone || 'N/A'} | ${data.referrerEmail || 'N/A'}
@@ -162,7 +186,8 @@ DVA: ${data.dvaNumber || 'N/A'} (${data.dvaCardType || 'N/A'})
 Aged Care Provider: ${data.agedCareProvider || 'N/A'}
 
 CLINICAL REQUEST:
-Disciplines: ${Array.isArray(data.services) ? data.services.join(', ') : data.services}
+Service Track: ${serviceModeTitle}
+Disciplines: ${disciplinesList}
 Goals: ${data.participantGoals || 'N/A'}
 Medical / Diagnosis: ${data.medicalDiagnosis || 'N/A'}
 Consent Confirmed: ${data.consentGiven ? 'YES' : 'NO'}

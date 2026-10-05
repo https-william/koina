@@ -17,7 +17,12 @@ import {
   MapPin,
   Check,
   AlertCircle,
+  Repeat,
+  FileSpreadsheet,
+  Sparkles,
 } from 'lucide-react';
+
+export type ServiceMode = 'ongoing-therapy' | 'one-off-assessment';
 
 type ReferrerType =
   | 'Support Coordinator'
@@ -77,6 +82,7 @@ export default function IntakeForm() {
     agedCareProvider: '',
 
     // Clinical Services & Goals
+    serviceMode: 'ongoing-therapy' as ServiceMode,
     services: [] as string[],
     participantGoals: '',
     medicalDiagnosis: '',
@@ -88,6 +94,7 @@ export default function IntakeForm() {
     const fundingParam = searchParams.get('funding');
     const serviceParam = searchParams.get('service');
     const regionParam = searchParams.get('region');
+    const modeParam = searchParams.get('mode') || searchParams.get('type');
 
     setFormData((prev) => {
       let funding: FundingCategory = prev.fundingCategory;
@@ -101,11 +108,28 @@ export default function IntakeForm() {
         services.push(serviceParam);
       }
 
+      let serviceMode: ServiceMode = prev.serviceMode;
+      if (modeParam) {
+        const lower = modeParam.toLowerCase();
+        if (
+          lower === 'one-off' ||
+          lower === 'assessment' ||
+          lower === 'one-off-assessment' ||
+          lower === 'fca' ||
+          lower === 'report'
+        ) {
+          serviceMode = 'one-off-assessment';
+        } else if (lower === 'ongoing' || lower === 'ongoing-therapy' || lower === 'therapy') {
+          serviceMode = 'ongoing-therapy';
+        }
+      }
+
       return {
         ...prev,
         fundingCategory: funding,
         services: services.length > 0 ? services : ['Occupational Therapy'],
         suburb: regionParam || prev.suburb,
+        serviceMode,
       };
     });
   }, [searchParams]);
@@ -271,6 +295,14 @@ export default function IntakeForm() {
             <span className="font-bold text-slate-900">{formData.fundingCategory}</span>
           </div>
           <div className="flex justify-between py-1.5 border-b border-slate-200">
+            <span className="text-slate-600 font-medium">Service Format:</span>
+            <span className="font-bold text-slate-900">
+              {formData.serviceMode === 'one-off-assessment'
+                ? 'One-Off Assessment & Report Only'
+                : 'Ongoing Therapy & Capacity Building'}
+            </span>
+          </div>
+          <div className="flex justify-between py-1.5 border-b border-slate-200">
             <span className="text-slate-600 font-medium">Disciplines:</span>
             <span className="font-bold text-slate-900">{formData.services.join(', ')}</span>
           </div>
@@ -313,6 +345,7 @@ export default function IntakeForm() {
               dvaNumber: '',
               dvaCardType: 'Gold Card',
               agedCareProvider: '',
+              serviceMode: 'ongoing-therapy',
               services: ['Occupational Therapy'],
               participantGoals: '',
               medicalDiagnosis: '',
@@ -904,6 +937,147 @@ export default function IntakeForm() {
         {/* STEP 3: Services Requested, Goals & Document Upload */}
         {currentStep === 3 && (
           <div className="space-y-6">
+            {/* Service Format: Ongoing Therapy vs One-Off Assessment */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <label className="block text-sm font-bold text-slate-900">
+                  What type of service are you seeking? <span className="text-rose-600" aria-hidden="true">*</span>
+                </label>
+                <span className="text-[11px] font-semibold text-brand-navy bg-brand-navy/5 px-2.5 py-1 rounded-full border border-brand-navy/10">
+                  Tailored Care Pathway
+                </span>
+              </div>
+
+              <div
+                className="grid grid-cols-1 sm:grid-cols-2 gap-3.5"
+                role="radiogroup"
+                aria-label="Service format: Ongoing therapy or one-off assessment"
+              >
+                {/* Option 1: Ongoing Therapy */}
+                <button
+                  type="button"
+                  role="radio"
+                  aria-checked={formData.serviceMode === 'ongoing-therapy'}
+                  onClick={() => setFormData({ ...formData, serviceMode: 'ongoing-therapy' })}
+                  onKeyDown={(e) => {
+                    if (e.key === ' ' || e.key === 'Enter') {
+                      e.preventDefault();
+                      setFormData({ ...formData, serviceMode: 'ongoing-therapy' });
+                    }
+                  }}
+                  className={`min-h-[110px] p-4 sm:p-5 rounded-2xl border text-left transition-all relative flex flex-col justify-between focus-visible:ring-2 focus-visible:ring-brand-navy active:scale-[0.99] ${
+                    formData.serviceMode === 'ongoing-therapy'
+                      ? 'border-brand-navy bg-brand-navy/5 shadow-xs ring-1 ring-brand-navy'
+                      : 'border-slate-300 bg-white hover:border-slate-400 hover:bg-slate-50/50'
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <div className="inline-flex items-center gap-2">
+                        <div
+                          className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
+                            formData.serviceMode === 'ongoing-therapy'
+                              ? 'bg-brand-navy text-white'
+                              : 'bg-slate-100 text-slate-600'
+                          }`}
+                        >
+                          <Repeat className="w-3.5 h-3.5" />
+                        </div>
+                        <span className="text-sm font-bold text-slate-900">Ongoing Therapy</span>
+                      </div>
+                      <span
+                        className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                          formData.serviceMode === 'ongoing-therapy'
+                            ? 'bg-brand-navy text-white'
+                            : 'bg-slate-100 text-slate-600'
+                        }`}
+                      >
+                        Capacity Building
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Regular weekly, fortnightly, or monthly therapy sessions dedicated to skill building, functional independence, and routine rehabilitation.
+                    </p>
+                  </div>
+
+                  <div className="mt-3 pt-3 border-t border-slate-200/80 flex items-center gap-1.5 text-[11px] font-medium text-slate-600">
+                    <Check className="w-3 h-3 text-emerald-600 stroke-[3] shrink-0" />
+                    <span>Dedicated clinician matching with ongoing reviews</span>
+                  </div>
+                </button>
+
+                {/* Option 2: One-Off Assessment & Report */}
+                <button
+                  type="button"
+                  role="radio"
+                  aria-checked={formData.serviceMode === 'one-off-assessment'}
+                  onClick={() => setFormData({ ...formData, serviceMode: 'one-off-assessment' })}
+                  onKeyDown={(e) => {
+                    if (e.key === ' ' || e.key === 'Enter') {
+                      e.preventDefault();
+                      setFormData({ ...formData, serviceMode: 'one-off-assessment' });
+                    }
+                  }}
+                  className={`min-h-[110px] p-4 sm:p-5 rounded-2xl border text-left transition-all relative flex flex-col justify-between focus-visible:ring-2 focus-visible:ring-brand-navy active:scale-[0.99] ${
+                    formData.serviceMode === 'one-off-assessment'
+                      ? 'border-brand-navy bg-brand-navy/5 shadow-xs ring-1 ring-brand-navy'
+                      : 'border-slate-300 bg-white hover:border-slate-400 hover:bg-slate-50/50'
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <div className="inline-flex items-center gap-2">
+                        <div
+                          className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
+                            formData.serviceMode === 'one-off-assessment'
+                              ? 'bg-brand-navy text-white'
+                              : 'bg-slate-100 text-slate-600'
+                          }`}
+                        >
+                          <FileSpreadsheet className="w-3.5 h-3.5" />
+                        </div>
+                        <span className="text-sm font-bold text-slate-900">One-Off Assessment & Report</span>
+                      </div>
+                      <span
+                        className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                          formData.serviceMode === 'one-off-assessment'
+                            ? 'bg-brand-navy text-white'
+                            : 'bg-amber-100 text-amber-800'
+                        }`}
+                      >
+                        Report Only
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Single episode of care for comprehensive reports: FCA, Assistive Technology (AT), Complex Home Mods (CHM), Continence, or Mealtime Plans.
+                    </p>
+                  </div>
+
+                  <div className="mt-3 pt-3 border-t border-slate-200/80 flex items-center gap-1.5 text-[11px] font-medium text-slate-600">
+                    <Check className="w-3 h-3 text-emerald-600 stroke-[3] shrink-0" />
+                    <span>Evidence-based report formatted for NDIS & Aged Care reviews</span>
+                  </div>
+                </button>
+              </div>
+
+              {/* Contextual Reassurance Callout */}
+              {formData.serviceMode === 'one-off-assessment' ? (
+                <div className="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200/70 flex items-start gap-2.5 text-xs text-amber-900 shadow-xs">
+                  <Sparkles className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+                  <div className="leading-relaxed">
+                    <span className="font-bold">One-Off Assessment Track Selected:</span> Our clinician will conduct the required in-home or clinic assessment and synthesize a comprehensive clinical report (typically within 2–3 weeks of assessment). No lock-in for ongoing therapy.
+                  </div>
+                </div>
+              ) : (
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-2.5 text-xs text-slate-700 shadow-xs">
+                  <Sparkles className="w-4 h-4 text-brand-navy shrink-0 mt-0.5" />
+                  <div className="leading-relaxed">
+                    <span className="font-bold">Ongoing Therapy Track Selected:</span> You will be matched with a dedicated clinician who will establish an ongoing therapy schedule and individual service agreement tailored to your plan goals.
+                  </div>
+                </div>
+              )}
+            </div>
+
             <div>
               <label className="block text-sm font-bold text-slate-900 mb-2">
                 Select Allied Health Disciplines Requested: <span className="text-rose-600" aria-hidden="true">*</span>
