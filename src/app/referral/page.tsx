@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react';
 import { Metadata } from 'next';
 import IntakeForm from '@/components/intake/IntakeForm';
-import { Mail, Clock, ShieldCheck, CheckCircle2, FileText, ArrowRight } from 'lucide-react';
-import { DoodleUnderline, DoodleSparkle, DoodleWaveDivider } from '@/components/brand/Doodles';
+import { ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { DoodleUnderline, DoodleWaveDivider } from '@/components/brand/Doodles';
 
 export const metadata: Metadata = {
   title: 'Make an Allied Health Referral | NDIS, Aged Care & DVA Intake | Koina Allied Health',
@@ -75,14 +75,9 @@ export default function ReferralPage() {
       />
 
       {/* Focused Hero Header */}
-      <section className="relative pt-12 md:pt-16 pb-10 overflow-hidden bg-canvas">
+      <section className="relative pt-10 md:pt-14 pb-6 overflow-hidden bg-canvas">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-800 text-xs font-semibold mb-4 shadow-xs">
-            <ShieldCheck className="w-3.5 h-3.5 text-brand-navy" />
-            <span>Queensland Allied Health Referral Intake</span>
-          </div>
-
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15] mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15]">
             Make an{' '}
             <span className="relative inline-block text-brand-navy">
               Allied Health
@@ -90,50 +85,6 @@ export default function ReferralPage() {
             </span>{' '}
             Referral
           </h1>
-
-          <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl mx-auto mb-6">
-            Accepting referrals for NDIS participants, Home Care Package recipients, DVA cardholders, and private clients across Queensland. Clinically triaged within 24 business hours.
-          </p>
-
-          {/* Key Intake Assurances */}
-          <div className="flex flex-wrap justify-center items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-800 shadow-xs">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-              <span>24-Hour Review Turnaround</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-800 shadow-xs">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-              <span>Direct NDIS, Aged Care & DVA Billing</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-800 shadow-xs">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-              <span>In-Home & Telehealth Statewide</span>
-            </span>
-          </div>
-
-          {/* Quick Direct Email Option Banner */}
-          <div className="mt-8 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-brand-navy/10 flex items-center justify-center text-brand-navy shrink-0">
-                <Mail className="w-4 h-4" />
-              </div>
-              <div>
-                <p className="text-xs font-bold text-slate-900">
-                  Prefer to send referral documentation directly?
-                </p>
-                <p className="text-xs text-slate-600">
-                  Email NDIS plans, medical summaries or discharge notes to{' '}
-                  <a href="mailto:contact@koina.com.au" className="text-brand-navy font-semibold underline hover:text-brand-navy-light">
-                    contact@koina.com.au
-                  </a>
-                </p>
-              </div>
-            </div>
-            <div className="text-xs text-slate-600 font-medium shrink-0 flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-slate-400" />
-              <span>Mon – Fri: 9:00 AM – 5:00 PM AEST</span>
-            </div>
-          </div>
         </div>
 
         <DoodleWaveDivider fillColor="#FFFFFF" className="mt-8" />

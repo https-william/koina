@@ -47,7 +47,7 @@ export const ARTICLES_DATA: Article[] = [
       role: 'Senior Occupational Therapist & Clinical Intake Lead',
     },
     featured: true,
-    imageSrc: '/images/service-ot.jpg',
+    imageSrc: '/images/article-fca.jpg',
     imageAlt: 'Occupational therapist conducting functional capacity assessment in home environment',
     keyTakeaways: [
       'Why in-home assessments carry far more evidentiary weight with the NDIA than clinic-only reviews',
@@ -120,7 +120,7 @@ export const ARTICLES_DATA: Article[] = [
       name: 'David Reynolds, BPhysio',
       role: 'Principal Community Physiotherapist',
     },
-    imageSrc: '/images/service-physio.jpg',
+    imageSrc: '/images/article-falls-prevention.jpg',
     imageAlt: 'Community physiotherapist assisting senior participant with balance and gait retraining',
     keyTakeaways: [
       'The critical 30-day window following hospital discharge for falls risk reduction',
@@ -193,7 +193,7 @@ export const ARTICLES_DATA: Article[] = [
       name: 'Elena Rostova, MSpPath, CPSP',
       role: 'Clinical Speech Pathologist',
     },
-    imageSrc: '/images/service-speech.jpg',
+    imageSrc: '/images/article-dysphagia.jpg',
     imageAlt: 'Speech pathologist conducting mealtime assessment and swallowing evaluation',
     keyTakeaways: [
       'Subtle signs of dysphagia and silent aspiration during everyday meals and drinks',
@@ -266,7 +266,7 @@ export const ARTICLES_DATA: Article[] = [
       name: 'Marcus Chen, MPBS',
       role: 'Advanced Behaviour Support Practitioner',
     },
-    imageSrc: '/images/service-pbs.jpg',
+    imageSrc: '/images/article-pbs.jpg',
     imageAlt: 'Positive behaviour support team discussing person-centred support strategies',
     keyTakeaways: [
       'Viewing behaviour through a communicative, neuroaffirming, and sensory lens',
@@ -339,7 +339,7 @@ export const ARTICLES_DATA: Article[] = [
       name: 'Sarah Mitchell, BOccThy',
       role: 'Senior Occupational Therapist & Clinical Intake Lead',
     },
-    imageSrc: '/images/contact-team.jpg',
+    imageSrc: '/images/article-home-mods.jpg',
     imageAlt: 'Occupational therapy clinical coordinator reviewing home modification specifications',
     keyTakeaways: [
       'The critical difference between Minor Home Modifications and Complex Home Modifications under NDIS guidelines',
@@ -409,7 +409,7 @@ export const ARTICLES_DATA: Article[] = [
       name: 'David Reynolds, BPhysio',
       role: 'Principal Community Physiotherapist',
     },
-    imageSrc: '/images/service-aha.jpg',
+    imageSrc: '/images/article-aha.jpg',
     imageAlt: 'Allied health assistant guiding participant through daily living exercises',
     keyTakeaways: [
       'The clinical delegation framework between primary AHPRA clinicians and qualified AHAs',
@@ -484,7 +484,7 @@ export const ARTICLES_DATA: Article[] = [
       name: 'David Reynolds, BPhysio',
       role: 'Principal Community Physiotherapist',
     },
-    imageSrc: '/images/cohort-aged-care.jpg',
+    imageSrc: '/images/article-physio-vs-ot.jpg',
     imageAlt: 'Senior woman discussing home rehabilitation and mobility goals with allied health practitioner',
     keyTakeaways: [
       'The simple rule of thumb: Physiotherapists help you move your body; Occupational Therapists help you do the things that matter',
@@ -550,7 +550,7 @@ export const ARTICLES_DATA: Article[] = [
       name: 'Sarah Mitchell, BOccThy',
       role: 'Senior Occupational Therapist & Clinical Intake Lead',
     },
-    imageSrc: '/images/cohort-aged-care.jpg',
+    imageSrc: '/images/article-aged-care-hcp.jpg',
     imageAlt: 'Senior couple receiving supportive home care and therapy guidance',
     keyTakeaways: [
       'How HCP Levels 1 through 4 fund physiotherapy, occupational therapy, and speech pathology',
@@ -610,7 +610,7 @@ export const ARTICLES_DATA: Article[] = [
       name: 'Sarah Mitchell, BOccThy',
       role: 'Senior Occupational Therapist & Clinical Intake Lead',
     },
-    imageSrc: '/images/cohort-private.jpg',
+    imageSrc: '/images/article-gp-referral.jpg',
     imageAlt: 'Healthcare clinician providing warm guidance on intake and referral pathways',
     keyTakeaways: [
       'NDIS participants: No GP referral required (self-refer or support coordinator referral)',
@@ -671,7 +671,7 @@ export const ARTICLES_DATA: Article[] = [
       name: 'David Reynolds, BPhysio',
       role: 'Principal Community Physiotherapist',
     },
-    imageSrc: '/images/service-physio.jpg',
+    imageSrc: '/images/article-stroke-recovery.jpg',
     imageAlt: 'Physiotherapist supporting patient with upper limb and neurological gait recovery',
     keyTakeaways: [
       'The neuroplasticity window: Why intensive, early home therapy yields the fastest functional gains',
@@ -729,7 +729,7 @@ export const ARTICLES_DATA: Article[] = [
       name: 'Sarah Mitchell, BOccThy',
       role: 'Senior Occupational Therapist & Clinical Intake Lead',
     },
-    imageSrc: '/images/service-assessments.jpg',
+    imageSrc: '/images/article-continence.jpg',
     imageAlt: 'Clinical coordinator conducting specialized health assessment',
     keyTakeaways: [
       'Why continence challenges are common, treatable, and nothing to feel embarrassed about',
@@ -788,7 +788,7 @@ export const ARTICLES_DATA: Article[] = [
       name: 'David Reynolds, BPhysio',
       role: 'Principal Community Physiotherapist',
     },
-    imageSrc: '/images/cohort-dva.jpg',
+    imageSrc: '/images/article-dva-veterans.jpg',
     imageAlt: 'Veteran and community health practitioner reviewing mobility and health goals',
     keyTakeaways: [
       'Gold Card holders: 100% covered for all clinically indicated in-home therapy services',
