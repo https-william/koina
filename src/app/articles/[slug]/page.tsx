@@ -83,6 +83,31 @@ export default function ArticleDetailPage({ params }: PageProps) {
 
   const relatedArticles = ARTICLES_DATA.filter((a) => a.slug !== article.slug).slice(0, 3);
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://koina.com.au',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Articles',
+        item: 'https://koina.com.au/articles',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: article.title,
+        item: `https://koina.com.au/articles/${article.slug}`,
+      },
+    ],
+  };
+
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -90,6 +115,8 @@ export default function ArticleDetailPage({ params }: PageProps) {
     description: article.excerpt,
     image: `https://koina.com.au${article.imageSrc}`,
     datePublished: article.publishedDate,
+    dateModified: article.publishedDate,
+    inLanguage: 'en-AU',
     author: {
       '@type': 'Person',
       name: article.author.name,
@@ -125,6 +152,12 @@ export default function ArticleDetailPage({ params }: PageProps) {
 
   return (
     <article className="bg-canvas min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd),
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -271,7 +304,7 @@ export default function ArticleDetailPage({ params }: PageProps) {
                   <HelpCircle className="w-5 h-5 text-brand-navy" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900">Frequently Asked Questions</h3>
+                  <h2 className="text-xl font-bold text-slate-900">Frequently Asked Questions</h2>
                   <p className="text-xs sm:text-sm text-slate-500">
                     Direct answers regarding funding, referrals, and care delivery.
                   </p>
@@ -284,9 +317,9 @@ export default function ArticleDetailPage({ params }: PageProps) {
                     key={fIdx}
                     className="p-5 rounded-2xl bg-canvas border border-slate-200/80 space-y-2 shadow-xs"
                   >
-                    <h4 className="text-sm sm:text-base font-bold text-slate-900">
+                    <h3 className="text-sm sm:text-base font-bold text-slate-900">
                       {faq.question}
-                    </h4>
+                    </h3>
                     <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
                       {faq.answer}
                     </p>
@@ -320,7 +353,7 @@ export default function ArticleDetailPage({ params }: PageProps) {
 
           {/* Related Articles */}
           <div className="pt-8 border-t border-slate-200 space-y-6">
-            <h3 className="text-xl font-bold text-slate-900">Related Clinical Articles & Guides</h3>
+            <h2 className="text-xl font-bold text-slate-900">Related Clinical Articles & Guides</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedArticles.map((rel) => (
                 <Link
@@ -330,9 +363,9 @@ export default function ArticleDetailPage({ params }: PageProps) {
                 >
                   <div className="space-y-2">
                     <span className="text-[11px] font-bold text-brand-navy">{rel.category}</span>
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-brand-navy transition-colors line-clamp-2">
+                    <h3 className="text-sm font-bold text-slate-900 group-hover:text-brand-navy transition-colors line-clamp-2">
                       {rel.title}
-                    </h4>
+                    </h3>
                   </div>
                   <div className="pt-3 flex items-center justify-between text-xs text-slate-500 border-t border-slate-100 mt-3">
                     <span>{rel.readTime}</span>

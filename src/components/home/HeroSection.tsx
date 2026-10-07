@@ -63,7 +63,7 @@ export default function HeroSection() {
 
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-300 text-slate-800 font-semibold text-base hover:bg-white transition-all min-h-[48px] shadow-xs"
+                className="btn-interactive inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-300 text-slate-800 font-semibold text-base hover:bg-white transition-all min-h-[48px] shadow-xs"
               >
                 <span>Explore Services</span>
               </Link>

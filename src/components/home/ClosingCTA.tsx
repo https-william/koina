@@ -38,7 +38,7 @@ export default function ClosingCTA() {
 
               <a
                 href="mailto:contact@koina.com.au"
-                className="w-full sm:w-auto min-h-[46px] inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/15 hover:bg-white/25 text-white font-semibold text-sm border border-white/25 transition-colors"
+                className="btn-interactive w-full sm:w-auto min-h-[46px] inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/15 hover:bg-white/25 text-white font-semibold text-sm border border-white/25 transition-colors"
               >
                 <Mail className="w-4 h-4 text-brand-sky" />
                 <span>contact@koina.com.au</span>

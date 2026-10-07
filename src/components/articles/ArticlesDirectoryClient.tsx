@@ -52,6 +52,8 @@ export default function ArticlesDirectoryClient() {
 
   return (
     <div className="space-y-12">
+      <h2 className="sr-only">Browse Clinical Articles & NDIS Guides</h2>
+
       {/* Search and Category Filter Controls */}
       <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
         <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
@@ -225,9 +227,9 @@ export default function ArticlesDirectoryClient() {
                     Published {article.publishedDate}
                   </p>
 
-                  <h4 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-navy transition-colors line-clamp-2">
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-navy transition-colors line-clamp-2">
                     {article.title}
-                  </h4>
+                  </h3>
 
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3">
                     {article.excerpt}
@@ -266,7 +268,7 @@ export default function ArticlesDirectoryClient() {
           <div className="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-400 mx-auto">
             <BookOpen className="w-6 h-6" />
           </div>
-          <h4 className="text-lg font-bold text-slate-900">No articles matched your search</h4>
+          <h3 className="text-lg font-bold text-slate-900">No articles matched your search</h3>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             We couldn’t find any articles matching &ldquo;{searchQuery}&rdquo; in {selectedCategory}. Try adjusting your keywords or clearing your filters.
           </p>

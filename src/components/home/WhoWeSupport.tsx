@@ -118,15 +118,24 @@ export default function WhoWeSupport() {
         </div>
 
         {/* Tab Selector Buttons */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 p-1.5 rounded-2xl bg-canvas border border-slate-200 mb-8 max-w-4xl shadow-inner">
+        <div
+          role="tablist"
+          aria-label="Care and funding pathways"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 p-1.5 rounded-2xl bg-canvas border border-slate-200 mb-8 max-w-4xl shadow-inner"
+        >
           {pathways.map((tab) => {
             const Icon = tab.icon;
             const isSelected = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
+                role="tab"
+                id={`tab-${tab.id}`}
+                aria-selected={isSelected}
+                aria-controls={`tabpanel-${tab.id}`}
+                tabIndex={isSelected ? 0 : -1}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center justify-center gap-2 py-3 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all min-h-[46px] ${
+                className={`btn-interactive flex items-center justify-center gap-2 py-3 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all min-h-[46px] ${
                   isSelected
                     ? 'bg-brand-navy text-white shadow-xs'
                     : 'text-slate-700 hover:text-slate-900 hover:bg-white/80'
@@ -140,7 +149,12 @@ export default function WhoWeSupport() {
         </div>
 
         {/* Active Pathway Content Card */}
-        <div className="rounded-[28px] bg-canvas border border-slate-200 p-7 sm:p-10 shadow-ambient transition-all">
+        <div
+          role="tabpanel"
+          id={`tabpanel-${activeTab}`}
+          aria-labelledby={`tab-${activeTab}`}
+          className="rounded-[28px] bg-canvas border border-slate-200 p-7 sm:p-10 shadow-ambient transition-all"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-6">
