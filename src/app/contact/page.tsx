@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Contact Us | Koina Allied Health Queensland',
     description:
       'Contact our clinical coordination team for general inquiries or to discuss in-home allied health care across Queensland.',
-    url: 'https://koina.com.au/contact',
+    url: 'https://www.koina.com.au/contact',
     siteName: 'Koina Allied Health',
     locale: 'en_AU',
     type: 'website',
@@ -49,23 +49,23 @@ export default function ContactPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://koina.com.au',
+            item: 'https://www.koina.com.au',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Contact Us',
-            item: 'https://koina.com.au/contact',
+            item: 'https://www.koina.com.au/contact',
           },
         ],
       },
       {
         '@type': 'ContactPage',
-        '@id': 'https://koina.com.au/contact#webpage',
+        '@id': 'https://www.koina.com.au/contact#webpage',
         name: 'Contact Koina Allied Health',
         description:
           'Contact details and general inquiry channel for Koina Allied Health in Queensland.',
-        url: 'https://koina.com.au/contact',
+        url: 'https://www.koina.com.au/contact',
         mainEntity: {
           '@type': 'MedicalBusiness',
           name: 'Koina Allied Health',
@@ -74,7 +74,7 @@ export default function ContactPage() {
           availableChannel: {
             '@type': 'ServiceChannel',
             serviceType: 'Online Allied Health Intake & Inquiry',
-            serviceUrl: 'https://koina.com.au/contact',
+            serviceUrl: 'https://www.koina.com.au/contact',
           },
           sameAs: [
             'https://abr.business.gov.au',

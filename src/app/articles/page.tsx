@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Clinical Articles & Guides | Koina Allied Health',
     description:
       'Evidence-based clinical articles, NDIS plan review advice, falls prevention tips, and therapy guides for participants, families, and support coordinators.',
-    url: 'https://koina.com.au/articles',
+    url: 'https://www.koina.com.au/articles',
     siteName: 'Koina Allied Health',
     locale: 'en_AU',
     type: 'website',
@@ -34,23 +34,23 @@ export default function ArticlesPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://koina.com.au',
+            item: 'https://www.koina.com.au',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Articles',
-            item: 'https://koina.com.au/articles',
+            item: 'https://www.koina.com.au/articles',
           },
         ],
       },
       {
         '@type': 'CollectionPage',
-        '@id': 'https://koina.com.au/articles#webpage',
+        '@id': 'https://www.koina.com.au/articles#webpage',
         name: 'Koina Allied Health Articles & Clinical Resources',
         description:
           'Evidence-based clinical guides and NDIS funding insights by allied health professionals in Queensland.',
-        url: 'https://koina.com.au/articles',
+        url: 'https://www.koina.com.au/articles',
         mainEntity: {
           '@type': 'ItemList',
           itemListElement: ARTICLES_DATA.map((article, index) => ({
@@ -60,7 +60,7 @@ export default function ArticlesPage() {
               '@type': 'Article',
               headline: article.title,
               description: article.excerpt,
-              url: `https://koina.com.au/articles/${article.slug}`,
+              url: `https://www.koina.com.au/articles/${article.slug}`,
               datePublished: article.publishedDate,
               author: {
                 '@type': 'Person',

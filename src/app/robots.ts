@@ -28,7 +28,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://koina.com.au/sitemap.xml',
-    host: 'https://koina.com.au',
+    sitemap: 'https://www.koina.com.au/sitemap.xml',
+    host: 'https://www.koina.com.au',
   };
 }

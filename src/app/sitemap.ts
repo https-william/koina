@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { ARTICLES_DATA } from '@/data/articles';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://koina.com.au';
+  const baseUrl = 'https://www.koina.com.au';
   const currentDate = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [

@@ -19,7 +19,7 @@ export default function HomeFAQ() {
       category: 'Referrals & Intake',
       question: 'How do I make a referral to Koina Allied Health?',
       answer:
-        'You can submit an online referral directly through our website at koina.com.au/referral in under two minutes, or email your plan details, medical summaries, or GP documentation to contact@koina.com.au. We accept referrals from Support Coordinators, Plan Managers, GPs, Aged Care Providers, and self-referring participants. Our Queensland clinical coordination team reviews every referral within 24 business hours.',
+        'You can submit an online referral directly through our website at www.koina.com.au/referral in under two minutes, or email your plan details, medical summaries, or GP documentation to contact@koina.com.au. We accept referrals from Support Coordinators, Plan Managers, GPs, Aged Care Providers, and self-referring participants. Our Queensland clinical coordination team reviews every referral within 24 business hours.',
     },
     {
       category: 'Queensland Mobile Coverage',

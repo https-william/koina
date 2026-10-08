@@ -57,7 +57,7 @@ Topic / Service: ${data.service || 'General'}
 Message:
 ${data.message}
 ----------------------------------------
-Submitted via koina.com.au/contact
+Submitted via www.koina.com.au/contact
         `.trim();
 
         await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}/notes`, {

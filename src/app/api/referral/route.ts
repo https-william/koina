@@ -192,7 +192,7 @@ Goals: ${data.participantGoals || 'N/A'}
 Medical / Diagnosis: ${data.medicalDiagnosis || 'N/A'}
 Consent Confirmed: ${data.consentGiven ? 'YES' : 'NO'}
 ------------------------------------------------
-Submitted via koina.com.au/referral
+Submitted via www.koina.com.au/referral
       `.trim();
 
       await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}/notes`, {

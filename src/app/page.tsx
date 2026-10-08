@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   description:
     'Allied health care for every stage of life. In-home and mobile Occupational Therapy, Physiotherapy, Speech Pathology, Positive Behaviour Support, and Therapy Assistants across Queensland.',
   alternates: {
-    canonical: 'https://koina.com.au',
+    canonical: 'https://www.koina.com.au',
   },
   openGraph: {
     title: 'Koina Allied Health | Community & In-Home Healthcare Across Queensland',
     description:
       'Personalized in-home allied health care for NDIS participants, older Australians, veterans, and private clients across Queensland.',
-    url: 'https://koina.com.au',
+    url: 'https://www.koina.com.au',
     siteName: 'Koina Allied Health',
     locale: 'en_AU',
     type: 'website',
@@ -35,7 +35,7 @@ export default function HomePage() {
         name: 'How do I make a referral to Koina Allied Health?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'You can submit an online referral directly through our website at koina.com.au/referral in under two minutes, or email your plan details, medical summaries, or GP documentation to contact@koina.com.au. We accept referrals from Support Coordinators, Plan Managers, GPs, Aged Care Providers, and self-referring participants. Our Queensland clinical coordination team reviews every referral within 24 business hours.',
+          text: 'You can submit an online referral directly through our website at www.koina.com.au/referral in under two minutes, or email your plan details, medical summaries, or GP documentation to contact@koina.com.au. We accept referrals from Support Coordinators, Plan Managers, GPs, Aged Care Providers, and self-referring participants. Our Queensland clinical coordination team reviews every referral within 24 business hours.',
         },
       },
       {
@@ -85,10 +85,10 @@ export default function HomePage() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Koina Allied Health',
-    url: 'https://koina.com.au',
+    url: 'https://www.koina.com.au',
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://koina.com.au/articles?q={search_term_string}',
+      target: 'https://www.koina.com.au/articles?q={search_term_string}',
       'query-input': 'required name=search_term_string',
     },
   };

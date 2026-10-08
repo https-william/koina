@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: 'Make a Referral | Koina Allied Health Queensland',
     description:
       'Fast, simple allied health intake across Queensland. Direct clinical intake review within 24 hours for NDIS, Aged Care, DVA, and private referrals.',
-    url: 'https://koina.com.au/referral',
+    url: 'https://www.koina.com.au/referral',
     siteName: 'Koina Allied Health',
     locale: 'en_AU',
     type: 'website',
@@ -33,23 +33,23 @@ export default function ReferralPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://koina.com.au',
+            item: 'https://www.koina.com.au',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Make a Referral',
-            item: 'https://koina.com.au/referral',
+            item: 'https://www.koina.com.au/referral',
           },
         ],
       },
       {
         '@type': 'ContactPage',
-        '@id': 'https://koina.com.au/referral#contact',
+        '@id': 'https://www.koina.com.au/referral#contact',
         name: 'Koina Allied Health Intake & Referrals',
         description:
           'Online referral and intake portal for allied health services across Queensland. 24-hour clinical intake review for NDIS, Aged Care, DVA, and private participants.',
-        url: 'https://koina.com.au/referral',
+        url: 'https://www.koina.com.au/referral',
         mainEntity: {
           '@type': 'MedicalBusiness',
           name: 'Koina Allied Health Central Intake',
@@ -58,7 +58,7 @@ export default function ReferralPage() {
           availableChannel: {
             '@type': 'ServiceChannel',
             serviceType: 'Online Allied Health Referral',
-            serviceUrl: 'https://koina.com.au/referral',
+            serviceUrl: 'https://www.koina.com.au/referral',
           },
         },
       },

@@ -3,7 +3,7 @@ Entity: Koina Pty Ltd (Trading as Koina Allied Health)
 Sister Entity: Hopesway Pty Ltd
 Main Location: Queensland, Australia
 Central Contact: contact@koina.com.au
-Website: https://koina.com.au
+Website: https://www.koina.com.au
 
 ---
 
@@ -100,7 +100,7 @@ Koina provides mobile in-home visits and secure statewide telehealth across 13 m
 12. Statewide Telehealth: High-definition encrypted video therapy sessions connecting regional and remote Queensland communities with zero travel charges.
 
 ## 5. Referral & Clinical Intake Process
-1. Online Intake Portal: Available at https://koina.com.au/referral (takes ~2 minutes to submit).
+1. Online Intake Portal: Available at https://www.koina.com.au/referral (takes ~2 minutes to submit).
 2. Direct Documentation Email: Plans, medical summaries, and GP forms can be emailed directly to contact@koina.com.au.
 3. Clinical Intake Triage: Every referral is reviewed by a qualified clinical intake coordinator within 24 business hours.
 4. Therapist Capacity Matching: Matched with qualified local clinician within 48–72 hours.

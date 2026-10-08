@@ -13,7 +13,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://koina.com.au'),
+  metadataBase: new URL('https://www.koina.com.au'),
   title: {
     default: 'Koina Allied Health | Community & In-Home Healthcare Across Queensland',
     template: '%s | Koina Allied Health',
@@ -46,13 +46,13 @@ export const metadata: Metadata = {
   creator: 'Koina Allied Health',
   publisher: 'Koina Allied Health',
   alternates: {
-    canonical: 'https://koina.com.au',
+    canonical: 'https://www.koina.com.au',
   },
   openGraph: {
     title: 'Koina Allied Health | Allied Health Care for Every Stage of Life',
     description:
       'Community & in-home allied health care across Queensland. Occupational Therapy, Physiotherapy, Behaviour Support, and Speech Pathology.',
-    url: 'https://koina.com.au',
+    url: 'https://www.koina.com.au',
     siteName: 'Koina Allied Health',
     locale: 'en_AU',
     type: 'website',
@@ -89,9 +89,9 @@ export default function RootLayout({
     name: 'Koina Allied Health',
     alternateName: 'Koina Allied Health Pty Ltd',
     legalName: 'Koina Pty Ltd',
-    url: 'https://koina.com.au',
-    logo: 'https://koina.com.au/koina-logo.png',
-    image: 'https://koina.com.au/koina-logo.png',
+    url: 'https://www.koina.com.au',
+    logo: 'https://www.koina.com.au/koina-logo.png',
+    image: 'https://www.koina.com.au/koina-logo.png',
     email: 'contact@koina.com.au',
     sameAs: [
       'https://abr.business.gov.au',

@@ -57,7 +57,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
     openGraph: {
       title: `${article.title} | Koina Allied Health`,
       description: article.excerpt,
-      url: `https://koina.com.au/articles/${article.slug}`,
+      url: `https://www.koina.com.au/articles/${article.slug}`,
       siteName: 'Koina Allied Health',
       locale: 'en_AU',
       type: 'article',
@@ -91,19 +91,19 @@ export default function ArticleDetailPage({ params }: PageProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://koina.com.au',
+        item: 'https://www.koina.com.au',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Articles',
-        item: 'https://koina.com.au/articles',
+        item: 'https://www.koina.com.au/articles',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: article.title,
-        item: `https://koina.com.au/articles/${article.slug}`,
+        item: `https://www.koina.com.au/articles/${article.slug}`,
       },
     ],
   };
@@ -113,7 +113,7 @@ export default function ArticleDetailPage({ params }: PageProps) {
     '@type': 'Article',
     headline: article.title,
     description: article.excerpt,
-    image: `https://koina.com.au${article.imageSrc}`,
+    image: `https://www.koina.com.au${article.imageSrc}`,
     datePublished: article.publishedDate,
     dateModified: article.publishedDate,
     inLanguage: 'en-AU',
@@ -125,12 +125,12 @@ export default function ArticleDetailPage({ params }: PageProps) {
     publisher: {
       '@type': 'MedicalOrganization',
       name: 'Koina Allied Health',
-      url: 'https://koina.com.au',
-      logo: 'https://koina.com.au/koina-logo.png',
+      url: 'https://www.koina.com.au',
+      logo: 'https://www.koina.com.au/koina-logo.png',
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://koina.com.au/articles/${article.slug}`,
+      '@id': `https://www.koina.com.au/articles/${article.slug}`,
     },
   };
 
