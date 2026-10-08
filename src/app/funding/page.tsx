@@ -17,6 +17,18 @@ export const metadata: Metadata = {
   title: 'Funding & Eligibility | NDIS, Aged Care, DVA & Private | Koina Allied Health',
   description:
     'However you are funded, Koina Allied Health can help. Navigating healthcare funding across NDIS, Home Care Packages, DVA Gold/White Cards, and Private care in Queensland.',
+  alternates: {
+    canonical: '/funding',
+  },
+  openGraph: {
+    title: 'Funding & Eligibility Guide | Koina Allied Health Queensland',
+    description:
+      'Clear, transparent breakdown of allied health funding pathways: NDIS (Plan & Self-Managed), Home Care Packages (HCP Levels 1-4), DVA Gold/White cards, and Private care.',
+    url: 'https://koina.com.au/funding',
+    siteName: 'Koina Allied Health',
+    locale: 'en_AU',
+    type: 'website',
+  },
 };
 
 export default function FundingPage() {
@@ -106,8 +118,61 @@ export default function FundingPage() {
     },
   ];
 
+  const fundingJsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://koina.com.au',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Funding & Eligibility',
+            item: 'https://koina.com.au/funding',
+          },
+        ],
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.a,
+          },
+        })),
+      },
+      {
+        '@type': 'ItemList',
+        name: 'Allied Health Funding Pathways in Queensland',
+        description:
+          'Funding streams supported by Koina Allied Health including NDIS, Home Care Packages, DVA, and Private.',
+        itemListElement: fundingStreams.map((stream, idx) => ({
+          '@type': 'ListItem',
+          position: idx + 1,
+          name: stream.title,
+          url: `https://koina.com.au/funding#${stream.id}`,
+          description: stream.whoItsFor,
+        })),
+      },
+    ],
+  };
+
   return (
     <div className="bg-canvas min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(fundingJsonLd),
+        }}
+      />
       {/* Hero Header with Clean Professional Layout */}
       <section className="relative bg-canvas pt-14 md:pt-20 pb-0 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

@@ -72,6 +72,10 @@ export const metadata: Metadata = {
       'Care delivered where you feel most comfortable: in-home, mobile, or via telehealth across Queensland.',
     images: ['/koina-logo.png'],
   },
+  manifest: '/manifest.json',
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
+  },
 };
 
 export default function RootLayout({
@@ -84,10 +88,27 @@ export default function RootLayout({
     '@type': 'MedicalBusiness',
     name: 'Koina Allied Health',
     alternateName: 'Koina Allied Health Pty Ltd',
+    legalName: 'Koina Pty Ltd',
     url: 'https://koina.com.au',
     logo: 'https://koina.com.au/koina-logo.png',
     image: 'https://koina.com.au/koina-logo.png',
     email: 'contact@koina.com.au',
+    sameAs: [
+      'https://abr.business.gov.au',
+      'https://hopesway.com.au',
+    ],
+    parentOrganization: {
+      '@type': 'Organization',
+      name: 'Hopesway Pty Ltd',
+      url: 'https://hopesway.com.au',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'contact@koina.com.au',
+      contactType: 'Central Clinical Intake',
+      areaServed: 'Queensland, Australia',
+      availableLanguage: ['English'],
+    },
     description:
       'Koina Allied Health provides personalized Occupational Therapy, Physiotherapy, Positive Behaviour Support, Speech Pathology, and Allied Health Assistant supports across Queensland.',
     address: {

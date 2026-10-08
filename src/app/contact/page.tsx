@@ -70,8 +70,16 @@ export default function ContactPage() {
           '@type': 'MedicalBusiness',
           name: 'Koina Allied Health',
           email: 'contact@koina.com.au',
-          telephone: '+61',
           areaServed: 'Queensland, Australia',
+          availableChannel: {
+            '@type': 'ServiceChannel',
+            serviceType: 'Online Allied Health Intake & Inquiry',
+            serviceUrl: 'https://koina.com.au/contact',
+          },
+          sameAs: [
+            'https://abr.business.gov.au',
+            'https://hopesway.com.au',
+          ],
         },
       },
     ],

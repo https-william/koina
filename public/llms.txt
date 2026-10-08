@@ -1,0 +1,31 @@
+# Koina Allied Health
+> Comprehensive in-home, mobile, and telehealth allied healthcare provider servicing communities across Queensland, Australia. Sister entity to Hopesway Pty Ltd.
+
+Koina Allied Health provides personalized clinical allied health services across all stages of life, specializing in NDIS participants, older Australians receiving Home Care Packages (HCP), Department of Veterans' Affairs (DVA) cardholders, and private clients.
+
+## Core Clinical Disciplines
+- [Occupational Therapy](https://koina.com.au/services#ot): Functional Capacity Assessments (FCA), assistive technology trials, home environmental modifications, SIL/SDA housing suitability, and daily living skills.
+- [Physiotherapy](https://koina.com.au/services#physio): Mobile mobility assessments, falls prevention and balance retraining, post-surgical rehabilitation, pain management, and neurological conditioning.
+- [Speech Pathology](https://koina.com.au/services#speech): Dysphagia swallowing evaluations, NDIS-compliant mealtime management plans, augmentative communication (AAC) trials, and speech articulation.
+- [Positive Behaviour Support](https://koina.com.au/services#pbs): Functional Behaviour Assessments (FBA), NDIS Commission-compliant Interim & Comprehensive Behaviour Support Plans (BSPs), and restrictive practice reduction.
+- [Therapy Assistants (AHAs)](https://koina.com.au/services#aha): Clinically supervised Allied Health Assistants providing high-frequency routine exercises and community skill reinforcement to maximize participant funding lifespan.
+- [Clinical Assessments (RN & Allied Health)](https://koina.com.au/services#assessments): Registered Nurse led complex health evaluations, continence assessments, and diagnostic funding review documentation.
+
+## Funding Pathways Accepted
+- [NDIS Pathways](https://koina.com.au/funding#ndis): Capacity Building (Improved Daily Living, Improved Relationships) and Core Supports for Plan-Managed and Self-Managed participants. Strict alignment with official NDIS Price Guide.
+- [Aged Care Pathways](https://koina.com.au/funding#aged-care): Home Care Packages (HCP Levels 1, 2, 3, and 4) and Commonwealth Home Support Programme (CHSP). Direct billing to Care Managers.
+- [DVA Pathways](https://koina.com.au/funding#dva): Department of Veterans' Affairs Gold Card and eligible White Card holders billed directly through Medicare/DVA schedules with zero out-of-pocket gap fees (Form D904).
+- [Private Care](https://koina.com.au/funding#private): Direct self-funded care, private health insurance extras rebates, and Medicare Chronic Disease Management (CDM/EPC) plans with GP referral.
+
+## Queensland Geographical Reach
+Koina operates a mobile-first and telehealth model with immediate capacity across 13 Queensland regional hubs:
+- [Locations Directory](https://koina.com.au/locations): Gold Coast (Robina, Southport), Brisbane (North & South), Ipswich, Sunshine Coast, Toowoomba, Caboolture, Wide Bay (Bundaberg, Hervey Bay), Central Queensland (Rockhampton, Gladstone), Townsville, and Cairns.
+- Service Modes: Clinicians visit directly to homes, schools, workplaces, or residential aged care facilities; statewide secure telehealth is available across regional Queensland.
+
+## Referral & Intake Coordination
+- [Make a Referral](https://koina.com.au/referral): Fast 3-step online intake portal reviewed by a qualified clinician within 24 business hours. Accepts referrals from Support Coordinators, Plan Managers, GPs, Hospital Teams, Aged Care providers, and self-referring participants.
+- Central Coordination Email: contact@koina.com.au
+- Operating Hours: Monday – Friday, 9:00 AM – 5:00 PM AEST
+
+## Educational Guides & Clinical Frameworks
+- [Clinical Articles & Guides](https://koina.com.au/articles): Evidence-based guides on NDIS Functional Capacity Assessments (FCA), dysphagia mealtime guidelines, falls prevention strategies, and assistive technology evidence written by AHPRA-registered clinicians.

@@ -1,0 +1,26 @@
+{
+  "name": "Koina Allied Health",
+  "short_name": "Koina",
+  "description": "Community & in-home allied health care across Queensland. Occupational Therapy, Physiotherapy, Speech Pathology, Positive Behaviour Support, and Therapy Assistants.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF9F6",
+  "theme_color": "#113C5E",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/koina-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/koina-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

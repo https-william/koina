@@ -52,6 +52,10 @@ export default function LocationsPage() {
         '@id': 'https://koina.com.au/#organization',
         name: 'Koina Allied Health',
         url: 'https://koina.com.au/locations',
+        sameAs: [
+          'https://abr.business.gov.au',
+          'https://hopesway.com.au',
+        ],
         areaServed: QUEENSLAND_REGIONS.map((region) => ({
           '@type': 'AdministrativeArea',
           name: region.name,

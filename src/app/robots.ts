@@ -9,16 +9,19 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/private/'],
       },
       {
-        // Explicitly welcome AI Answer Engines for AEO & GEO crawling
+        // Explicitly welcome search engines and AI Answer Engines for SEO, AEO & GEO crawling
         userAgent: [
           'Googlebot',
           'Google-Extended',
           'Bingbot',
+          'OAI-SearchBot',
           'GPTBot',
           'ChatGPT-User',
-          'PerplexityBot',
+          'Claude-SearchBot',
+          'Claude-User',
           'Claude-Web',
-          'anthropic-ai',
+          'PerplexityBot',
+          'Perplexity-User',
           'Applebot',
           'Applebot-Extended',
         ],
