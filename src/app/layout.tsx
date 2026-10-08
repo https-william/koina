@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
+    google: 'PC3r6bc8CLq2dnn4bhXg9ahPBpTcB-8I7FEGBGbAg6c',
   },
 };
 
@@ -168,6 +168,7 @@ export default function RootLayout({
   return (
     <html lang="en-AU" className={`${plusJakarta.variable} font-sans scroll-smooth`}>
       <head>
+        <meta name="google-site-verification" content="PC3r6bc8CLq2dnn4bhXg9ahPBpTcB-8I7FEGBGbAg6c" />
         <meta name="geo.region" content="AU-QLD" />
         <meta name="geo.placename" content="Queensland, Australia" />
         <meta name="geo.position" content="-28.0167;153.4000" />
